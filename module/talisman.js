@@ -10,9 +10,14 @@ Hooks.once("init", async function () {
     };
     CONFIG.Dice.terms["b"] = TalismanDieBase;
     CONFIG.Dice.terms["k"] = TalismanDieKismet;
+
+    Handlebars.registerHelper("isEqual", function (condition, value) {
+        return condition == value;
+    });
 });
 
 Hooks.on("renderChatMessage", (message, html) => {
+    if (!message.isRoll || !message.isContentVisible) return;
     html.find(".dice-discardable").click((el) => {
         DiceRoller.updateMessage(message, html, el);
     });

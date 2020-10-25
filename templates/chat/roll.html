@@ -2,17 +2,32 @@
     {{#if discardable}}
     <p>Click a die you want to discard</p>
     {{/if}}
-    <div>
+    <div class="flex row align-center">
         {{#each baseDice}}
         <a class="{{#if ../discardable}}dice-discardable{{/if}} dice-image" data-index={{@index}}><img src="systems/talisman/ui/dice/tdb{{this}}.png"></a>
         {{/each}}
         <a class="kismet-dice dice-image"><img src="systems/talisman/ui/dice/tdk{{kismetDice}}.png"></a>
     </div>
-    <div>
-        <span>Duplicates: </span><span class="label-success">{{duplicates}}</span>
+    <div class="flex row aspect-label">
+        <span>Aspect:&nbsp;</span><span>{{aspect}}</span>&nbsp;|&nbsp;
+        <span>Focus:&nbsp;</span><span>{{focus}}</span>&nbsp;|&nbsp;
+        <span>Modifier:&nbsp;</span><span>{{modifier}}</span>
+    </div> 
+    <!-- <div>
+        <span><strong>Duplicates:</strong> </span>
+        <span class="label-duplicates">{{duplicates}}</span>        
     </div>
     <div>
-        <span>Total: </span><span class="label-total">Total: {{total}}</span>
-    </div>
-   
+        {{#if (isEqual kismetDice 6)}}<span>One Light Fate Point</span>{{/if}}
+        {{#if (isEqual kismetDice 1)}}<span>One Dark Fate Point</span>{{/if}}</span>
+    </div> -->
+    <hr>
+    <div class="grid">
+        <div class="total-label">
+            <label>Total:&nbsp;<span class="total-value">{{total}}</span></label>
+        </div>
+        <div class="success-label">
+            <span class="success-value">{{successLevel}}</span>
+        </div>
+    </div>   
 </div>

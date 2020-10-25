@@ -1,19 +1,10 @@
 export class DiceRoller {
-    static rollDice({ num = 2, aspect = 0 } = {}) {
+    static rollDice({ num = 2, aspect = 0, modifier = 0, hasFocus = false } = {}) {
         //let rollFormula = `${num}d6[base] + 1d6[kismet]`;
         let rollFormula = `${num}db + 1dk`;
         let r = new Roll(rollFormula);
         r.roll();
-        DiceRoller.sendToChat(r, aspect);
-    }
-
-    static findMaxDuplicates(array) {
-        var counts = {};
-        for (var i = 0; i < array.length; i++) {
-            var num = array[i];
-            counts[num] = counts[num] ? counts[num] + 1 : 1;
-        }
-        return counts;
+        DiceRoller.sendToChat(r, aspect, modifier, hasFocus);
     }
 
     static countDuplicates(arr) {
@@ -26,7 +17,7 @@ export class DiceRoller {
         else return count[maxDup];
     }
 
-    static async sendToChat(r, aspect) {
+    static async sendToChat(r, aspect, modifier, hasFocus) {
         let baseDice = [];
         let diceResults = [];
         r.dice[0].results.forEach((element) => {
@@ -34,23 +25,23 @@ export class DiceRoller {
         });
         diceResults = [...baseDice];
         diceResults.push(r.dice[1].results[0].result);
-        //let dup = DiceRoller.findMaxDuplicates(diceResults);
         let dup = DiceRoller.countDuplicates(diceResults);
-        let total = baseDice.length < 3 ? diceResults.reduce((acc, res) => acc + res, 0) : "?";
-        total += aspect;
+        let successLevel = DiceRoller.getSuccessLevel(dup);
+        successLevel = game.i18n.localize(successLevel);
+        let focus = hasFocus ? 2 : 0;
+        let total = baseDice.length < 3 ? diceResults.reduce((acc, res) => acc + res, 0) + (aspect + modifier + focus) : "?";
         let discardable = baseDice.length < 3 ? null : true;
-        /*if (baseDice.length < 3) {
-            total = diceResults.reduce((acc, res) => acc + res, 0);
-        } else {
-            discardable = true;
-        }*/
         let rollData = {
             baseDice: baseDice,
             kismetDice: r.dice[1].results[0].result,
             diceResults: diceResults,
             duplicates: baseDice.length < 3 ? dup : "?",
+            successLevel: baseDice.length < 3 ? successLevel : "?",
             total: total,
             discardable: discardable,
+            aspect: aspect,
+            modifier: modifier,
+            focus: focus,
         };
         //console.warn(rollData);
         const html = await renderTemplate("systems/talisman/templates/chat/roll.html", rollData);
@@ -68,28 +59,31 @@ export class DiceRoller {
         }
         let cm = await ChatMessage.create(chatData);
         cm.setFlag("talisman", "aspect", aspect);
+        cm.setFlag("talisman", "modifier", modifier);
+        cm.setFlag("talisman", "focus", focus);
     }
 
     static updateMessage(message, html, el) {
-        console.log(message.getFlag("talisman", "myData"));
-        //console.log(`updating: ${message.id} with el`);
-        //console.log(el.currentTarget.dataset);
         let ignoreDieIndex = el.currentTarget.dataset.index;
         let diceResults = [];
         let baseDice = message.roll.dice[0].results.map((i) => i.result);
         baseDice.splice(ignoreDieIndex, 1);
         diceResults = [...baseDice];
         diceResults.push(message.roll.dice[1].results[0].result);
-        //let dup = DiceRoller.findMaxDuplicates(diceResults);
         let dup = DiceRoller.countDuplicates(diceResults);
+        let successLevel = DiceRoller.getSuccessLevel(dup);
+        successLevel = game.i18n.localize(successLevel);
         let aspect = message.getFlag("talisman", "aspect") || 0;
+        let modifier = message.getFlag("talisman", "modifier") || 0;
+        let focus = message.getFlag("talisman", "focus") || 0;
         let total = diceResults.reduce((acc, res) => acc + res, 0);
-        total += aspect;
-        //console.log(diceResults, total, dup);
+        total += aspect + modifier + focus;
         //update DUPLICATES
-        html.find(".label-success").html(dup);
+        html.find(".label-duplicates").html(dup);
+        //update SUCCESS
+        html.find(".success-value").html(successLevel);
         //update TOTAL
-        html.find(".label-total").html(total);
+        html.find(".total-value").html(total);
         //update opacity
         $(el.currentTarget).addClass("discarded");
         let diceImages = html.find(".dice-image");
@@ -98,5 +92,26 @@ export class DiceRoller {
                 $(e).removeClass("discarded");
             }
         });
+    }
+
+    static getSuccessLevel(num) {
+        let scs = "";
+        switch (num) {
+            case 0:
+                scs = "T.SUCCESS_REGULAR";
+                break;
+            case 1:
+                scs = "T.SUCCESS_REGULAR";
+                break;
+            case 2:
+                scs = "T.SUCCESS_GREAT";
+                break;
+            case 3:
+                scs = "T.SUCCESS_EXTRA";
+                break;
+            default:
+                scs = "T.?";
+        }
+        return scs;
     }
 }

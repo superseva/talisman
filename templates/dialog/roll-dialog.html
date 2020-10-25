@@ -1,12 +1,20 @@
 <div class="roll-dialog">
-    <div class="flex row">
-        <div class="flex row align-center">
-            <label for="bonus-die-check">Bonus Die</label>
-            <input type="checkbox" id="bonus-die-check" name="bonus-die-check">
+    <div class="grid grid-4col">        
+        <div class="flex-group-center">            
+            <label for="aspect-value">Aspect:&nbsp;</label>
+            <input type="number" class="aspect-value" name="aspect-value" value="{{aspect}}">
         </div>
-        <div class="flex row align-center">
-            <label for="aspect-value">Aspect</label>
-            <input type="number" name="aspect-value" value='0'>
+        <div class="flex-group-center">            
+            <label for="modifier-value">Modifier:&nbsp;</label>
+            <input type="number" class="modifier-value" name="modifier-value" value="{{modifier}}">
         </div>
+        <div class="flex-group-center">
+            <label for="focus-die">Focus:&nbsp;</label><br/>
+            <input type="checkbox" class="focus-check" name="focus-check">
+        </div>
+        <div class="flex-group-center">
+            <label for="bonus-die-check">Bonus Die:&nbsp;</label><br/>
+            <input type="checkbox" class="bonus-die-check" name="bonus-die-check">
+        </div>        
     </div>
 </div>
