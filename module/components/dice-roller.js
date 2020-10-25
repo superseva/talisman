@@ -1,10 +1,10 @@
 export class DiceRoller {
-    static rollDice({ num = 2 } = {}) {
+    static rollDice({ num = 2, aspect = 0 } = {}) {
         //let rollFormula = `${num}d6[base] + 1d6[kismet]`;
         let rollFormula = `${num}db + 1dk`;
         let r = new Roll(rollFormula);
         r.roll();
-        DiceRoller.sendToChat(r);
+        DiceRoller.sendToChat(r, aspect);
     }
 
     static findMaxDuplicates(array) {
@@ -21,15 +21,12 @@ export class DiceRoller {
         arr.forEach(function (i) {
             count[i] = (count[i] || 0) + 1;
         });
-        console.warn(count);
         let maxDup = Object.keys(count).reduce((a, b) => (count[a] > count[b] ? a : b));
-        console.warn(maxDup);
         if (count[maxDup] == 1) return 0;
         else return count[maxDup];
-        //return maxDup;
     }
 
-    static async sendToChat(r) {
+    static async sendToChat(r, aspect) {
         let baseDice = [];
         let diceResults = [];
         r.dice[0].results.forEach((element) => {
@@ -40,6 +37,7 @@ export class DiceRoller {
         //let dup = DiceRoller.findMaxDuplicates(diceResults);
         let dup = DiceRoller.countDuplicates(diceResults);
         let total = baseDice.length < 3 ? diceResults.reduce((acc, res) => acc + res, 0) : "?";
+        total += aspect;
         let discardable = baseDice.length < 3 ? null : true;
         /*if (baseDice.length < 3) {
             total = diceResults.reduce((acc, res) => acc + res, 0);
@@ -54,7 +52,7 @@ export class DiceRoller {
             total: total,
             discardable: discardable,
         };
-        console.warn(rollData);
+        //console.warn(rollData);
         const html = await renderTemplate("systems/talisman/templates/chat/roll.html", rollData);
         let chatData = {
             user: game.user._id,
@@ -68,12 +66,14 @@ export class DiceRoller {
         } else if (chatData.rollMode === "selfroll") {
             chatData.whisper = [game.user];
         }
-        await ChatMessage.create(chatData);
+        let cm = await ChatMessage.create(chatData);
+        cm.setFlag("talisman", "aspect", aspect);
     }
 
     static updateMessage(message, html, el) {
-        console.log(`updating: ${message.id} with el`);
-        console.log(el.currentTarget.dataset);
+        console.log(message.getFlag("talisman", "myData"));
+        //console.log(`updating: ${message.id} with el`);
+        //console.log(el.currentTarget.dataset);
         let ignoreDieIndex = el.currentTarget.dataset.index;
         let diceResults = [];
         let baseDice = message.roll.dice[0].results.map((i) => i.result);
@@ -82,7 +82,9 @@ export class DiceRoller {
         diceResults.push(message.roll.dice[1].results[0].result);
         //let dup = DiceRoller.findMaxDuplicates(diceResults);
         let dup = DiceRoller.countDuplicates(diceResults);
+        let aspect = message.getFlag("talisman", "aspect") || 0;
         let total = diceResults.reduce((acc, res) => acc + res, 0);
+        total += aspect;
         //console.log(diceResults, total, dup);
         //update DUPLICATES
         html.find(".label-success").html(dup);
