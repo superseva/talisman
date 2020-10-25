@@ -1,0 +1,11 @@
+.dice-image {
+    img {
+        width: 30px;
+        height: 30px;
+    }
+
+    opacity: 1;
+    &.discarded {
+        opacity: 0.3;
+    }
+}

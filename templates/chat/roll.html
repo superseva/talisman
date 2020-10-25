@@ -1,3 +1,18 @@
 <div class="talisman chat-item">
-
+    {{#if discardable}}
+    <p>Click a die you want to discard</p>
+    {{/if}}
+    <div>
+        {{#each baseDice}}
+        <a class="{{#if ../discardable}}dice-discardable{{/if}} dice-image" data-index={{@index}}><img src="systems/talisman/ui/dice/tdb{{this}}.png"></a>
+        {{/each}}
+        <a class="kismet-dice dice-image"><img src="systems/talisman/ui/dice/tdk{{kismetDice}}.png"></a>
+    </div>
+    <div>
+        <span>Duplicates: </span><span class="label-success">{{duplicates}}</span>
+    </div>
+    <div>
+        <span>Total: </span><span class="label-total">Total: {{total}}</span>
+    </div>
+   
 </div>
