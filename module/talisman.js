@@ -2,17 +2,56 @@ import { DiceRoller } from "./components/dice-roller.js";
 import { RollDialog } from "./components/roll-dialog.js";
 import { TalismanDieBase } from "./talisman-dice.js";
 import { TalismanDieKismet } from "./talisman-dice.js";
+import { TalismanActor } from "./actor/actor.js";
+import { TalismanActorSheet } from "./actor/actor-sheet.js";
+import { TalismanItem } from "./item/item.js";
+import { TalismanItemSheet } from "./item/item-sheet.js";
 
 Hooks.once("init", async function () {
     game.talisman = {
         DiceRoller,
         RollDialog,
+        TalismanActor,
+        TalismanItem,
     };
+
     CONFIG.Dice.terms["b"] = TalismanDieBase;
     CONFIG.Dice.terms["k"] = TalismanDieKismet;
 
+    // Define custom Entity classes
+    CONFIG.Actor.entityClass = TalismanActor;
+    CONFIG.Item.entityClass = TalismanItem;
+
+    // Register sheet application classes
+    Actors.unregisterSheet("core", ActorSheet);
+    Actors.registerSheet("talisman", TalismanActorSheet, { makeDefault: true });
+    Items.unregisterSheet("core", ItemSheet);
+    Items.registerSheet("talisman", TalismanItemSheet, { makeDefault: true });
+
+    /* ---------------------------------------- */
+
+    /** HANDLEBARS */
+
     Handlebars.registerHelper("isEqual", function (condition, value) {
         return condition == value;
+    });
+
+    Handlebars.registerHelper("concat", function () {
+        var outStr = "";
+        for (var arg in arguments) {
+            if (typeof arguments[arg] != "object") {
+                outStr += arguments[arg];
+            }
+        }
+        return outStr;
+    });
+
+    Handlebars.registerHelper("toLowerCase", function (str) {
+        return str.toLowerCase();
+    });
+
+    Handlebars.registerHelper("toUpperrCase", function (str) {
+        return str.toUpperCase();
     });
 });
 

@@ -1,5 +1,16 @@
 {
     "T.SUCCESS_REGULAR": "Regular Success",
     "T.SUCCESS_GREAT": "Great Successes",
-    "T.SUCCESS_EXTRA": "Extraordinary Successes"
+    "T.SUCCESS_EXTRA": "Extraordinary Successes",
+
+    "T.ATTRIBUTE": "Attribute",
+    "T.STRENGTH": "Strength",
+    "T.CRAFT": "Craft",
+    "T.ASPECT": "Aspect",
+    "T.ASPECT_BRA": "Brawn",
+    "T.ASPECT_AGI": "Agility",
+    "T.ASPECT_MET": "Mettle",
+    "T.ASPECT_INS": "Insight",
+    "T.ASPECT_WIT": "Wits",
+    "T.ASPECT_RES": "Resolve"
 }

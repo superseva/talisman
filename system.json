@@ -23,5 +23,6 @@
     "url": "https://github.com/superseva/talisman",
     "manifest": "https://raw.githubusercontent.com/superseva/talisman/main/system.json",
     "download": "https://github.com/superseva/talisman/archive/main.zip",
-    "license": "LICENSE.txt"
+    "license": "LICENSE.txt",
+    "socket": true
 }

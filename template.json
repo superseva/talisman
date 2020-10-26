@@ -1,6 +1,6 @@
 {
     "Actor": {
-        "types": ["pc", "npc"],
+        "types": ["character", "npc"],
         "templates": {
             "base": {
                 "personal": {
@@ -21,12 +21,14 @@
                     "strength": {
                         "value": 0,
                         "max": 0,
-                        "cap": 10
+                        "cap": 10,
+                        "mod": 0
                     },
                     "craft": {
                         "value": 0,
                         "max": 0,
-                        "cap": 10
+                        "cap": 10,
+                        "mod": 0
                     }
                 },
                 "aspects": {
@@ -78,19 +80,23 @@
                         "value": 0,
                         "min": 0,
                         "max": 0,
+                        "mod": 0,
                         "base": 0,
                         "aspect": ""
                     },
                     "load": {
                         "value": 0,
-                        "max": 0
+                        "max": 0,
+                        "mod": 0
                     },
                     "speed": {
-                        "value": 0
+                        "value": 0,
+                        "mod": 0
                     },
                     "spell_points": {
                         "value": 0,
-                        "max": 0
+                        "max": 0,
+                        "mod": 0
                     }
                 },
                 "damage_modifier": {
@@ -107,11 +113,15 @@
                 },
                 "fate": {
                     "value": 0,
-                    "max": 0
+                    "max": 0,
+                    "mod": 0
                 },
                 "wounds": {
                     "value": 0,
                     "max": 5
+                },
+                "death_tests": {
+                    "value": 0
                 },
                 "skills": {
                     "anh": {
@@ -298,6 +308,9 @@
                     }
                 }
             }
+        },
+        "character": {
+            "templates": ["base"]
         }
     }
 }

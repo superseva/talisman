@@ -1,0 +1,93 @@
+<form class="{{cssClass}} flexcol" autocomplete="off">
+    {{!-- Sheet Header --}}
+    <header class="actor-header flex row space-between">
+        <div class="side-column">
+            <span class="charname"><input name="name" type="text" value="{{actor.name}}" placeholder="Name"/></span>
+            <div>
+                <div class="flex row resource-row">
+                    <input type="text" class="input-underlined" name="data.personal.ancestry" value="{{data.personal.ancestry}}" placeholder="Ancestry">
+                    <input type="text" class="input-underlined" name="data.personal.class" value="{{data.personal.class}}" placeholder="Class">
+                </div>
+                <div class="flex row space-between resource-row">
+                    <span class="align-center">
+                        <label for="data.personal.level">{{localize "T.LEVEL"}}</label>
+                        <input type="number" class="input-underlined" name="data.personal.level" value="{{data.personal.level}}" placeholder="Level">
+                    </span>
+                    <span class="align-center">
+                        <label for="data.personal.xp">{{localize "T.XP"}}:</label>
+                        <input type="number" class="input-underlined" name="data.personal.xp" value="{{data.personal.xp}}" placeholder="XP">
+                    </span>
+                </div>
+                <div class="flex row space-between resource-row">                    
+                    <input type="text" class="input-underlined" name="data.personal.background" value="{{data.personal.background}}" placeholder="Background">                    
+                    <input type="text" class="input-underlined" name="data.personal.alignment" value="{{data.personal.alignment}}" placeholder="Alignment">                   
+                </div>
+            </div>
+        </div>
+        <div>
+            <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="100" width="100"/>
+        </div>
+        <div class="side-column grid ">
+            <div>
+                <div class="flex row attribute">                    
+                    <input type="number" name='data.attributes.strength.value' value="{{data.attributes.strength.value}}">
+                    <label for='data.attributes.strength.value'>{{localize 'T.STRENGTH'}}</label>
+                </div>
+                <div class="flex row aspect">
+                    <input type="number" name='data.aspects.bra.value' value="{{data.aspects.bra.value}}">
+                    <label for='data.aspects.bra.value'>{{localize 'T.ASPECT_BRA'}}</label>                    
+                </div>
+                <div class="flex row aspect">
+                    <input type="number" name='data.aspects.agi.value' value="{{data.aspects.agi.value}}">
+                    <label for='data.aspects.agi.value'>{{localize 'T.ASPECT_AGI'}}</label>                    
+                </div>
+                <div class="flex row aspect">
+                    <input type="number" name='data.aspects.met.value' value="{{data.aspects.met.value}}">
+                    <label for='data.aspects.met.value'>{{localize 'T.ASPECT_MET'}}</label>                    
+                </div>
+            </div>
+            <div>
+                <div class="flex row attribute">
+                    <input type="number" name='data.attributes.craft.value' value="{{data.attributes.craft.value}}">
+                    <label for='data.attributes.craft.value'>{{localize 'T.CRAFT'}}</label>                    
+                </div>
+                <div class="flex row aspect">
+                    <input type="number" name='data.aspects.ins.value' value="{{data.aspects.ins.value}}">
+                    <label for='data.aspects.ins.value'>{{localize 'T.ASPECT_INS'}}</label>                    
+                </div>
+                <div class="flex row aspect">
+                    <input type="number" name='data.aspects.wit.value' value="{{data.aspects.wit.value}}">
+                    <label for='data.aspects.wit.value'>{{localize 'T.ASPECT_WIT'}}</label>                    
+                </div>
+                <div class="flex row aspect">
+                    <input type="number" name='data.aspects.res.value' value="{{data.aspects.res.value}}">
+                    <label for='data.aspects.res.value'>{{localize 'T.ASPECT_RES'}}</label>                    
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="grid">
+        <div>
+            <div class="flex row align-center">
+                <label for="data.derived.life.value">{{localize "T.LIFE"}}:&nbsp; </label>
+                <input type="number" name="data.derived.life.value" value="{{data.derived.life.value}}">
+                <span>/&nbsp;</span>
+                <input type="number" name="data.derived.life.max" value="{{data.derived.life.max}}">
+            </div>
+            <div class="flex row">
+                <label>{{localize "T.WOUNDS"}}:&nbsp;</label>
+                <a class="wound-btn">-2</a>
+                <a class="wound-btn">-4</a>
+                <a class="wound-btn">-6</a>
+                <a class="wound-btn">-8</a>
+                <a class="wound-btn">-10</a>
+            </div>
+            <div class="flex row">
+                <label>{{localize "T.DEATH"}}</label>
+            </div>
+        </div>
+        <div>
+            DMG DMG, SPEED, FATE
+        </div>
+    </div>
+</form>
