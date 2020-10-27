@@ -5,9 +5,11 @@
 .actor-header {
     flex: unset;
     padding: 5px;
-    border: 1px solid #0000006b;
-    background-color: rgba(240, 248, 255, 0.2);
-    margin-bottom: 10px;
+    //border: 1px solid #0000006b;
+    border: 10px solid transparent;
+    border-image: url(../ui/border.png) 50 stretch;
+    //background-color: rgba(240, 248, 255, 0.2);
+    //margin-bottom: 10px;
     .grid {
         margin-top: 0px;
     }
@@ -37,12 +39,18 @@
 
 .sheet-tabs {
     flex: 0;
+    border-top: none !important;
+    border-bottom: none !important;
 }
 
 .sheet-body,
 .sheet-body .tab,
 .sheet-body .tab .editor {
     height: 100%;
+}
+.sheet-body {
+    border: 10px solid transparent;
+    border-image: url(../ui/border.png) 50 stretch;
 }
 
 .tox {
@@ -71,16 +79,17 @@ input[type="number"] {
 }
 
 .wound-btn {
-    padding: 2px;
-    border: 1px solid;
-    border-radius: 4px;
     color: black;
-    background-color: white;
-    min-width: 2.2em;
+    opacity: 0.5;
+    min-width: 1.2em;
     text-align: center;
     margin-right: 0.2em;
     &.selected {
-        color: white;
-        background-color: red;
+        color: red;
+        opacity: 1;
     }
+}
+
+.single-row {
+    max-height: 3em;
 }

@@ -312,5 +312,62 @@
         "character": {
             "templates": ["base"]
         }
+    },
+    "Item": {
+        "types": ["skill", "ability", "weapon", "armor", "gear", "spell"],
+        "templates": {
+            "physical": {
+                "quantity": 0,
+                "weight": 0
+            },
+            "base": {
+                "cost": 0,
+                "description": "",
+                "features": ""
+            }
+        },
+        "skill": {
+            "templates": ["base"],
+            "focus": {
+                "list": [],
+                "owned": []
+            },
+            "aspects": []
+        },
+        "ability": {
+            "templates": ["base"],
+            "prerequisite:": "",
+            "ability_type": "",
+            "improved": ""
+        },
+        "weapon": {
+            "templates": ["base", "physical"],
+            "aspect": "",
+            "range": "",
+            "load": "",
+            "damage": "",
+            "ammunition": ""
+        },
+        "armor": {
+            "templates": ["base", "physical"],
+            "load": "",
+            "rating": {
+                "max": 0,
+                "value": 0
+            },
+            "agi_penalty": 0
+        },
+        "gear": {
+            "templates": ["base", "physical"]
+        },
+        "spell": {
+            "templates": ["base"],
+            "school": "",
+            "spell_point": 0,
+            "action": "",
+            "difficulty": "",
+            "pvp_difficulty": "",
+            "defence": ""
+        }
     }
 }

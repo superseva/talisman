@@ -1,6 +1,7 @@
 <form class="{{cssClass}} flexcol" autocomplete="off">
     {{!-- Sheet Header --}}
-    <header class="actor-header flex row space-between">
+    <header class="actor-header">
+        <div class="flex row space-between">
         <div class="side-column">
             <span class="charname"><input name="name" type="text" value="{{actor.name}}" placeholder="Name"/></span>
             <div>
@@ -65,29 +66,81 @@
                 </div>
             </div>
         </div>
-    </header>
-    <div class="grid">
-        <div>
-            <div class="flex row align-center">
-                <label for="data.derived.life.value">{{localize "T.LIFE"}}:&nbsp; </label>
-                <input type="number" name="data.derived.life.value" value="{{data.derived.life.value}}">
-                <span>/&nbsp;</span>
-                <input type="number" name="data.derived.life.max" value="{{data.derived.life.max}}">
-            </div>
-            <div class="flex row">
-                <label>{{localize "T.WOUNDS"}}:&nbsp;</label>
-                <a class="wound-btn">-2</a>
-                <a class="wound-btn">-4</a>
-                <a class="wound-btn">-6</a>
-                <a class="wound-btn">-8</a>
-                <a class="wound-btn">-10</a>
-            </div>
-            <div class="flex row">
-                <label>{{localize "T.DEATH"}}</label>
-            </div>
+    </div>
+    <hr>
+    <div class="flex row space-between single-row">
+        <div class="flex row align-center">
+            <label for="data.derived.life.value">{{localize "T.LIFE"}}:&nbsp; </label>
+            <input type="number" name="data.derived.life.value" value="{{data.derived.life.value}}">
+            <span>/&nbsp;</span>
+            <input type="number" name="data.derived.life.max" value="{{data.derived.life.max}}">
         </div>
-        <div>
-            DMG DMG, SPEED, FATE
+        <div class="flex row align-center">
+            <label>{{localize "T.WOUNDS"}}:&nbsp;</label>
+            <a class="wound-btn size12"><i class="fas fa-tint"></i></a>
+            <a class="wound-btn size12"><i class="fas fa-tint"></i></a>
+            <a class="wound-btn size12"><i class="fas fa-tint"></i></a>
+            <a class="wound-btn size12"><i class="fas fa-tint"></i></a>
+            <a class="wound-btn size12"><i class="fas fa-tint"></i></a>
+        </div>
+        <div class="flex row align-center">
+            <label>{{localize "T.DEATH_SAVE"}}:&nbsp;</label>
+            <a class="wound-btn size12"><i class="fas fa-skull-crossbones"></i></a>
+            <a class="wound-btn size12"><i class="fas fa-skull-crossbones"></i></a>
+            <a class="wound-btn size12"><i class="fas fa-skull-crossbones"></i></a>
+            <a class="wound-btn size12"><i class="fas fa-skull-crossbones"></i></a>
+            <a class="wound-btn size12"><i class="fas fa-skull-crossbones"></i></a>
         </div>
     </div>
+    <hr>
+    <div class="flex row space-between single-row">
+        <div>DMG</div>
+        <div>DMG</div>
+        <div>SPEED</div>
+        <div>FATE</div>
+    </div>
+    </header>
+    
+    {{!-- Sheet Tab Navigation --}}
+    <nav class="sheet-tabs tabs" data-group="primary">
+        <a class="item" data-tab="skills">Abilities</a>
+        <a class="item" data-tab="combat">Combat</a>
+        <a class="item" data-tab="spells">Spells</a>
+        <a class="item" data-tab="items">Items</a>
+        <a class="item" data-tab="followers">Followers</a>
+        <a class="item" data-tab="description">Description</a>     
+    </nav>
+    
+    {{!-- Sheet Body --}}
+    <section class="sheet-body">
+        {{!-- Skills Tab --}}
+        <div class="tab skills" data-group="primary" data-tab="skills">
+            <h3>SKILLS</h3>
+            <div>
+                
+                <ol class="grid grid-3col items-list">
+                    {{#each actor.skills as |item id|}}
+                    <li class="item flex row space-between" data-item-id="{{item._id}}">
+                        <span class="flex row">
+                            <div class="item-image"><img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/></div>
+                            <a class="item-name item-edit">{{item.name}}</a>
+                        </span>
+                        <div class="item-controls">
+                            <!-- <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a> -->
+                            <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+                        </div>
+                    </li>
+                        {{/each}}
+                </ol>
+            </div>
+            <h3>SPECIAL ABILITIES</h3>
+            <div>SPECIAL ABILITIES</div>
+            
+        </div>
+
+        {{!-- Biography Tab --}}
+        <div class="tab biography" data-group="primary" data-tab="description">
+            {{editor content=data.biography target="data.biography" button=true owner=owner editable=editable}}
+        </div>
+    </section>
 </form>

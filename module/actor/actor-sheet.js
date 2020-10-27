@@ -4,9 +4,9 @@ export class TalismanActorSheet extends ActorSheet {
         return mergeObject(super.defaultOptions, {
             classes: ["talisman", "sheet", "actor"],
             template: "systems/talisman/templates/actor/actor-sheet.html",
-            width: 600,
-            height: 600,
-            tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "description" }],
+            width: 630,
+            height: 750,
+            tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "skills" }],
         });
     }
 

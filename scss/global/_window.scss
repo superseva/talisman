@@ -1,12 +1,20 @@
 .window-app {
-  font-family: $font-primary;
+    font-family: $font-primary;
 }
 
 .rollable {
-  &:hover,
-  &:focus {
-    color: #000;
-    text-shadow: 0 0 10px red;
-    cursor: pointer;
-  }
+    &:hover,
+    &:focus {
+        color: #000;
+        text-shadow: 0 0 10px red;
+        cursor: pointer;
+    }
+}
+
+.actor {
+    .window-content {
+        background-image: unset;
+        background-image: url(../ui/parch-bg.jpg);
+        background-size: cover;
+    }
 }

@@ -1,13 +1,22 @@
 @import url("https://fonts.googleapis.com/css2?family=Martel:wght@400;800&family=Roboto:wght@300;400;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:wght@300;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Slabo+27px&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&display=swap");
 /* Global styles */
 .window-app {
-  font-family: "Roboto", sans-serif;
+  font-family: "Merriweather", serif;
 }
 
 .rollable:hover, .rollable:focus {
   color: #000;
   text-shadow: 0 0 10px red;
   cursor: pointer;
+}
+
+.actor .window-content {
+  background-image: unset;
+  background-image: url(../ui/parch-bg.jpg);
+  background-size: cover;
 }
 
 .grid,
@@ -187,6 +196,11 @@
   justify-content: space-between;
 }
 
+.size12 {
+  font-size: 12px;
+  line-height: 14px;
+}
+
 .chat-message div {
   margin-top: 0.2em;
   margin-bottom: 0.2em;
@@ -246,7 +260,7 @@
 
 /* Styles limited to talisman sheets */
 .talisman .item-form {
-  font-family: "Roboto", sans-serif;
+  font-family: "Merriweather", serif;
 }
 
 .talisman .actor-header {
@@ -254,9 +268,9 @@
   -ms-flex: unset;
   flex: unset;
   padding: 5px;
-  border: 1px solid #0000006b;
-  background-color: rgba(240, 248, 255, 0.2);
-  margin-bottom: 10px;
+  border: 10px solid transparent;
+  -o-border-image: url(../ui/border.png) 50 stretch;
+  border-image: url(../ui/border.png) 50 stretch;
 }
 
 .talisman .actor-header .grid {
@@ -296,12 +310,20 @@
   -webkit-box-flex: 0;
   -ms-flex: 0;
   flex: 0;
+  border-top: none !important;
+  border-bottom: none !important;
 }
 
 .talisman .sheet-body,
 .talisman .sheet-body .tab,
 .talisman .sheet-body .tab .editor {
   height: 100%;
+}
+
+.talisman .sheet-body {
+  border: 10px solid transparent;
+  -o-border-image: url(../ui/border.png) 50 stretch;
+  border-image: url(../ui/border.png) 50 stretch;
 }
 
 .talisman .tox .tox-editor-container {
@@ -328,19 +350,20 @@
 }
 
 .talisman .wound-btn {
-  padding: 2px;
-  border: 1px solid;
-  border-radius: 4px;
   color: black;
-  background-color: white;
-  min-width: 2.2em;
+  opacity: 0.5;
+  min-width: 1.2em;
   text-align: center;
   margin-right: 0.2em;
 }
 
 .talisman .wound-btn.selected {
-  color: white;
-  background-color: red;
+  color: red;
+  opacity: 1;
+}
+
+.talisman .single-row {
+  max-height: 3em;
 }
 
 .talisman .resource-label {
@@ -350,18 +373,19 @@
 
 .talisman .tabs {
   height: 40px;
-  border-top: 1px solid #AAA;
-  border-bottom: 1px solid #AAA;
+  margin-bottom: 0px !important;
 }
 
 .talisman .tabs .item {
-  line-height: 40px;
+  line-height: 32px;
   font-weight: bold;
 }
 
 .talisman .tabs .item.active {
-  text-decoration: underline;
   text-shadow: none;
+  background-image: url(../ui/tab-mark.png);
+  background-repeat: no-repeat;
+  background-position: bottom;
 }
 
 .talisman .items-list {
@@ -379,7 +403,7 @@
   height: 30px;
   line-height: 24px;
   padding: 3px 0;
-  border-bottom: 1px solid #BBB;
+  border-bottom: 1px solid #bbb;
 }
 
 .talisman .items-list .item .item-image {
@@ -394,12 +418,21 @@
 }
 
 .talisman .items-list .item-name {
+  font-size: 1em;
   margin: 0;
 }
 
 .talisman .items-list .item-controls {
-  -webkit-box-flex: 0;
-  -ms-flex: 0 0 86px;
-  flex: 0 0 86px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
   text-align: right;
+}
+
+.talisman .items-list .item-controls a {
+  padding-left: 2px;
 }

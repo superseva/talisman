@@ -18,17 +18,21 @@
 // }
 
 .tabs {
-  height: 40px;
-  border-top: 1px solid #AAA;
-  border-bottom: 1px solid #AAA;
+    height: 40px;
+    margin-bottom: 0px !important;
+    //border-top: 1px solid #AAA;
+    // border-bottom: 1px solid #AAA;
 
-  .item {
-    line-height: 40px;
-    font-weight: bold;
-  }
+    .item {
+        line-height: 32px;
+        font-weight: bold;
+    }
 
-  .item.active {
-    text-decoration: underline;
-    text-shadow: none;
-  }
+    .item.active {
+        text-shadow: none;
+        background-image: url(../ui/tab-mark.png);
+        background-repeat: no-repeat;
+
+        background-position: bottom;
+    }
 }
