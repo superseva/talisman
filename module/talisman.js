@@ -6,6 +6,7 @@ import { TalismanActor } from "./actor/actor.js";
 import { TalismanActorSheet } from "./actor/actor-sheet.js";
 import { TalismanItem } from "./item/item.js";
 import { TalismanItemSheet } from "./item/item-sheet.js";
+import TalismanHooks from "./talisman-hooks.js";
 
 Hooks.once("init", async function () {
     game.talisman = {
@@ -32,10 +33,6 @@ Hooks.once("init", async function () {
 
     /** HANDLEBARS */
 
-    Handlebars.registerHelper("isEqual", function (condition, value) {
-        return condition == value;
-    });
-
     Handlebars.registerHelper("concat", function () {
         var outStr = "";
         for (var arg in arguments) {
@@ -52,6 +49,12 @@ Hooks.once("init", async function () {
 
     Handlebars.registerHelper("toUpperrCase", function (str) {
         return str.toUpperCase();
+    });
+
+    Handlebars.registerHelper("times", function (n, block) {
+        var accum = "";
+        for (var i = 0; i < n; ++i) accum += block.fn(i);
+        return accum;
     });
 
     Handlebars.registerHelper("ifCond", function (v1, operator, v2, options) {
@@ -138,3 +141,7 @@ Hooks.once("diceSoNiceReady", (dice3d) => {
         system: "talisman",
     });
 });
+
+// Talisman Hooks
+//Hooks.on("preUpdateOwnedItem", async (actor, item, updateData) => TalismanHooks.onUpdateItem(actor: actor, options, userId));
+Hooks.on("preUpdateItem", (item, data, diff) => TalismanHooks.onUpdateItem({ item: item, updateData: data, diff: diff }));

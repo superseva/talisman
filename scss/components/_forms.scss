@@ -1,6 +1,8 @@
-.item-form {
-    font-family: $font-primary;
-}
+// .item-form {
+//     font-family: $font-primary;
+// }
+
+/** ACTOR SHEET */
 
 .actor-header {
     flex: unset;
@@ -71,6 +73,8 @@
     }
 }
 
+/** SHEET GENERAL */
+
 .sheet-tabs {
     flex: 0;
     border-top: none !important;
@@ -94,6 +98,32 @@
 
     .tox-edit-area {
         padding: 0 8px;
+    }
+}
+
+.armor-point {
+    margin-right: 4px;
+    &.new {
+        color: black;
+    }
+    &.damaged {
+        color: darkgray;
+    }
+    &.destroyed {
+        color: red;
+    }
+}
+
+/** ITEM SHEET */
+
+.item-header {
+    display: flex;
+    flex-direction: row;
+    .profile-img {
+        flex: 0 0 100px;
+        height: 100px;
+        border: 1px solid;
+        margin-right: 8px;
     }
 }
 

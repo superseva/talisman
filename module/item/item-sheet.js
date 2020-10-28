@@ -52,6 +52,17 @@ export class TalismanItemSheet extends ItemSheet {
         // Everything below here is only needed if the sheet is editable
         if (!this.options.editable) return;
 
-        // Roll handlers, click handlers, etc. would go here.
+        html.find(".armor-point").click((e) => {
+            let index = e.currentTarget.dataset["index"];
+            let itemId = e.currentTarget.dataset["item_id"];
+            let item = game.items.find((i) => {
+                return i._id == itemId;
+            });
+            let ap = [...item.data.data.points];
+            ap[index] = ap[index] < 2 ? ap[index] + 1 : 0;
+            let _updateData = { data: {} };
+            _updateData.data["points"] = ap;
+            item.update(_updateData);
+        });
     }
 }

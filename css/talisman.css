@@ -265,8 +265,10 @@
 }
 
 /* Styles limited to talisman sheets */
-.talisman .item-form {
-  font-family: "Merriweather", serif;
+.talisman {
+  /** ACTOR SHEET */
+  /** SHEET GENERAL */
+  /** ITEM SHEET */
 }
 
 .talisman .actor-header {
@@ -385,6 +387,41 @@
 
 .talisman .tox .tox-edit-area {
   padding: 0 8px;
+}
+
+.talisman .armor-point {
+  margin-right: 4px;
+}
+
+.talisman .armor-point.new {
+  color: black;
+}
+
+.talisman .armor-point.damaged {
+  color: darkgray;
+}
+
+.talisman .armor-point.destroyed {
+  color: red;
+}
+
+.talisman .item-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+
+.talisman .item-header .profile-img {
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 100px;
+  flex: 0 0 100px;
+  height: 100px;
+  border: 1px solid;
+  margin-right: 8px;
 }
 
 .talisman input[type="number"] {
