@@ -97,6 +97,14 @@
                         "value": 0,
                         "max": 0,
                         "mod": 0
+                    },
+                    "armor": {
+                        "name": "",
+                        "value": 0,
+                        "max": 0,
+                        "agi_penalty": 0,
+                        "damaged": 0,
+                        "destroyed": 0
                     }
                 },
                 "damage_modifier": {
@@ -122,190 +130,6 @@
                 },
                 "death_tests": {
                     "value": 0
-                },
-                "skills": {
-                    "anh": {
-                        "value": 0,
-                        "aspects": ["ins", "wit"],
-                        "unskilled": true,
-                        "focus": "",
-                        "desc": ""
-                    },
-                    "art": {
-                        "value": 0,
-                        "aspects": ["bra", "agi", "ins"],
-                        "unskilled": false,
-                        "focus": "",
-                        "desc": ""
-                    },
-                    "ath": {
-                        "value": 0,
-                        "aspects": ["bra", "agi", "met"],
-                        "unskilled": true,
-                        "focus": "",
-                        "desc": ""
-                    },
-                    "bar": {
-                        "value": 0,
-                        "aspects": ["wit", "res"],
-                        "unskilled": true,
-                        "focus": "",
-                        "desc": ""
-                    },
-                    "dec": {
-                        "value": 0,
-                        "aspects": ["wit", "ins"],
-                        "unskilled": true,
-                        "focus": "",
-                        "desc": ""
-                    },
-                    "dci": {
-                        "value": 0,
-                        "aspects": ["wit"],
-                        "unskilled": true,
-                        "focus": "",
-                        "desc": ""
-                    },
-                    "ent": {
-                        "value": 0,
-                        "aspects": ["wit", "ins"],
-                        "unskilled": true,
-                        "focus": "",
-                        "desc": ""
-                    },
-                    "emp": {
-                        "value": 0,
-                        "aspects": ["ins"],
-                        "unskilled": true,
-                        "focus": "",
-                        "desc": ""
-                    },
-                    "eva": {
-                        "value": 0,
-                        "aspects": ["wit"],
-                        "unskilled": true,
-                        "focus": "",
-                        "desc": ""
-                    },
-                    "for": {
-                        "value": 0,
-                        "aspects": ["met", "res"],
-                        "unskilled": true,
-                        "focus": "",
-                        "desc": ""
-                    },
-                    "hea": {
-                        "value": 0,
-                        "aspects": ["ins"],
-                        "unskilled": false,
-                        "focus": "",
-                        "desc": ""
-                    },
-                    "int": {
-                        "value": 0,
-                        "aspects": ["bra", "res"],
-                        "unskilled": true,
-                        "focus": "",
-                        "desc": ""
-                    },
-                    "inv": {
-                        "value": 0,
-                        "aspects": ["wit", "ins"],
-                        "unskilled": true,
-                        "focus": "",
-                        "desc": ""
-                    },
-                    "lore": {
-                        "value": 0,
-                        "aspects": ["wit"],
-                        "unskilled": false,
-                        "focus": "",
-                        "desc": ""
-                    },
-                    "mel": {
-                        "value": 0,
-                        "aspects": ["bra", "agi"],
-                        "unskilled": true,
-                        "focus": "",
-                        "desc": ""
-                    },
-                    "mis": {
-                        "value": 0,
-                        "aspects": ["agi"],
-                        "unskilled": true,
-                        "focus": "",
-                        "desc": ""
-                    },
-                    "not": {
-                        "value": 0,
-                        "aspects": ["wit"],
-                        "unskilled": true,
-                        "focus": "",
-                        "desc": ""
-                    },
-                    "per": {
-                        "value": 0,
-                        "aspects": ["ins"],
-                        "unskilled": true,
-                        "focus": "",
-                        "desc": ""
-                    },
-                    "psy": {
-                        "value": 0,
-                        "aspects": ["wit", "ins"],
-                        "unskilled": true,
-                        "focus": "",
-                        "desc": ""
-                    },
-                    "rid": {
-                        "value": 0,
-                        "aspects": ["agi", "ins"],
-                        "unskilled": true,
-                        "focus": "",
-                        "desc": ""
-                    },
-                    "soh": {
-                        "value": 0,
-                        "aspects": ["agi"],
-                        "unskilled": false,
-                        "focus": "",
-                        "desc": ""
-                    },
-                    "spe": {
-                        "value": 0,
-                        "aspects": ["wit"],
-                        "unskilled": false,
-                        "focus": "",
-                        "desc": ""
-                    },
-                    "ste": {
-                        "value": 0,
-                        "aspects": ["agi"],
-                        "unskilled": true,
-                        "focus": "",
-                        "desc": ""
-                    },
-                    "sur": {
-                        "value": 0,
-                        "aspects": ["ins", "met"],
-                        "unskilled": true,
-                        "focus": "",
-                        "desc": ""
-                    },
-                    "thr": {
-                        "value": 0,
-                        "aspects": ["bra", "agi"],
-                        "unskilled": true,
-                        "focus": "",
-                        "desc": ""
-                    },
-                    "tin": {
-                        "value": 0,
-                        "aspects": ["bra", "agi", "ins"],
-                        "unskilled": false,
-                        "focus": "",
-                        "desc": ""
-                    }
                 }
             }
         },
@@ -346,16 +170,21 @@
             "range": "",
             "load": "",
             "damage": "",
-            "ammunition": ""
+            "ammunition": "",
+            "equipped": false
         },
         "armor": {
             "templates": ["base", "physical"],
             "load": "",
             "rating": {
                 "max": 0,
-                "value": 0
+                "value": 0,
+                "damaged": 0,
+                "destroyed": 0
             },
-            "agi_penalty": 0
+            "agi_penalty": 0,
+            "agi_ignored": false,
+            "equipped": false
         },
         "gear": {
             "templates": ["base", "physical"]

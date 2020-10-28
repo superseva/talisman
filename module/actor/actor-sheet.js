@@ -75,8 +75,38 @@ export class TalismanActorSheet extends ActorSheet {
             li.slideUp(200, () => this.render(false));
         });
 
-        // Rollable abilities.
-        html.find(".rollable").click(this._onRoll.bind(this));
+        //Set wounds
+        html.find(".wounds .btn").click((ev) => {
+            const li = $(ev.currentTarget);
+            const updateData = {};
+            updateData["data.wounds.value"] = li.data("value");
+            this.actor.update(updateData);
+        });
+        html.find(".wounds .cancel-btn").click((ev) => {
+            const updateData = {};
+            updateData["data.wounds.value"] = 0;
+            this.actor.update(updateData);
+        });
+
+        //Set Death Tests
+        html.find(".deathtests .btn").click((ev) => {
+            const li = $(ev.currentTarget);
+            const updateData = {};
+            updateData["data.death_tests.value"] = li.data("value");
+            this.actor.update(updateData);
+        });
+        html.find(".deathtests .cancel-btn").click((ev) => {
+            const updateData = {};
+            updateData["data.death_tests.value"] = 0;
+            this.actor.update(updateData);
+        });
+
+        // Rollable Attribute.
+        html.find(".attribute .rollable").click(this._onRollAspect.bind(this));
+        // Rollable Aspect.
+        html.find(".aspect .rollable").click(this._onRollAspect.bind(this));
+        // Rollable Button.
+        html.find(".roll-button").click(this._onRoll.bind(this));
 
         // Drag events for macros.
         if (this.actor.owner) {
@@ -110,22 +140,25 @@ export class TalismanActorSheet extends ActorSheet {
     }
 
     /**
-     * Handle clickable rolls.
+     * Handle clickable attribute rolls.
+     * @param {Event} event   The originating click event
+     * @private
+     */
+    _onRollAspect(event) {
+        event.preventDefault();
+        const element = event.currentTarget;
+        const dataset = element.dataset;
+        game.talisman.RollDialog.prepareDialog({ actor: this.actor, aspectId: dataset["key"] });
+    }
+
+    /**
+     * Handle clickable Roll Button.
      * @param {Event} event   The originating click event
      * @private
      */
     _onRoll(event) {
         event.preventDefault();
         const element = event.currentTarget;
-        const dataset = element.dataset;
-
-        if (dataset.roll) {
-            let roll = new Roll(dataset.roll, this.actor.data.data);
-            let label = dataset.label ? `Rolling ${dataset.label}` : "";
-            roll.roll().toMessage({
-                speaker: ChatMessage.getSpeaker({ actor: this.actor }),
-                flavor: label,
-            });
-        }
+        game.talisman.RollDialog.prepareDialog({ actor: this.actor });
     }
 }

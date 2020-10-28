@@ -1,10 +1,10 @@
 export class DiceRoller {
-    static rollDice({ num = 2, aspect = 0, modifier = 0, hasFocus = false } = {}) {
+    static rollDice({ num = 2, aspect = 0, modifier = 0, hasFocus = false, wounds = 0, armorPenalty = 0 } = {}) {
         //let rollFormula = `${num}d6[base] + 1d6[kismet]`;
         let rollFormula = `${num}db + 1dk`;
         let r = new Roll(rollFormula);
         r.roll();
-        DiceRoller.sendToChat(r, aspect, modifier, hasFocus);
+        DiceRoller.sendToChat(r, aspect, modifier, hasFocus, wounds, armorPenalty);
     }
 
     static countDuplicates(arr) {
@@ -17,7 +17,7 @@ export class DiceRoller {
         else return count[maxDup];
     }
 
-    static async sendToChat(r, aspect, modifier, hasFocus) {
+    static async sendToChat(r, aspect, modifier, hasFocus, wounds, armorPenalty) {
         let baseDice = [];
         let diceResults = [];
         r.dice[0].results.forEach((element) => {
@@ -29,7 +29,7 @@ export class DiceRoller {
         let successLevel = DiceRoller.getSuccessLevel(dup);
         successLevel = game.i18n.localize(successLevel);
         let focus = hasFocus ? 2 : 0;
-        let total = baseDice.length < 3 ? diceResults.reduce((acc, res) => acc + res, 0) + (aspect + modifier + focus) : "?";
+        let total = baseDice.length < 3 ? diceResults.reduce((acc, res) => acc + res, 0) + (aspect + modifier + focus + wounds + armorPenalty) : "?";
         let discardable = baseDice.length < 3 ? null : true;
         let rollData = {
             baseDice: baseDice,
@@ -42,6 +42,8 @@ export class DiceRoller {
             aspect: aspect,
             modifier: modifier,
             focus: focus,
+            wounds: wounds,
+            armorPenalty: armorPenalty,
         };
         //console.warn(rollData);
         const html = await renderTemplate("systems/talisman/templates/chat/roll.html", rollData);
@@ -61,6 +63,8 @@ export class DiceRoller {
         cm.setFlag("talisman", "aspect", aspect);
         cm.setFlag("talisman", "modifier", modifier);
         cm.setFlag("talisman", "focus", focus);
+        cm.setFlag("talisman", "wounds", wounds);
+        cm.setFlag("talisman", "armorPenalty", armorPenalty);
     }
 
     static updateMessage(message, html, el) {
@@ -76,8 +80,10 @@ export class DiceRoller {
         let aspect = message.getFlag("talisman", "aspect") || 0;
         let modifier = message.getFlag("talisman", "modifier") || 0;
         let focus = message.getFlag("talisman", "focus") || 0;
+        let wounds = message.getFlag("talisman", "wounds") || 0;
+        let armorPenalty = message.getFlag("talisman", "armorPenalty") || 0;
         let total = diceResults.reduce((acc, res) => acc + res, 0);
-        total += aspect + modifier + focus;
+        total += aspect + modifier + focus + wounds + armorPenalty;
         //update DUPLICATES
         html.find(".label-duplicates").html(dup);
         //update SUCCESS

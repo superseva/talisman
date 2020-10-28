@@ -3,66 +3,75 @@
     <header class="actor-header">
         <div class="flex row space-between">
         <div class="side-column">
-            <span class="charname"><input name="name" type="text" value="{{actor.name}}" placeholder="Name"/></span>
+            <h3 class="charname"><input class="input-underlined" name="name" type="text" value="{{actor.name}}" placeholder="Name"/></h3>
             <div>
-                <div class="flex row resource-row">
-                    <input type="text" class="input-underlined" name="data.personal.ancestry" value="{{data.personal.ancestry}}" placeholder="Ancestry">
-                    <input type="text" class="input-underlined" name="data.personal.class" value="{{data.personal.class}}" placeholder="Class">
+                <div class="flexrow resource-row">
+                    <span>
+                        <input class="blank" type="text" name="data.personal.ancestry" value="{{data.personal.ancestry}}" placeholder="Ancestry">
+                    </span>
+                    <span>
+                        <input class="blank" type="text"  name="data.personal.class" value="{{data.personal.class}}" placeholder="Class">
+                    </span>
                 </div>
-                <div class="flex row space-between resource-row">
+                <div class="flexrow resource-row">
                     <span class="align-center">
                         <label for="data.personal.level">{{localize "T.LEVEL"}}</label>
-                        <input type="number" class="input-underlined" name="data.personal.level" value="{{data.personal.level}}" placeholder="Level">
+                        <input type="number" class="blank" name="data.personal.level" value="{{data.personal.level}}" placeholder="0">
                     </span>
                     <span class="align-center">
                         <label for="data.personal.xp">{{localize "T.XP"}}:</label>
-                        <input type="number" class="input-underlined" name="data.personal.xp" value="{{data.personal.xp}}" placeholder="XP">
+                        <input type="number" class="blank" name="data.personal.xp" value="{{data.personal.xp}}" placeholder="0">
                     </span>
                 </div>
-                <div class="flex row space-between resource-row">                    
-                    <input type="text" class="input-underlined" name="data.personal.background" value="{{data.personal.background}}" placeholder="Background">                    
-                    <input type="text" class="input-underlined" name="data.personal.alignment" value="{{data.personal.alignment}}" placeholder="Alignment">                   
+                <div class="flex row space-between resource-row">
+                    <span>
+                        <input type="text" class="blank" name="data.personal.background" value="{{data.personal.background}}" placeholder="Background">
+                    </span>
+                    <span>
+                        <input type="text" class="blank" name="data.personal.alignment" value="{{data.personal.alignment}}" placeholder="Alignment">
+                    </span>                                       
                 </div>
             </div>
         </div>
-        <div>
-            <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="100" width="100"/>
+        <div class="roll-button">
+            <!-- <input type="image" src="systems/talisman/ui/roll.png" class="roll-button"> -->
+            <!-- <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="100" width="100"/> -->
         </div>
         <div class="side-column grid ">
             <div>
                 <div class="flex row attribute">                    
                     <input type="number" name='data.attributes.strength.value' value="{{data.attributes.strength.value}}">
-                    <label for='data.attributes.strength.value'>{{localize 'T.STRENGTH'}}</label>
+                    <label class="rollable" for='data.attributes.strength.value' data-key="strength">{{localize 'T.STRENGTH'}}</label>
                 </div>
                 <div class="flex row aspect">
                     <input type="number" name='data.aspects.bra.value' value="{{data.aspects.bra.value}}">
-                    <label for='data.aspects.bra.value'>{{localize 'T.ASPECT_BRA'}}</label>                    
+                    <label class="rollable" for='data.aspects.bra.value' data-key="bra">{{localize 'T.ASPECT_BRA'}}</label>                    
                 </div>
                 <div class="flex row aspect">
                     <input type="number" name='data.aspects.agi.value' value="{{data.aspects.agi.value}}">
-                    <label for='data.aspects.agi.value'>{{localize 'T.ASPECT_AGI'}}</label>                    
+                    <label class="rollable" for='data.aspects.agi.value' data-key="agi">{{localize 'T.ASPECT_AGI'}}</label>                    
                 </div>
                 <div class="flex row aspect">
                     <input type="number" name='data.aspects.met.value' value="{{data.aspects.met.value}}">
-                    <label for='data.aspects.met.value'>{{localize 'T.ASPECT_MET'}}</label>                    
+                    <label class="rollable" for='data.aspects.met.value' data-key="met">{{localize 'T.ASPECT_MET'}}</label>                    
                 </div>
             </div>
             <div>
                 <div class="flex row attribute">
                     <input type="number" name='data.attributes.craft.value' value="{{data.attributes.craft.value}}">
-                    <label for='data.attributes.craft.value'>{{localize 'T.CRAFT'}}</label>                    
+                    <label class="rollable" for='data.attributes.craft.value' data-key="craft">{{localize 'T.CRAFT'}}</label>                    
                 </div>
                 <div class="flex row aspect">
                     <input type="number" name='data.aspects.ins.value' value="{{data.aspects.ins.value}}">
-                    <label for='data.aspects.ins.value'>{{localize 'T.ASPECT_INS'}}</label>                    
+                    <label class="rollable" for='data.aspects.ins.value' data-key="ins">{{localize 'T.ASPECT_INS'}}</label>                    
                 </div>
                 <div class="flex row aspect">
                     <input type="number" name='data.aspects.wit.value' value="{{data.aspects.wit.value}}">
-                    <label for='data.aspects.wit.value'>{{localize 'T.ASPECT_WIT'}}</label>                    
+                    <label class="rollable" for='data.aspects.wit.value' data-key="wit">{{localize 'T.ASPECT_WIT'}}</label>                    
                 </div>
                 <div class="flex row aspect">
                     <input type="number" name='data.aspects.res.value' value="{{data.aspects.res.value}}">
-                    <label for='data.aspects.res.value'>{{localize 'T.ASPECT_RES'}}</label>                    
+                    <label class="rollable" for='data.aspects.res.value' data-key="res">{{localize 'T.ASPECT_RES'}}</label>                    
                 </div>
             </div>
         </div>
@@ -75,21 +84,23 @@
             <span>/&nbsp;</span>
             <input type="number" name="data.derived.life.max" value="{{data.derived.life.max}}">
         </div>
-        <div class="flex row align-center">
+        <div class="flex row align-center wounds">
             <label>{{localize "T.WOUNDS"}}:&nbsp;</label>
-            <a class="wound-btn size12"><i class="fas fa-tint"></i></a>
-            <a class="wound-btn size12"><i class="fas fa-tint"></i></a>
-            <a class="wound-btn size12"><i class="fas fa-tint"></i></a>
-            <a class="wound-btn size12"><i class="fas fa-tint"></i></a>
-            <a class="wound-btn size12"><i class="fas fa-tint"></i></a>
+            <a class="cancel-btn size12"><i class="fas fa-ban"></i></a>
+            <a class="btn size12 {{#ifCond data.wounds.value '>=' 1}}selected{{/ifCond}}" data-value="1" title="{{localize 'T.WND1'}}"><i class="fas fa-tint"></i></a>
+            <a class="btn size12 {{#ifCond data.wounds.value '>=' 2}}selected{{/ifCond}}" data-value="2" title="{{localize 'T.WND2'}}"><i class="fas fa-tint"></i></a>
+            <a class="btn size12 {{#ifCond data.wounds.value '>=' 3}}selected{{/ifCond}}" data-value="3" title="{{localize 'T.WND3'}}"><i class="fas fa-tint"></i></a>
+            <a class="btn size12 {{#ifCond data.wounds.value '>=' 4}}selected{{/ifCond}}" data-value="4" title="{{localize 'T.WND4'}}"><i class="fas fa-tint"></i></a>
+            <a class="btn size12 {{#ifCond data.wounds.value '>=' 5}}selected{{/ifCond}}" data-value="5" title="{{localize 'T.WND5'}}"><i class="fas fa-tint"></i></a>
         </div>
-        <div class="flex row align-center">
+        <div class="flex row align-center deathtests">
             <label>{{localize "T.DEATH_SAVE"}}:&nbsp;</label>
-            <a class="wound-btn size12"><i class="fas fa-skull-crossbones"></i></a>
-            <a class="wound-btn size12"><i class="fas fa-skull-crossbones"></i></a>
-            <a class="wound-btn size12"><i class="fas fa-skull-crossbones"></i></a>
-            <a class="wound-btn size12"><i class="fas fa-skull-crossbones"></i></a>
-            <a class="wound-btn size12"><i class="fas fa-skull-crossbones"></i></a>
+            <a class="cancel-btn size12"><i class="fas fa-ban"></i></a>
+            <a class="btn size12 {{#ifCond data.death_tests.value '<=' -8}}selected{{/ifCond}}" data-value="-8" title="{{localize 'T.DTH1'}}"><i class="fas fa-skull-crossbones"></i></a>
+            <a class="btn size12 {{#ifCond data.death_tests.value '<=' -9}}selected{{/ifCond}}" data-value="-9" title="{{localize 'T.DTH2'}}"><i class="fas fa-skull-crossbones"></i></a>
+            <a class="btn size12 {{#ifCond data.death_tests.value '<=' -10}}selected{{/ifCond}}" data-value="-10" title="{{localize 'T.DTH3'}}"><i class="fas fa-skull-crossbones"></i></a>
+            <a class="btn size12 {{#ifCond data.death_tests.value '<=' -11}}selected{{/ifCond}}" data-value="-11" title="{{localize 'T.DTH4'}}"><i class="fas fa-skull-crossbones"></i></a>
+            <a class="btn size12 {{#ifCond data.death_tests.value '<=' -12}}selected{{/ifCond}}" data-value="-12" title="{{localize 'T.DTH5'}}"><i class="fas fa-skull-crossbones"></i></a>
         </div>
     </div>
     <hr>

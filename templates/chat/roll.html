@@ -12,6 +12,9 @@
         <span>Aspect:&nbsp;</span><span>{{aspect}}</span>&nbsp;|&nbsp;
         <span>Focus:&nbsp;</span><span>{{focus}}</span>&nbsp;|&nbsp;
         <span>Modifier:&nbsp;</span><span>{{modifier}}</span>
+        {{#ifCond wounds '<' 0}}
+        &nbsp;|&nbsp;<span>Wounds:&nbsp;</span><span>{{wounds}}</span>
+        {{/ifCond}}
     </div> 
     <!-- <div>
         <span><strong>Duplicates:</strong> </span>

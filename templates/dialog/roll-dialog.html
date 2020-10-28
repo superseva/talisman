@@ -1,18 +1,35 @@
 <div class="roll-dialog">
-    <div class="grid grid-4col">        
-        <div class="flex-group-center">            
+    <div class="grid grid-2col">        
+        <div class="flexrow flex-group-left">            
             <strong><label class="size12" for="aspect-value">Aspect:&nbsp;</label></strong>
+            {{#if actor}}
+            <select class='aspects'>
+                {{#select aspectId}}
+                <option value="0">0</option>
+                <option value="strength" class="bold-option">{{localize 'T.STRENGTH'}}</option>
+                <option value="bra">{{localize 'T.ASPECT_BRA'}}</option>
+                <option value="agi">{{localize 'T.ASPECT_AGI'}}</option>
+                <option value="met">{{localize 'T.ASPECT_MET'}}</option>
+                <option value="craft" class="bold-option">{{localize 'T.CRAFT'}}</option>
+                <option value="ins">{{localize 'T.ASPECT_INS'}}</option>
+                <option value="wit">{{localize 'T.ASPECT_WIT'}}</option>
+                <option value="res">{{localize 'T.ASPECT_RES'}}</option>
+                {{/select}}
+            </select>
+            {{/if}}
+            {{#unless actor}}
             <input type="number" class="aspect-value" name="aspect-value" value="{{aspect}}">
+            {{/unless}}
         </div>
-        <div class="flex-group-center">            
+        <div class="flexrow flex-group-left">            
             <strong><label class="size12" for="modifier-value">Modifier:&nbsp;</label></strong>
             <input type="number" class="modifier-value" name="modifier-value" value="{{modifier}}">
         </div>
-        <div class="flex-group-center">
+        <div class="flexrow flex-group-left">
             <strong><label class="size12" for="focus-die">Focus:&nbsp;</label></strong><br/>
             <input type="checkbox" class="focus-check" name="focus-check">
         </div>
-        <div class="flex-group-center">
+        <div class="flexrow flex-group-left">
             <strong><label class="size12" for="bonus-die-check">Bonus Die:&nbsp;</label></strong><br/>
             <input type="checkbox" class="bonus-die-check" name="bonus-die-check">
         </div>        

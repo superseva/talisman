@@ -13,10 +13,16 @@
   cursor: pointer;
 }
 
-.actor .window-content {
+.actor .window-content,
+.item .window-content {
   background-image: unset;
   background-image: url(../ui/parch-bg.jpg);
   background-size: cover;
+}
+
+.bold-option {
+  font-weight: bold;
+  font-size: 14px;
 }
 
 .grid,
@@ -269,8 +275,12 @@
   flex: unset;
   padding: 5px;
   border: 10px solid transparent;
-  -o-border-image: url(../ui/border.png) 50 stretch;
-  border-image: url(../ui/border.png) 50 stretch;
+  -o-border-image: url(../ui/border.png) 30 stretch;
+  border-image: url(../ui/border.png) 30 stretch;
+}
+
+.talisman .actor-header h3 {
+  margin-bottom: 4px;
 }
 
 .talisman .actor-header .grid {
@@ -286,24 +296,67 @@
   -webkit-box-align: baseline;
   -ms-flex-align: baseline;
   align-items: baseline;
-  margin-bottom: 0.2em;
+  margin-bottom: 4px;
 }
 
 .talisman .actor-header .side-column .attribute {
   font-weight: bold;
 }
 
-.talisman .actor-header .resource-row {
-  margin-bottom: 0.2em;
-  font-size: 12px;
-  line-height: 12px;
+.talisman .actor-header .side-column .attribute input {
+  border: 2px solid;
 }
 
-.talisman .actor-header .profile-img {
+.talisman .actor-header .resource-row {
+  margin-bottom: 0.2em;
+  font-size: 11px;
+  line-height: 11px;
+}
+
+.talisman .actor-header .resource-row span {
+  margin-right: 5px;
+  border-bottom: 1px solid;
+}
+
+.talisman .actor-header .resource-row label {
+  padding-left: 3px;
+}
+
+.talisman .roll-button {
+  width: 120px;
+  height: 120px;
+  background-image: url(../ui/roll-normal.png);
+  cursor: pointer;
+}
+
+.talisman .roll-button:hover {
+  background-image: url(../ui/roll-hover.png);
+}
+
+.talisman .roll-button:active {
+  background-image: url(../ui/roll-click.png);
+}
+
+.talisman .profile-image-box {
+  min-width: 100px;
+  max-height: 120px;
+  border: 10px solid transparent;
+  -o-border-image: url(../ui/border-rip.png) 50 stretch;
+  border-image: url(../ui/border-rip.png) 50 stretch;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.talisman .profile-image-box .profile-img {
   -webkit-box-flex: 0;
   -ms-flex: 0 0 100px;
   flex: 0 0 100px;
   height: 100px;
+  border: none;
 }
 
 .talisman .sheet-tabs {
@@ -322,8 +375,8 @@
 
 .talisman .sheet-body {
   border: 10px solid transparent;
-  -o-border-image: url(../ui/border.png) 50 stretch;
-  border-image: url(../ui/border.png) 50 stretch;
+  -o-border-image: url(../ui/border.png) 30 stretch;
+  border-image: url(../ui/border.png) 30 stretch;
 }
 
 .talisman .tox .tox-editor-container {
@@ -341,6 +394,11 @@
   margin-right: 0.5em;
 }
 
+.talisman input.blank {
+  background-color: unset;
+  border: none;
+}
+
 .talisman .input-underlined {
   background: unset;
   border: unset;
@@ -349,7 +407,8 @@
   margin-right: 0.5em;
 }
 
-.talisman .wound-btn {
+.talisman .btn,
+.talisman .cancel-btn {
   color: black;
   opacity: 0.5;
   min-width: 1.2em;
@@ -357,8 +416,9 @@
   margin-right: 0.2em;
 }
 
-.talisman .wound-btn.selected {
-  color: red;
+.talisman .btn.selected,
+.talisman .cancel-btn.selected {
+  color: #a00000;
   opacity: 1;
 }
 

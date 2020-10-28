@@ -11,10 +11,16 @@
     }
 }
 
-.actor {
+.actor,
+.item {
     .window-content {
         background-image: unset;
         background-image: url(../ui/parch-bg.jpg);
         background-size: cover;
     }
+}
+
+.bold-option {
+    font-weight: bold;
+    font-size: 14px;
 }
