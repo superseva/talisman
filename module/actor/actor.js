@@ -15,5 +15,15 @@ export class TalismanActor extends Actor {
         const data = actorData.data;
         // Make modifications to data here. For example:
         //derived values or modifiers
+
+        // SEE WHAT ARMOR IS EQUIPPED
+        const _armor = actorData.items.find(
+            (i) => i.type == "armor" && (i.data.armor_type != "shield" || i.data.armor_type != "helm") && i.data.equipped == true
+        );
+        if (!_armor) {
+            console.warn("No Armor Found");
+        } else {
+            actorData.data.equipped_armor = _armor;
+        }
     }
 }

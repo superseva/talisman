@@ -126,7 +126,8 @@
                 },
                 "death_tests": {
                     "value": 0
-                }
+                },
+                "equipped_armor": null
             }
         },
         "character": {

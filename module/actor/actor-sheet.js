@@ -112,6 +112,25 @@ export class TalismanActorSheet extends ActorSheet {
         // Rollable Button.
         html.find(".roll-button").click(this._onRoll.bind(this));
 
+        //Handle Armor Clicks
+        html.find(".armor-point").click((e) => {
+            let index = e.currentTarget.dataset["index"];
+            let armor = this.actor.data.data.equipped_armor;
+            console.log(armor);
+            const item = this.actor.getOwnedItem(armor._id);
+            let ap = [...item.data.data.points];
+            ap[index] = ap[index] < 2 ? ap[index] + 1 : 0;
+            let updateData = { data: {} };
+            updateData.data["points"] = ap;
+            let armorValue = 0;
+            ap.forEach((element) => {
+                if (parseInt(element) == 0) armorValue++;
+            });
+            let ratingVal = { rating: { value: armorValue } };
+            updateData.data = { ...updateData.data, ...ratingVal };
+            item.update(updateData);
+        });
+
         // Drag events for macros.
         if (this.actor.owner) {
             let handler = (ev) => this._onDragItemStart(ev);

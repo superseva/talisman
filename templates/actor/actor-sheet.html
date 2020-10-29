@@ -147,6 +147,33 @@
         </div>
 
         {{!-- Items Tab --}}
+        <div class="tab combat" data-group="primary" data-tab="combat">
+            <div class="flexcol flex-group-center flex-center">
+                {{actor.data.equipped_armor.name}}
+                
+                {{#ifCond actor.data.equipped_armor.data.armor_type '!=' 'shield'}}
+                {{#ifCond actor.data.equipped_armor.data.armor_type '!=' 'helm'}}
+                <div class="flex row flex-center margin">
+                    <span class="armor-box">
+                        <label>{{actor.data.equipped_armor.data.rating.value}}</label>
+                    </span>                    
+                    {{#each actor.data.equipped_armor.data.points as |status index|}}                                   
+                    <a class="armor-point {{#ifCond status '==' 0}}new{{/ifCond}} {{#ifCond status '==' 1}}damaged{{/ifCond}} {{#ifCond status '==' 2}}destroyed{{/ifCond}}" data-max="{{../data.rating.max}}" data-status="{{status}}" data-index="{{index}}" data-item_id="{{../../data.id}}">
+                        {{#ifCond status '==' 0}}<i class="far fa-circle"></i>{{/ifCond}}
+                        {{#ifCond status '==' 1}}<i class="fas fa-ban"></i>{{/ifCond}}
+                        {{#ifCond status '==' 2}}<i class="far fa-times-circle"></i>{{/ifCond}}
+                    </a>
+                    {{/each}}               
+                </div>
+                {{/ifCond}}
+                {{/ifCond}}
+
+
+            </div>
+            
+        </div>
+
+        {{!-- Items Tab --}}
         <div class="tab items" data-group="primary" data-tab="items">
             <div class="flexcol">
                 <div class="flexrow">
