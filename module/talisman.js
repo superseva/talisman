@@ -143,5 +143,5 @@ Hooks.once("diceSoNiceReady", (dice3d) => {
 });
 
 // Talisman Hooks
-//Hooks.on("preUpdateOwnedItem", async (actor, item, updateData) => TalismanHooks.onUpdateItem(actor: actor, options, userId));
-Hooks.on("preUpdateItem", (item, data, diff) => TalismanHooks.onUpdateItem({ item: item, updateData: data, diff: diff }));
+Hooks.on("preUpdateOwnedItem", (actor, item, data) => TalismanHooks.onUpdateOwnedItem({ actor: actor, item: item, updateData: data }));
+Hooks.on("preUpdateItem", (item, data) => TalismanHooks.onUpdateItem({ item: item, updateData: data }));

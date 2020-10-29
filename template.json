@@ -100,11 +100,7 @@
                     },
                     "armor": {
                         "name": "",
-                        "value": 0,
-                        "max": 0,
-                        "agi_penalty": 0,
-                        "damaged": 0,
-                        "destroyed": 0
+                        "value": 0
                     }
                 },
                 "damage_modifier": {
@@ -168,19 +164,16 @@
             "templates": ["base", "physical"],
             "aspect": "",
             "range": "",
-            "load": "",
             "damage": "",
             "ammunition": "",
             "equipped": false
         },
         "armor": {
             "templates": ["base", "physical"],
-            "load": "",
+            "armor_type": "",
             "rating": {
                 "max": 0,
-                "value": 0,
-                "damaged": 0,
-                "destroyed": 0
+                "value": 0
             },
             "points": [],
             "agi_penalty": 0,

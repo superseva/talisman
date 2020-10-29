@@ -26,5 +26,15 @@
     "T.ASPECT_MET": "Mettle",
     "T.ASPECT_INS": "Insight",
     "T.ASPECT_WIT": "Wits",
-    "T.ASPECT_RES": "Resolve"
+    "T.ASPECT_RES": "Resolve",
+
+    "T.ARMOR_MAX": "Armor Full Value",
+    "T.ARMOR_TYPE": "Armor Type",
+    "T.AGI_PENALTY": "Agility Penalty",
+    "T.AGI_PENALTY_IGNORED": "Ignore",
+    "T.ARMOR_LIGHT": "Light",
+    "T.ARMOR_MEDIUM": "Medium",
+    "T.ARMOR_HEAVY": "Heavy",
+    "T.ARMOR_SHIELD": "Shield",
+    "T.ARMOR_HELM": "Helm"
 }

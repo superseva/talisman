@@ -32,22 +32,26 @@ export class TalismanActorSheet extends ActorSheet {
     _prepareCharacterItems(sheetData) {
         const actorData = sheetData.actor;
         const gear = [];
+        const armor = [];
         const weapons = [];
         const skills = [];
         for (let i of sheetData.items) {
-            let item = i.data;
+            //let item = i.data;
             i.img = i.img || DEFAULT_TOKEN;
-            if (i.type === "item") {
+            if (i.type === "gear") {
                 gear.push(i);
-            } else if (i.type === "skill") {
-                skills.push(i);
+            } else if (i.type === "armor") {
+                armor.push(i);
             } else if (i.type === "weapon") {
                 weapons.push(i);
+            } else if (i.type === "skill") {
+                skills.push(i);
             }
         }
         actorData.gear = gear;
-        actorData.skills = skills;
+        actorData.armor = armor;
         actorData.weapons = weapons;
+        actorData.skills = skills;
     }
 
     /* -------------------------------------------- */

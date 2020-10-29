@@ -9,18 +9,13 @@ export class TalismanItemSheet extends ItemSheet {
             classes: ["talisman", "sheet", "item"],
             width: 520,
             height: 480,
-            tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "description" }],
+            tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "attributes" }],
         });
     }
 
     /** @override */
     get template() {
         const path = "systems/talisman/templates/item";
-        // Return a single sheet for all item types.
-        // return `${path}/item-sheet.html`;
-
-        // Alternatively, you could use the following return statement to do a
-        // unique item sheet by type, like `weapon-sheet.html`.
         return `${path}/item-${this.item.data.type}-sheet.html`;
     }
 
@@ -55,14 +50,23 @@ export class TalismanItemSheet extends ItemSheet {
         html.find(".armor-point").click((e) => {
             let index = e.currentTarget.dataset["index"];
             let itemId = e.currentTarget.dataset["item_id"];
-            let item = game.items.find((i) => {
-                return i._id == itemId;
-            });
+            let item = {};
+            if (this.actor) {
+                item = this.actor.getOwnedItem(itemId);
+            } else {
+                item = game.items.get(itemId);
+            }
             let ap = [...item.data.data.points];
             ap[index] = ap[index] < 2 ? ap[index] + 1 : 0;
-            let _updateData = { data: {} };
-            _updateData.data["points"] = ap;
-            item.update(_updateData);
+            let updateData = { data: {} };
+            updateData.data["points"] = ap;
+            let armorValue = 0;
+            ap.forEach((element) => {
+                if (parseInt(element) == 0) armorValue++;
+            });
+            let ratingVal = { rating: { value: armorValue } };
+            updateData.data = { ...updateData.data, ...ratingVal };
+            item.update(updateData);
         });
     }
 }
