@@ -22,8 +22,17 @@ export class TalismanActor extends Actor {
         );
         if (!_armor) {
             console.warn("No Armor Found");
+            data.derived.armor.value = 0;
         } else {
-            actorData.data.equipped_armor = _armor;
+            data.equipped_armor = _armor;
+            data.derived.armor.value = _armor.data.rating.value;
         }
+
+        //SET SPEED
+        data.derived.speed.value = data.aspects.agi.value + 10;
+
+        //SET DAMAGES
+        data.damage_modifier.physical.value = data.attributes.strength.value + data.damage_modifier.physical.mod;
+        data.damage_modifier.psychic.value = data.attributes.craft.value + data.damage_modifier.psychic.mod;
     }
 }

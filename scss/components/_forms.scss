@@ -7,8 +7,12 @@
 .actor-header {
     flex: unset;
     padding: 5px;
-    border: 10px solid transparent;
-    border-image: url(../ui/border.png) 30 stretch;
+    border: 2px solid transparent;
+    border-image: url(../ui/border.png) 5 stretch;
+
+    background-image: url(../ui/parch-bg.jpg);
+    background-size: cover;
+    background-color: rgba($color: #ffffff, $alpha: 0.3);
 
     h3 {
         margin-bottom: 4px;
@@ -87,8 +91,11 @@
     height: 100%;
 }
 .sheet-body {
-    border: 10px solid transparent;
-    border-image: url(../ui/border.png) 30 stretch;
+    padding: 5px;
+    border: 2px solid transparent;
+    border-image: url(../ui/border.png) 5 stretch;
+    background-image: url(../ui/parch-bg.jpg);
+    background-size: cover;
 }
 
 .tox {
@@ -129,6 +136,11 @@
     }
 }
 
+.papirus-box {
+    border: 10px solid transparent;
+    border-image: url(../ui/border-rip.png) 30 stretch;
+}
+
 /** ITEM SHEET */
 
 .item-header {
@@ -154,6 +166,10 @@
     background-repeat: no-repeat;
     //background-attachment: fixed;
     background-position: center;
+    &.small {
+        width: 22px;
+        height: 22px;
+    }
 }
 
 input[type="number"] {

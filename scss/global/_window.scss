@@ -14,8 +14,9 @@
 .actor,
 .item {
     .window-content {
+        font-family: $font-secondary;
         background-image: unset;
-        background-image: url(../ui/parch-bg.jpg);
+        background-image: url(../ui/parch-y-bg.jpg);
         background-size: cover;
     }
 }

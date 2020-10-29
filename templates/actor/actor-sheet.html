@@ -85,7 +85,7 @@
         </div>
         <div class="flex row align-center wounds">
             <label>{{localize "T.WOUNDS"}}:&nbsp;</label>
-            <a class="cancel-btn size12"><i class="fas fa-ban"></i></a>
+            <a class="cancel-btn size12" title="{{localize 'T.WND0'}}"><i class="fas fa-ban"></i></a>
             <a class="btn size12 {{#ifCond data.wounds.value '>=' 1}}selected{{/ifCond}}" data-value="1" title="{{localize 'T.WND1'}}"><i class="fas fa-tint"></i></a>
             <a class="btn size12 {{#ifCond data.wounds.value '>=' 2}}selected{{/ifCond}}" data-value="2" title="{{localize 'T.WND2'}}"><i class="fas fa-tint"></i></a>
             <a class="btn size12 {{#ifCond data.wounds.value '>=' 3}}selected{{/ifCond}}" data-value="3" title="{{localize 'T.WND3'}}"><i class="fas fa-tint"></i></a>
@@ -93,21 +93,47 @@
             <a class="btn size12 {{#ifCond data.wounds.value '>=' 5}}selected{{/ifCond}}" data-value="5" title="{{localize 'T.WND5'}}"><i class="fas fa-tint"></i></a>
         </div>
         <div class="flex row align-center deathtests">
-            <label>{{localize "T.DEATH_SAVE"}}:&nbsp;</label>
-            <a class="cancel-btn size12"><i class="fas fa-ban"></i></a>
+            <!-- <label>{{localize "T.DEATH_SAVE"}}:&nbsp;</label> -->
+            <a class="cancel-btn size12" title="{{localize 'T.DTH0'}}"><i class="fas fa-ban"></i></a>
             <a class="btn size12 {{#ifCond data.death_tests.value '<=' -8}}selected{{/ifCond}}" data-value="-8" title="{{localize 'T.DTH1'}}"><i class="fas fa-skull-crossbones"></i></a>
             <a class="btn size12 {{#ifCond data.death_tests.value '<=' -9}}selected{{/ifCond}}" data-value="-9" title="{{localize 'T.DTH2'}}"><i class="fas fa-skull-crossbones"></i></a>
             <a class="btn size12 {{#ifCond data.death_tests.value '<=' -10}}selected{{/ifCond}}" data-value="-10" title="{{localize 'T.DTH3'}}"><i class="fas fa-skull-crossbones"></i></a>
             <a class="btn size12 {{#ifCond data.death_tests.value '<=' -11}}selected{{/ifCond}}" data-value="-11" title="{{localize 'T.DTH4'}}"><i class="fas fa-skull-crossbones"></i></a>
             <a class="btn size12 {{#ifCond data.death_tests.value '<=' -12}}selected{{/ifCond}}" data-value="-12" title="{{localize 'T.DTH5'}}"><i class="fas fa-skull-crossbones"></i></a>
         </div>
+        <div class="flex row align-center">
+            <label for="data.fate.value">{{localize 'T.FATE'}}:&nbsp;</label>
+            <input type="number" name="data.fate.value" value="{{data.fate.value}}">
+            <span>/&nbsp;</span>
+            <input type="number" name="data.fate.max" value="{{data.fate.max}}">
+        </div>
     </div>
     <hr>
     <div class="flex row space-between single-row">
-        <div>DMG</div>
-        <div>DMG</div>
-        <div>SPEED</div>
-        <div>FATE</div>
+        <div class="flex row align-center">
+            <span class="armor-box small size12">
+                <label><strong>{{actor.data.derived.armor.value}}</strong></label>
+            </span>
+        </div>
+        <div class="flex row align-center size12">
+            <label for="data.damage_modifier.physical.mod">{{localize 'T.PHYSICAL_DMG'}}: {{data.attributes.strength.value}} + </label>
+            <input type="number" class="input-underlined" name="data.damage_modifier.physical.mod" value="{{data.damage_modifier.physical.mod}}">
+            <label for="data.damage_modifier.physical.value"> = <strong>{{data.damage_modifier.physical.value}}</strong></label>
+        </div>
+        <div class="flex row align-center size12">
+            <label for="data.damage_modifier.psychic.mod">{{localize 'T.PSYCHIC_DMG'}}: {{data.attributes.craft.value}} + </label>
+            <input type="number" class="input-underlined" name="data.damage_modifier.psychic.mod" value="{{data.damage_modifier.psychic.mod}}">
+            <label for="data.damage_modifier.psychic.value"> = <strong>{{data.damage_modifier.psychic.value}}</strong></label>
+        </div>        
+        <div class="flex row align-center size12">
+            <label>{{localize 'T.SPEED'}}: <strong>{{data.derived.speed.value}}</strong></label>            
+        </div>
+        <!-- <div class="flex row align-center">
+            <label for="data.fate.value">{{localize 'T.FATE'}}:&nbsp;</label>
+            <input type="number" name="data.fate.value" value="{{data.fate.value}}">
+            <span>/&nbsp;</span>
+            <input type="number" name="data.fate.max" value="{{data.fate.max}}">
+        </div> -->
     </div>
     </header>
     
@@ -146,11 +172,11 @@
             <div>...</div>            
         </div>
 
-        {{!-- Items Tab --}}
+        {{!-- Combat Tab --}}
         <div class="tab combat" data-group="primary" data-tab="combat">
-            <div class="flexcol flex-group-center flex-center">
-                {{actor.data.equipped_armor.name}}
-                
+            <div class="flexcol flex-group-center flex-center papirus-box">
+                <label class="capitalize"><strong>{{actor.data.equipped_armor.name}}</strong></label>
+
                 {{#ifCond actor.data.equipped_armor.data.armor_type '!=' 'shield'}}
                 {{#ifCond actor.data.equipped_armor.data.armor_type '!=' 'helm'}}
                 <div class="flex row flex-center margin">
@@ -167,15 +193,12 @@
                 </div>
                 {{/ifCond}}
                 {{/ifCond}}
-
-
-            </div>
-            
+            </div>            
         </div>
 
         {{!-- Items Tab --}}
         <div class="tab items" data-group="primary" data-tab="items">
-            <div class="flexcol">
+            <div class="flexcol papirus-box">
                 <div class="flexrow">
                     <ol class="items-list">
                         <li class="item flexrow item-header">

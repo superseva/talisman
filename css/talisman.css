@@ -4,7 +4,7 @@
 @import url("https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&display=swap");
 /* Global styles */
 .window-app {
-  font-family: "Merriweather", serif;
+  font-family: "Roboto", sans-serif;
 }
 
 .rollable:hover, .rollable:focus {
@@ -15,8 +15,9 @@
 
 .actor .window-content,
 .item .window-content {
+  font-family: "Merriweather", serif;
   background-image: unset;
-  background-image: url(../ui/parch-bg.jpg);
+  background-image: url(../ui/parch-y-bg.jpg);
   background-size: cover;
 }
 
@@ -202,9 +203,32 @@
   justify-content: space-between;
 }
 
+.size10 {
+  font-size: 10px;
+  line-height: 12px;
+}
+
 .size12 {
   font-size: 12px;
   line-height: 14px;
+}
+
+.size14 {
+  font-size: 14px;
+  line-height: 16px;
+}
+
+.size16 {
+  font-size: 16px;
+  line-height: 18px;
+}
+
+.capitalize {
+  text-transform: capitalize;
+}
+
+.uppercase {
+  text-transform: uppercase;
 }
 
 .chat-message div {
@@ -276,9 +300,12 @@
   -ms-flex: unset;
   flex: unset;
   padding: 5px;
-  border: 10px solid transparent;
-  -o-border-image: url(../ui/border.png) 30 stretch;
-  border-image: url(../ui/border.png) 30 stretch;
+  border: 2px solid transparent;
+  -o-border-image: url(../ui/border.png) 5 stretch;
+  border-image: url(../ui/border.png) 5 stretch;
+  background-image: url(../ui/parch-bg.jpg);
+  background-size: cover;
+  background-color: rgba(255, 255, 255, 0.3);
 }
 
 .talisman .actor-header h3 {
@@ -376,9 +403,12 @@
 }
 
 .talisman .sheet-body {
-  border: 10px solid transparent;
-  -o-border-image: url(../ui/border.png) 30 stretch;
-  border-image: url(../ui/border.png) 30 stretch;
+  padding: 5px;
+  border: 2px solid transparent;
+  -o-border-image: url(../ui/border.png) 5 stretch;
+  border-image: url(../ui/border.png) 5 stretch;
+  background-image: url(../ui/parch-bg.jpg);
+  background-size: cover;
 }
 
 .talisman .tox .tox-editor-container {
@@ -418,6 +448,12 @@
   left: 0;
   top: -3px;
   vertical-align: middle;
+}
+
+.talisman .papirus-box {
+  border: 10px solid transparent;
+  -o-border-image: url(../ui/border-rip.png) 30 stretch;
+  border-image: url(../ui/border-rip.png) 30 stretch;
 }
 
 .talisman .item-header {
@@ -461,6 +497,11 @@
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
+}
+
+.talisman .armor-box.small {
+  width: 22px;
+  height: 22px;
 }
 
 .talisman input[type="number"] {
