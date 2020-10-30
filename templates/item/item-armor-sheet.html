@@ -1,21 +1,6 @@
 <form class="{{cssClass}}" autocomplete="off">
-    <header class="item-header">
-        <img class="profile-img" src="{{item.img}}" data-edit="img" title="{{item.name}}"/>
-        <div class="header-fields">
-            <h3 class="itemname"><input name="name" type="text" value="{{item.name}}" placeholder="Name"/></h3>
-            <div class="grid grid-2col">
-              <div class="resource">
-                <label class="resource-label">Quantity</label>
-                  <input type="text" name="data.quantity" value="{{data.quantity}}" data-dtype="Number"/>
-              </div>
-              <div class="resource">
-                <label class="resource-label">Weight</label>
-                  <input type="text" name="data.weight" value="{{data.weight}}" data-dtype="Number"/>
-              </div>
-            </div>
-        </div>
-    </header>
-
+    {{> systems/talisman/templates/item/partials/item-header.html}}
+    
     {{!-- Sheet Tab Navigation --}}
     <nav class="sheet-tabs tabs" data-group="primary">        
         <a class="item" data-tab="attributes">Attributes</a>

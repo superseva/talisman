@@ -33,6 +33,8 @@ Hooks.once("init", async function () {
 
     /** HANDLEBARS */
 
+    _preloadHandlebarsTemplates();
+
     Handlebars.registerHelper("concat", function () {
         var outStr = "";
         for (var arg in arguments) {
@@ -143,5 +145,15 @@ Hooks.once("diceSoNiceReady", (dice3d) => {
 });
 
 // Talisman Hooks
-Hooks.on("preUpdateOwnedItem", (actor, item, data) => TalismanHooks.onUpdateOwnedItem({ actor: actor, item: item, updateData: data }));
-Hooks.on("preUpdateItem", (item, data) => TalismanHooks.onUpdateItem({ item: item, updateData: data }));
+Hooks.on("preUpdateOwnedItem", (actor, item, data) => TalismanHooks.onPreUpdateOwnedItem({ actor: actor, item: item, updateData: data }));
+Hooks.on("preUpdateItem", (item, data) => TalismanHooks.onPreUpdateItem({ item: item, updateData: data }));
+Hooks.on("preUpdateToken", (scene, token, data) => TalismanHooks.onPreUpdateTokenOwnedItem({ token: token, updateData: data }));
+
+/* -------------------------------------------- */
+/** LOAD PARTIALS
+/* -------------------------------------------- */
+
+function _preloadHandlebarsTemplates() {
+    const templatePaths = ["systems/talisman/templates/item/partials/item-header.html"];
+    return loadTemplates(templatePaths);
+}

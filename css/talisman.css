@@ -411,6 +411,12 @@
   background-size: cover;
 }
 
+.talisman .sheet-body textarea {
+  resize: none;
+  max-lines: 4;
+  min-height: 90px;
+}
+
 .talisman .tox .tox-editor-container {
   background: #fff;
 }
@@ -505,8 +511,8 @@
 }
 
 .talisman input[type="number"] {
-  min-width: 2em;
-  max-width: 2em;
+  min-width: 3em;
+  max-width: 3em;
   text-align: center;
   margin-right: 0.5em;
 }

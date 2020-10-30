@@ -96,6 +96,12 @@
     border-image: url(../ui/border.png) 5 stretch;
     background-image: url(../ui/parch-bg.jpg);
     background-size: cover;
+
+    textarea {
+        resize: none;
+        max-lines: 4;
+        min-height: 90px;
+    }
 }
 
 .tox {
@@ -173,8 +179,8 @@
 }
 
 input[type="number"] {
-    min-width: 2em;
-    max-width: 2em;
+    min-width: 3em;
+    max-width: 3em;
     text-align: center;
     margin-right: 0.5em;
 }

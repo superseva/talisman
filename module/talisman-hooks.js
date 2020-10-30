@@ -1,22 +1,30 @@
 export default class TalismanHooks {
-    static onUpdateItem({ item = null, updateData = null } = {}) {
+    static onPreUpdateItem({ item = null, updateData = null } = {}) {
         if (item.type == "armor") {
             // update points list if rating changes
             if (updateData.data.rating) TalismanHooks._updateArmorPoints(item.data, updateData);
         }
     }
 
-    static onUpdateOwnedItem({ actor = null, item = null, updateData = null, userId = null, diff = null } = {}) {
+    static onPreUpdateOwnedItem({ actor = null, item = null, updateData = null, userId = null, diff = null } = {}) {
         if (item.type == "armor") {
             // update points list if rating changes
             if (updateData.data.rating) TalismanHooks._updateArmorPoints(item, updateData);
         }
     }
 
+    static onPreUpdateTokenOwnedItem({ token = null, updateData = null } = {}) {
+        if (!updateData.actorData.items) return;
+        updateData.actorData.items.forEach((item) => {
+            if (item.type == "armor") TalismanHooks._updateArmorPoints(item, item);
+        });
+    }
+
     static _updateArmorPoints(_item, updateData) {
         if (!updateData.data.rating.max) return;
         let ap = _item.data.points;
         let numOfNewPoints = updateData.data.rating.max - ap.length;
+        if (updateData.data.rating.max == ap.length) return;
         if (numOfNewPoints > 0) {
             for (var i = 0; i < numOfNewPoints; i++) ap.push(0);
         } else {
