@@ -611,9 +611,16 @@
   -webkit-box-direction: normal;
   -ms-flex-direction: row;
   flex-direction: row;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
   text-align: right;
 }
 
 .talisman .items-list .item-controls a {
   padding-left: 2px;
+}
+
+.talisman .item-unequipped {
+  color: rgba(0, 0, 0, 0.2);
 }

@@ -164,8 +164,19 @@
         "weapon": {
             "templates": ["base", "physical"],
             "aspect": "",
-            "range": "",
-            "damage": "",
+            "range": {
+                "optimal": 0,
+                "max": 0
+            },
+            "damage": {
+                "value": 0,
+                "max": 0,
+                "mod": 0
+            },
+            "bonus": {
+                "value": 0,
+                "mod": 0
+            },
             "ammunition": "",
             "equipped": false
         },

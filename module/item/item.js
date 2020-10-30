@@ -15,6 +15,22 @@ export class TalismanItem extends Item {
         const data = itemData.data;
     }
 
+    async updateArmor({ index = 0, increase = true } = {}) {
+        let ap = [...this.data.data.points];
+        if (increase) ap[index] = ap[index] < 2 ? ap[index] + 1 : 0;
+        else ap[index] = 0;
+        let updateData = { data: {} };
+        updateData.data["points"] = ap;
+        let armorValue = 0;
+        ap.forEach((element) => {
+            if (parseInt(element) == 0) armorValue++;
+        });
+        let ratingVal = { rating: { value: armorValue } };
+        updateData.data = { ...updateData.data, ...ratingVal };
+        console.warn(updateData);
+        this.update(updateData);
+    }
+
     /**
      * Handle clickable rolls.
      * @param {Event} event   The originating click event

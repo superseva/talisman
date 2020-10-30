@@ -79,6 +79,13 @@ export class TalismanActorSheet extends ActorSheet {
             li.slideUp(200, () => this.render(false));
         });
 
+        //Toggle Equip Inventory Item
+        html.find(".item-equip").click(async (ev) => {
+            const li = $(ev.currentTarget).parents(".item");
+            const item = this.actor.getOwnedItem(li.data("itemId"));
+            await this.actor.updateOwnedItem(this._toggleEquipped(li.data("itemId"), item));
+        });
+
         //Set wounds
         html.find(".wounds .btn").click((ev) => {
             const li = $(ev.currentTarget);
@@ -112,23 +119,20 @@ export class TalismanActorSheet extends ActorSheet {
         // Rollable Button.
         html.find(".roll-button").click(this._onRoll.bind(this));
 
-        //Handle Armor Clicks
+        // Handle armor points clicks (left/right)
         html.find(".armor-point").click((e) => {
             let index = e.currentTarget.dataset["index"];
             let armor = this.actor.data.data.equipped_armor;
-            console.log(armor);
             const item = this.actor.getOwnedItem(armor._id);
-            let ap = [...item.data.data.points];
-            ap[index] = ap[index] < 2 ? ap[index] + 1 : 0;
-            let updateData = { data: {} };
-            updateData.data["points"] = ap;
-            let armorValue = 0;
-            ap.forEach((element) => {
-                if (parseInt(element) == 0) armorValue++;
-            });
-            let ratingVal = { rating: { value: armorValue } };
-            updateData.data = { ...updateData.data, ...ratingVal };
-            item.update(updateData);
+            item.updateArmor({ index: index, increase: true });
+        });
+
+        html.find(".armor-point").contextmenu((e) => {
+            let index = e.currentTarget.dataset["index"];
+            let armor = this.actor.data.data.equipped_armor;
+            const item = this.actor.getOwnedItem(armor._id);
+            item.updateArmor({ index: index, increase: false });
+            return;
         });
 
         // Drag events for macros.
@@ -183,5 +187,15 @@ export class TalismanActorSheet extends ActorSheet {
         event.preventDefault();
         const element = event.currentTarget;
         game.talisman.RollDialog.prepareDialog({ actor: this.actor });
+    }
+
+    //Toggle Equipment
+    _toggleEquipped(id, item) {
+        return {
+            _id: id,
+            data: {
+                equipped: !item.data.data.equipped,
+            },
+        };
     }
 }

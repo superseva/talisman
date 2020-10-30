@@ -47,6 +47,7 @@ export class TalismanItemSheet extends ItemSheet {
         // Everything below here is only needed if the sheet is editable
         if (!this.options.editable) return;
 
+        // Handle armor points clicks (left/right)
         html.find(".armor-point").click((e) => {
             let index = e.currentTarget.dataset["index"];
             let itemId = e.currentTarget.dataset["item_id"];
@@ -56,17 +57,18 @@ export class TalismanItemSheet extends ItemSheet {
             } else {
                 item = game.items.get(itemId);
             }
-            let ap = [...item.data.data.points];
-            ap[index] = ap[index] < 2 ? ap[index] + 1 : 0;
-            let updateData = { data: {} };
-            updateData.data["points"] = ap;
-            let armorValue = 0;
-            ap.forEach((element) => {
-                if (parseInt(element) == 0) armorValue++;
-            });
-            let ratingVal = { rating: { value: armorValue } };
-            updateData.data = { ...updateData.data, ...ratingVal };
-            item.update(updateData);
+            item.updateArmor({ index: index, increase: true });
+        });
+        html.find(".armor-point").contextmenu((e) => {
+            let index = e.currentTarget.dataset["index"];
+            let itemId = e.currentTarget.dataset["item_id"];
+            let item = {};
+            if (this.actor) {
+                item = this.actor.getOwnedItem(itemId);
+            } else {
+                item = game.items.get(itemId);
+            }
+            item.updateArmor({ index: index, increase: false });
         });
     }
 }
