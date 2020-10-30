@@ -40,7 +40,6 @@ export class RollDialog {
                                     if (!actor.data.data.equipped_armor.data.agi_ignored) {
                                         armorPenalty = 0 - Math.abs(actor.data.data.equipped_armor.data.agi_penalty);
                                     }
-                                    console.warn(armorPenalty);
                                 }
                             } else {
                                 _asp = parseInt(html.find(".aspect-value")[0].value);

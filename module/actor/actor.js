@@ -18,10 +18,10 @@ export class TalismanActor extends Actor {
 
         // SEE WHAT ARMOR IS EQUIPPED
         const _armor = actorData.items.find(
-            (i) => i.type == "armor" && (i.data.armor_type != "shield" || i.data.armor_type != "helm") && i.data.equipped == true
+            (i) => i.type == "armor" && i.data.armor_type != "shield" && i.data.armor_type != "helm" && i.data.equipped == true
         );
         if (!_armor) {
-            console.warn("No Armor Found");
+            //console.warn("No Armor Found");
             data.derived.armor.value = 0;
         } else {
             data.equipped_armor = _armor;
