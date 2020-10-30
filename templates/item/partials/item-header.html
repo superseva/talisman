@@ -24,5 +24,33 @@
           <!-- <textarea name="data.focus.owned">{{data.focus.owned}}</textarea> -->
           <input type="text" name="data.focus" value="{{data.focus}}">
         {{/ifCond}}
+
+        {{#ifCond item.type '==' 'ability'}}
+        <div class="grid grid-2col">
+          <div class="flex row align-center">
+            <label class="resource-label" for="data.ability_type">{{localize "T.TYPE"}}</label>
+            <select name="data.ability_type">
+              {{#select data.ability_type}}
+              <option value="general">{{localize 'T.GENERAL'}}</option>
+              <option value="class">{{localize 'T.CLASS'}}</option>
+              {{/select}}
+            </select>
+          </div>          
+          <div class="flexrow flex-group-left">
+            <label for="data.improved" class="checkbox-label resource-label">
+              {{localize 'T.IMPROVED'}}
+              <input class="input-checkbox"
+                     type="checkbox"
+                     name="data.improved"
+                     {{checked data.improved}}
+                     data-dtype="Boolean" />
+          </label>
+          </div>
+        </div>
+        <div class="flex row align-center">
+          <label class="resource-label" for="data.prerequisite">{{localize 'T.PREREQUISITE'}}</label>
+          <input type="text" class="size12" name="data.prerequisite" value="{{data.prerequisite}}">
+        </div>
+        {{/ifCond}}
     </div>
 </header>

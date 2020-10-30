@@ -15,7 +15,8 @@
                     "weight": "",
                     "eyes": "",
                     "hair": "",
-                    "description": ""
+                    "description": "",
+                    "journal": ""
                 },
                 "attributes": {
                     "strength": {
@@ -163,6 +164,7 @@
             "templates": ["base", "physical"],
             "weapon_type": "melee",
             "aspect": "bra",
+            "focus": false,
             "range": {
                 "optimal": 0,
                 "max": 0

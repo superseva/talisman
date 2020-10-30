@@ -97,6 +97,7 @@
     border-image: url(../ui/border.png) 5 stretch;
     background-image: url(../ui/parch-bg.jpg);
     background-size: cover;
+    min-height: 280px;
 
     textarea {
         resize: none;
@@ -151,6 +152,12 @@
     padding: 5px;
     ol {
         margin-top: 0px;
+    }
+    h3 {
+        background-color: #ece8b9a4;
+        padding: 2px;
+        font-size: 1em;
+        font-weight: bold;
     }
 }
 

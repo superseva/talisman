@@ -409,6 +409,7 @@
   border-image: url(../ui/border.png) 5 stretch;
   background-image: url(../ui/parch-bg.jpg);
   background-size: cover;
+  min-height: 280px;
 }
 
 .talisman .sheet-body textarea {
@@ -467,6 +468,13 @@
 
 .talisman .papirus-box ol {
   margin-top: 0px;
+}
+
+.talisman .papirus-box h3 {
+  background-color: #ece8b9a4;
+  padding: 2px;
+  font-size: 1em;
+  font-weight: bold;
 }
 
 .talisman .item-header {
@@ -564,6 +572,7 @@
   font-weight: bold;
   text-transform: uppercase;
   font-size: 12px;
+  margin-right: 5px;
 }
 
 .talisman .tabs {

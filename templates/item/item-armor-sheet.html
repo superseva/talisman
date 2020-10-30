@@ -29,7 +29,7 @@
                 {{#ifCond data.armor_type '!=' 'helm'}}
                 <div class="flex row flex-center margin">
                     <span class="armor-box">
-                        <label class="resource-label">{{data.rating.value}}</label>
+                        <label><strong>{{data.rating.value}}</strong></label>
                     </span>                    
                     {{#each data.points as |status index|}}                                   
                     <a class="armor-point {{#ifCond status '==' 0}}new{{/ifCond}}  {{#ifCond status '==' 1}}damaged{{/ifCond}}  {{#ifCond status '==' 2}}destroyed{{/ifCond}}" data-max="{{../data.rating.max}}" data-status="{{status}}" data-index="{{index}}" data-item_id="{{../item._id}}">

@@ -22,6 +22,7 @@
 
     "T.COMBAT": "Combat",
     "T.ITEMS": "Items",
+    "T.INVENTORY": "Inventory",
     "T.DESCRIPTION": "Description",
     "T.ATTRIBUTE": "Attribute",
     "T.STRENGTH": "Strength",
@@ -41,6 +42,7 @@
 
     "T.SKILL": "Skill",
     "T.SKILLS": "Skills",
+    "T.NO_SKILL": "Unskilled",
     "T.ABILITY": "Ability",
     "T.ABILITIES": "Abilities",
     "T.SPECIAL_ABILITY": "Special Ability",
@@ -54,6 +56,7 @@
     "T.NAME": "Name",
     "T.ADD": "Add",
     "T.EQUIPPED": "Equipped",
+    "T.WEAPON_TYPE": "Weapon Type",
     "T.MELEE": "Melee",
     "T.RANGE": "Range",
     "T.DAMAGE": "Damage",
@@ -68,5 +71,6 @@
     "T.ARMOR_HEAVY": "Heavy",
     "T.ARMOR_SHIELD": "Shield",
     "T.ARMOR_HELM": "Helm",
-    "T.FEATURES": "Features"
+    "T.FEATURES": "Features",
+    "T.JOURNAL": "Journal"
 }
