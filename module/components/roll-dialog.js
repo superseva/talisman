@@ -36,7 +36,12 @@ export class RollDialog {
                                     }
                                 }
                                 wounds = 0 - actor.data.data.wounds.value * 2;
-                                console.warn(wounds);
+                                if (actor.data.data.equipped_armor && aspectSelected == "agi") {
+                                    if (!actor.data.data.equipped_armor.data.agi_ignored) {
+                                        armorPenalty = 0 - Math.abs(actor.data.data.equipped_armor.data.agi_penalty);
+                                    }
+                                    console.warn(armorPenalty);
+                                }
                             } else {
                                 _asp = parseInt(html.find(".aspect-value")[0].value);
                             }

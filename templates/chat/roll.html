@@ -15,6 +15,9 @@
         {{#ifCond wounds '<' 0}}
         <span>&nbsp;|&nbsp;<i class="fas fa-tint"></i>: {{wounds}}</span>
         {{/ifCond}}
+        {{#ifCond armorPenalty '<' 0}}
+        <span>&nbsp;|&nbsp;<i class="fas fa-shield-alt"></i>: {{armorPenalty}}</span>
+        {{/ifCond}}
     </div> 
     <hr>
     <div class="grid">
