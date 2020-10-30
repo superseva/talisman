@@ -149,11 +149,9 @@
         },
         "skill": {
             "templates": ["base"],
-            "focus": {
-                "list": [],
-                "owned": []
-            },
-            "aspects": []
+            "focus": "",
+            "aspects": "",
+            "unskilled": false
         },
         "ability": {
             "templates": ["base"],
@@ -171,7 +169,8 @@
             },
             "damage": {
                 "value": "",
-                "mod": ""
+                "mod": "",
+                "type": "physical"
             },
             "bonus": {
                 "value": 0,
@@ -202,7 +201,12 @@
             "action": "",
             "difficulty": "",
             "pvp_difficulty": "",
-            "defence": ""
+            "defence": "",
+            "damage": {
+                "value": "",
+                "mod": "",
+                "type": "physical"
+            }
         }
     }
 }

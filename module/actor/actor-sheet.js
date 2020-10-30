@@ -116,6 +116,8 @@ export class TalismanActorSheet extends ActorSheet {
         html.find(".attribute .rollable").click(this._onRollAspect.bind(this));
         // Rollable Aspect.
         html.find(".aspect .rollable").click(this._onRollAspect.bind(this));
+        // Rollable skill
+        html.find(".skill.rollable").click(this._onRoll.bind(this));
         // Rollable Button.
         html.find(".roll-button").click(this._onRoll.bind(this));
 

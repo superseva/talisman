@@ -20,6 +20,9 @@
     "T.DTH4": "Death Save: -11 Penalty",
     "T.DTH5": "Death Save: -12 Penalty",
 
+    "T.COMBAT": "Combat",
+    "T.ITEMS": "Items",
+    "T.DESCRIPTION": "Description",
     "T.ATTRIBUTE": "Attribute",
     "T.STRENGTH": "Strength",
     "T.CRAFT": "Craft",
@@ -33,13 +36,29 @@
 
     "T.PHYSICAL_DMG": "Physical Damage",
     "T.PSYCHIC_DMG": "Psychic Damage",
+    "T.PHYSICAL": "Physical",
+    "T.PSYCHIC": "Psychic",
 
+    "T.SKILL": "Skill",
+    "T.SKILLS": "Skills",
+    "T.ABILITY": "Ability",
+    "T.ABILITIES": "Abilities",
+    "T.SPECIAL_ABILITY": "Special Ability",
+    "T.SPECIAL_ABILITIES": "Special Abilities",
+    "T.FOCUS": "Focus",
+    "T.WEAPONS": "Weapons",
+    "T.ARMOR": "Armor",
+    "T.GEAR": "Gear",
+    "T.SPELLS": "Spells",
+    "T.FOLLOWERS": "Followers",
     "T.NAME": "Name",
     "T.ADD": "Add",
+    "T.EQUIPPED": "Equipped",
     "T.MELEE": "Melee",
     "T.RANGE": "Range",
+    "T.DAMAGE": "Damage",
+    "T.DMG_TYPE": "Damage Type",
     "T.RATING": "Rating",
-    "T.EQUIPPED": "Equipped",
     "T.ARMOR_MAX": "Armor Full Value",
     "T.ARMOR_TYPE": "Armor Type",
     "T.AGI_PENALTY": "Agility Penalty",
@@ -48,5 +67,6 @@
     "T.ARMOR_MEDIUM": "Medium",
     "T.ARMOR_HEAVY": "Heavy",
     "T.ARMOR_SHIELD": "Shield",
-    "T.ARMOR_HELM": "Helm"
+    "T.ARMOR_HELM": "Helm",
+    "T.FEATURES": "Features"
 }
