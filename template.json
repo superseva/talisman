@@ -15,8 +15,7 @@
                     "weight": "",
                     "eyes": "",
                     "hair": "",
-                    "description": "",
-                    "journal": ""
+                    "description": ""
                 },
                 "attributes": {
                     "strength": {
@@ -198,16 +197,18 @@
         },
         "spell": {
             "templates": ["base"],
-            "school": "",
-            "spell_point": 0,
+            "level": 0,
+            "type": "",
+            "rarity": "",
+            "spell_points": 0,
             "action": "",
             "difficulty": "",
-            "pvp_difficulty": "",
             "defence": "",
+            "granted": false,
             "damage": {
                 "value": "",
                 "mod": "",
-                "type": "physical"
+                "type": "psychic"
             }
         }
     }

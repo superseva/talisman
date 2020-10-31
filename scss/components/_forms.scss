@@ -91,6 +91,12 @@
     height: 100%;
 }
 
+.spell-tab,
+.spell-tab .description,
+.spell-tab .description .editor {
+    height: 300px;
+}
+
 .sheet-body {
     padding: 5px;
     border: 2px solid transparent;

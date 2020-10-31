@@ -402,6 +402,12 @@
   height: 100%;
 }
 
+.talisman .spell-tab,
+.talisman .spell-tab .description,
+.talisman .spell-tab .description .editor {
+  height: 300px;
+}
+
 .talisman .sheet-body {
   padding: 5px;
   border: 2px solid transparent;
