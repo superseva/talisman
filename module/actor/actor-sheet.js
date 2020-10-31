@@ -151,14 +151,14 @@ export class TalismanActorSheet extends ActorSheet {
             const spell = this.actor.getOwnedItem(li.data("itemId"));
             const spellData = spell.data.data;
             //console.log(spell);
-            let html = `<h4>${spell.name}</h4>
+            let spell_html = `<h4>${spell.name}</h4>
                         <p class='size12'>Action: ${spellData.action}</p>                        
                         <p class='size12'>Spell Points: ${spellData.spell_points}</p>
                         <p class='size12'>Difficulty: ${spellData.difficulty}</p>
                         <p class='size12'>Defence: ${spellData.defence}</p>                    
                         <div class='size12'>${spellData.description}</div>`;
             const spellDescBox = $(".spell-description-box");
-            spellDescBox.html(html);
+            spellDescBox.html(spell_html);
         });
 
         //Roll Weapon Attack
