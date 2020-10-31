@@ -35,6 +35,7 @@ export class TalismanItemSheet extends ItemSheet {
         const sheetBody = this.element.find(".sheet-body");
         const bodyHeight = position.height - 192;
         sheetBody.css("height", bodyHeight);
+        sheetBody.css("overflow-y", "scroll");
         return position;
     }
 

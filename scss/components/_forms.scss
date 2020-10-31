@@ -98,6 +98,12 @@
     height: 300px;
 }
 
+.info-tab,
+.info-tab .description,
+.info-tab .description .editor {
+    height: 300px;
+}
+
 .sheet-body {
     padding: 5px;
     border: 2px solid transparent;
@@ -105,7 +111,7 @@
     background-image: url(../ui/parch-bg.jpg);
     background-size: cover;
     min-height: 280px;
-    overflow-y: scroll;
+    //overflow-y: scroll;
 
     textarea {
         resize: none;
@@ -174,6 +180,7 @@
 .item-header {
     display: flex;
     flex-direction: row;
+
     .profile-img {
         flex: 0 0 100px;
         height: 100px;
