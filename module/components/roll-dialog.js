@@ -1,13 +1,14 @@
 import { DiceRoller } from "./dice-roller.js";
 
 export class RollDialog {
-    static async prepareDialog({ actor = null, aspectId = null, diceNum = 2, aspect = 0, modifier = 0 } = {}) {
+    static async prepareDialog({ actor = null, aspectId = null, diceNum = 2, aspect = 0, modifier = 0, focus = false } = {}) {
         let htmlData = {
             diceNum: diceNum,
             aspect: aspect,
             modifier: modifier,
             actor: actor,
             aspectId: aspectId,
+            focus: focus,
         };
         let htmlContent = await renderTemplate("systems/talisman/templates/dialog/roll-dialog.html", htmlData);
         return new Promise((resolve) => {

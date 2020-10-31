@@ -126,19 +126,35 @@ export class TalismanActorSheet extends ActorSheet {
         html.find(".roll-button").click(this._onRoll.bind(this));
 
         // Handle armor points clicks (left/right)
-        html.find(".armor-point").click((e) => {
-            let index = e.currentTarget.dataset["index"];
+        html.find(".armor-point").click((ev) => {
+            let index = ev.currentTarget.dataset["index"];
             let armor = this.actor.data.data.equipped_armor;
             const item = this.actor.getOwnedItem(armor._id);
             item.updateArmor({ index: index, increase: true });
         });
 
-        html.find(".armor-point").contextmenu((e) => {
-            let index = e.currentTarget.dataset["index"];
+        html.find(".armor-point").contextmenu((ev) => {
+            let index = ev.currentTarget.dataset["index"];
             let armor = this.actor.data.data.equipped_armor;
             const item = this.actor.getOwnedItem(armor._id);
             item.updateArmor({ index: index, increase: false });
             return;
+        });
+        //Roll Weapon Attack
+        html.find(".weapon.rollable").click((ev) => {
+            const li = $(ev.currentTarget).parents(".item");
+            const item = this.actor.getOwnedItem(li.data("itemId"));
+            let aspectKey = item.data.data.aspect == 0 ? null : item.data.data.aspect;
+            let bonus = item.data.data.bonus.value == "" ? 0 : item.data.data.bonus.value;
+            let focus = item.data.data.focus;
+            game.talisman.RollDialog.prepareDialog({ actor: this.actor, aspectId: aspectKey, modifier: bonus, focus: focus });
+        });
+
+        //Roll Damage For Weapon
+        html.find(".weapon-damage.rollable").click((ev) => {
+            const li = $(ev.currentTarget).parents(".item");
+            const item = this.actor.getOwnedItem(li.data("itemId"));
+            item.rollWeaponDamage(this.actor.data.data.damage_modifier.physical.value);
         });
 
         // Drag events for macros.

@@ -27,8 +27,21 @@ export class TalismanItem extends Item {
         });
         let ratingVal = { rating: { value: armorValue } };
         updateData.data = { ...updateData.data, ...ratingVal };
-        console.warn(updateData);
         this.update(updateData);
+    }
+
+    rollSpellDamage() {}
+
+    rollWeaponDamage() {
+        let formula = this.data.data.damage.value;
+        let actorOptions = null;
+        if (this.actor) {
+            actorOptions = this.actor.getRollShortcuts();
+            const damage_mod = this.actor.data.data.damage_modifier[this.data.data.damage.type].value;
+            formula = `${formula} + ${damage_mod}`;
+        }
+        let r = new Roll(formula, actorOptions);
+        r.roll().toMessage();
     }
 
     /**

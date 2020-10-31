@@ -35,4 +35,19 @@ export class TalismanActor extends Actor {
         data.damage_modifier.physical.value = data.attributes.strength.value + data.damage_modifier.physical.mod;
         data.damage_modifier.psychic.value = data.attributes.craft.value + data.damage_modifier.psychic.mod;
     }
+
+    getRollShortcuts() {
+        let out = {};
+        // Attributes
+        const attr = this.data.data.attributes;
+        for (const name of ["strength", "craft"]) {
+            out[name.substring(0, 3)] = attr[name].value;
+        }
+        // Aspects
+        const asp = this.data.data.aspects;
+        for (const key of Object.keys(asp)) {
+            out[key] = asp[key].value;
+        }
+        return out;
+    }
 }

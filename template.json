@@ -162,7 +162,7 @@
         "weapon": {
             "templates": ["base", "physical"],
             "weapon_type": "melee",
-            "aspect": "bra",
+            "aspect": "0",
             "focus": false,
             "range": {
                 "optimal": 0,
@@ -174,7 +174,7 @@
                 "type": "physical"
             },
             "bonus": {
-                "value": 0,
+                "value": "",
                 "mod": 0
             },
             "ammunition": "",
