@@ -135,7 +135,7 @@
         }
     },
     "Item": {
-        "types": ["skill", "ability", "weapon", "armor", "gear", "spell"],
+        "types": ["skill", "ability", "weapon", "armor", "gear", "spell", "follower"],
         "templates": {
             "physical": {
                 "quantity": 1,
@@ -210,6 +210,45 @@
                 "mod": "",
                 "type": "psychic"
             }
+        },
+        "follower": {
+            "loyalty": {
+                "value": 0,
+                "max": 0
+            },
+            "strength": {
+                "value": 0,
+                "max": 0
+            },
+            "craft": {
+                "value": 0,
+                "max": 0
+            },
+            "life": {
+                "value": 0,
+                "max": 0
+            },
+            "benefits": {
+                "benefit1": {
+                    "name": "",
+                    "category": "",
+                    "level": "",
+                    "description": ""
+                },
+                "benefit2": {
+                    "name": "",
+                    "category": "",
+                    "level": "",
+                    "description": ""
+                },
+                "benefit3": {
+                    "name": "",
+                    "category": "",
+                    "level": "",
+                    "description": ""
+                }
+            },
+            "description": ""
         }
     }
 }

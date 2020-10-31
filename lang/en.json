@@ -59,6 +59,8 @@
     "T.WEAPON_TYPE": "Weapon Type",
     "T.MELEE": "Melee",
     "T.RANGE": "Range",
+    "T.BONUS": "Bonus",
+    "T.ATTACK_BONUS": "Attack Bonus",
     "T.DAMAGE": "Damage",
     "T.DMG_TYPE": "Damage Type",
     "T.RATING": "Rating",

@@ -223,7 +223,11 @@
                                     <div class="item-name">{{localize 'T.NAME'}}</div>
                                     <div class="item-image"></div>
                                 </span>
-                                <div class="item-stats flex flex-center">{{localize 'T.DAMAGE'}}</div>
+                                <div class="item-stats flexrow flex-center">
+                                    <span>{{localize 'T.BONUS'}}</span> 
+                                    <span>{{localize 'T.DAMAGE'}}</span> 
+                                    <span>{{localize 'T.RANGE'}}</span>
+                                </div>
                                 <div class="item-controls">
                                     <a class="item-control item-create" title="Create item" data-type="weapon"><i class="fas fa-plus"></i>{{localize 'T.ADD'}}</a>
                                 </div>
@@ -234,7 +238,11 @@
                                     <div class="item-image"><img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/></div>
                                     <h4 class="item-name">{{item.name}}</h4>
                                 </span>
-                                <div class="item-stats flex flex-center"><span class='weapon-damage rollable'>{{item.data.damage.value}}</span></div>
+                                <div class="item-stats flexrow flex-center">
+                                    <span>{{item.data.bonus.value}}</span>
+                                    <span class='weapon-damage rollable'>{{item.data.damage.value}}</span>                                    
+                                    <span>{{item.data.range.optimal}}/{{item.data.range.max}}</span>                                    
+                                </div>
                                 <div class="item-controls">
                                     <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
                                     <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>

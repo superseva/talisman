@@ -1,0 +1,30 @@
+<div class="flex column papirus-box flex-center margin-bottom">
+    <input type="text" name='data.benefits.benefit1.name' value="{{data.benefits.benefit1.name}}"
+        placeholder="{{localize 'T.BENEFIT_NAME'}}" class="margin-bottom">
+    <div class="grid full">
+        <span class="flex column">
+            <label class="resource-label" for="data.benefits.benefit1.category">{{localize 'T.CATEGORY'}}</label>
+            <select name="data.benefits.benefit1.category">
+                {{#select data.benefits.benefit1.category}}
+                <option value="social">{{localize 'T.SOCIAL'}}</option>
+                <option value="combat">{{localize 'T.COMBAT'}}</option>
+                <option value="exploration">{{localize 'T.EXPLORATION'}}</option>
+                <option value="other">{{localize 'T.OTHER'}}</option>
+                {{/select}}
+            </select>
+        </span>
+        <span class="flex column">
+            <label class="resource-label" for="data.benefits.benefit1.level">{{localize 'T.LEVEL'}}</label>
+            <select name="data.benefits.benefit1.level">
+                {{#select data.benefits.benefit1.level}}
+                <option value="weal">{{localize 'T.WEAK'}}</option>
+                <option value="average">{{localize 'T.AVERAGE'}}</option>
+                <option value="strong">{{localize 'T.STRONG'}}</option>
+                {{/select}}
+            </select>
+        </span>
+    </div>
+    <div class="flex row full">
+        <textarea name="data.benefits.benefit1.description">{{data.benefits.benefit1.description}}</textarea>
+    </div>
+</div>

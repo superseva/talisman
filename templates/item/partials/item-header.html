@@ -81,8 +81,29 @@
           {{/select}}
         </select>
       </div>
+    </div>    
+    {{/ifCond}}
+
+    {{#ifCond item.type '==' 'follower'}}
+    <div class="grid grid-3col">
+      <div class="resource flex column">
+        <label class="resource-label">{{localize "T.STRENGTH"}}</label>
+        <input type="number" name="data.strength.value" value="{{data.strength.value}}" data-dtype="Number" />
+      </div>
+      <div class="resource flex column">
+        <label class="resource-label">{{localize "T.CRAFT"}}</label>
+        <input type="number" name="data.craft.value" value="{{data.craft.value}}" data-dtype="Number" />
+      </div>
+      <div class="resource flex column">
+        <label class="resource-label">{{localize "T.LIFE"}}</label>
+        <span class="flex row">
+          <input type="number" name="data.life.value" value="{{data.life.value}}" data-dtype="Number" />
+          <span>/&nbsp;</span>
+          <input type="number" name="data.life.max" value="{{data.life.max}}" data-dtype="Number" />
+        </span>
+        
+      </div>
     </div>
-    
     {{/ifCond}}
   </div>
 </header>
