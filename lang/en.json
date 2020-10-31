@@ -40,6 +40,9 @@
     "T.PHYSICAL": "Physical",
     "T.PSYCHIC": "Psychic",
 
+    "T.QUANTITY": "Quantity",
+    "T.LOAD": "Load",
+    "T.COST": "Cost",
     "T.SKILL": "Skill",
     "T.SKILLS": "Skills",
     "T.NO_SKILL": "Unskilled",
