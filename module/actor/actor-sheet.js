@@ -34,6 +34,7 @@ export class TalismanActorSheet extends ActorSheet {
         const gear = [];
         const armor = [];
         const weapons = [];
+        const spells = [];
         const skills = [];
         const abilities = [];
         for (let i of sheetData.items) {
@@ -45,6 +46,8 @@ export class TalismanActorSheet extends ActorSheet {
                 armor.push(i);
             } else if (i.type === "weapon") {
                 weapons.push(i);
+            } else if (i.type === "spell") {
+                spells.push(i);
             } else if (i.type === "skill") {
                 skills.push(i);
             } else if (i.type === "ability") {
@@ -54,6 +57,7 @@ export class TalismanActorSheet extends ActorSheet {
         actorData.gear = gear;
         actorData.armor = armor;
         actorData.weapons = weapons;
+        actorData.spells = spells;
         actorData.skills = skills;
         actorData.abilities = abilities;
     }
@@ -140,6 +144,23 @@ export class TalismanActorSheet extends ActorSheet {
             item.updateArmor({ index: index, increase: false });
             return;
         });
+
+        //Roll Spell Test
+        html.find(".spell-description.rollable").click((ev) => {
+            const li = $(ev.currentTarget).parents(".item");
+            const spell = this.actor.getOwnedItem(li.data("itemId"));
+            const spellData = spell.data.data;
+            //console.log(spell);
+            let html = `<h4>${spell.name}</h4>
+                        <p class='size12'>Action: ${spellData.action}</p>                        
+                        <p class='size12'>Spell Points: ${spellData.spell_points}</p>
+                        <p class='size12'>Difficulty: ${spellData.difficulty}</p>
+                        <p class='size12'>Defence: ${spellData.defence}</p>                    
+                        <div class='size12'>${spellData.description}</div>`;
+            const spellDescBox = $(".spell-description-box");
+            spellDescBox.html(html);
+        });
+
         //Roll Weapon Attack
         html.find(".weapon.rollable").click((ev) => {
             const li = $(ev.currentTarget).parents(".item");
@@ -149,7 +170,6 @@ export class TalismanActorSheet extends ActorSheet {
             let focus = item.data.data.focus;
             game.talisman.RollDialog.prepareDialog({ actor: this.actor, aspectId: aspectKey, modifier: bonus, focus: focus });
         });
-
         //Roll Damage For Weapon
         html.find(".weapon-damage.rollable").click((ev) => {
             const li = $(ev.currentTarget).parents(".item");

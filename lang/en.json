@@ -72,5 +72,11 @@
     "T.ARMOR_SHIELD": "Shield",
     "T.ARMOR_HELM": "Helm",
     "T.FEATURES": "Features",
-    "T.JOURNAL": "Journal"
+    "T.JOURNAL": "Journal",
+    "T.ACTION": "Action",
+    "T.FREE": "Free",
+    "T.FULL": "Full",
+    "T.REACTION": "Reaction",
+    "T.SPELL_POINTS": "Spell Points",
+    "T.SPELL_POINTS_ABB": "SP"
 }

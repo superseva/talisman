@@ -175,13 +175,11 @@
                 <h3 class="uppercase flex flex-center"><strong>{{localize 'T.SPECIAL_ABILITIES'}}</strong></h3>
                 <ol class="grid grid-2col items-list">
                     {{#each actor.abilities as |item id|}}
-                    <li class="item flex row space-between" data-item-id="{{item._id}}">
-                        <div class="flex column">
-                            <span class="flex row">
-                                <div class="item-image"><img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/></div>
-                                <a class="item-name skill rollable"><strong>{{item.name}}</strong></a>
-                            </span>
-                        </div>
+                    <li class="item flex row space-between" data-item-id="{{item._id}}">                       
+                        <span class="flex row">
+                            <div class="item-image"><img src="{{item.img}}" title="{{item.name}}" width="24" height="24" /></div>
+                            <a class="item-name skill rollable"><strong>{{item.name}}</strong></a>
+                        </span>                        
                         <div class="item-controls">
                             <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
                             <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
@@ -283,16 +281,66 @@
             </div>         
         </div>
 
+        {{!-- Spell Tab --}}
+        <div class="tab spells" data-group="primary" data-tab="spells">
+            <div class="flex column full">
+                <div class="flexrow flex-center papirus-box">
+                    <span>
+                        <label class="resource-label" for="data.derived.spell_points.value">{{localize 'T.SPELL_POINTS'}}</label>
+                        <input type="number" name="data.derived.spell_points.value" value="{{data.derived.spell_points.value}}">
+                        <span>/&nbsp;</span>
+                        <input type="number" name="data.derived.spell_points.max" value="{{data.derived.spell_points.max}}">
+                    </span>
+                </div>
+                <div class="grid grow">
+                    <div class="flex column papirus-box">
+                        <h3 class="uppercase flex flex-center">{{localize 'T.SPELLS'}}</h3>
+                        <div class="flexrow">
+                            <ol class="items-list">
+                                <li class="item flexrow item-header">                              
+                                  <div class="item-name">{{localize 'T.NAME'}}</div>
+                                  <div class="item-image"></div>
+                                  <div class="item-controls">
+                                    <a class="item-control item-create" title="Create item" data-type="spell"><i class="fas fa-plus"></i>{{localize 'T.ADD'}}</a>
+                                  </div>
+                                </li>
+                            {{#each actor.spells as |item id|}}
+                                <li class="item flex row space-between" data-item-id="{{item._id}}">
+                                    <div class="flex column">
+                                        <span class="flex row">
+                                            <div class="item-image"><img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/></div>
+                                            <a class="item-name"><strong>{{item.name}}</strong></a>
+                                        </span>
+                                        <span class="size10" style="padding-left: 30px;">{{localize 'T.ACTION'}}: {{localize (toUpperCase (concat 'T.' item.data.action))}} | {{localize 'T.SPELL_POINTS_ABB'}}: {{item.data.spell_points}}  </span>
+                                        <span class="spell-description rollable size12" style="padding-left: 30px;">{{localize 'T.DESCRIPTION'}}</span>
+                                    </div>
+                                    <div class="item-controls">
+                                        <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
+                                        <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+                                    </div>
+                                </li>
+                            {{/each}}
+                            </ol>
+                        </div>
+                    </div>
+                    <div class="flex column papirus-box">
+                        <h3 class="uppercase flex flex-center">{{localize 'T.DESCRIPTION'}}</h3>
+                        <div class="spell-description-box">...</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         {{!-- Gear Tab --}}
         <div class="tab items" data-group="primary" data-tab="items">
             <div class="flexrow full">
                 <div class="flex column papirus-box">
-                    <h3>{{localize 'T.GEAR'}}</h3>
+                    <h3 class="uppercase flex flex-center">{{localize 'T.GEAR'}}</h3>
                     <div class="flexrow">
                         <ol class="items-list">
-                            <li class="item flexrow item-header">
-                              <div class="item-image"></div>
+                            <li class="item flexrow item-header">                              
                               <div class="item-name">{{localize 'T.NAME'}}</div>
+                              <div class="item-image"></div>
                               <div class="item-stats">{{localize 'T.WEIGHT'}}</div>
                               <div class="item-controls">
                                 <a class="item-control item-create" title="Create item" data-type="gear"><i class="fas fa-plus"></i>{{localize 'T.ADD'}}</a>
@@ -313,7 +361,7 @@
                     </div>
                 </div>
                 <div class="flex column full papirus-box">
-                    <h3>{{localize 'T.JOURNAL'}}</h3>
+                    <h3 class="uppercase flex flex-center">{{localize 'T.JOURNAL'}}</h3>
                     <textarea class="flex full" name="data.journal">{{data.journal}}</textarea>
                 </div>
             </div>            
