@@ -89,6 +89,7 @@
 .sheet-body .tab,
 .sheet-body .tab .editor {
     height: 100%;
+    //margin-bottom: 10px;
 }
 
 .spell-tab,
@@ -104,6 +105,7 @@
     background-image: url(../ui/parch-bg.jpg);
     background-size: cover;
     min-height: 280px;
+    overflow-y: scroll;
 
     textarea {
         resize: none;

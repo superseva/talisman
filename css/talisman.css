@@ -416,6 +416,7 @@
   background-image: url(../ui/parch-bg.jpg);
   background-size: cover;
   min-height: 280px;
+  overflow-y: scroll;
 }
 
 .talisman .sheet-body textarea {
