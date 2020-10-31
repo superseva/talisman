@@ -309,9 +309,12 @@
                                     <div class="flex column">
                                         <span class="flex row">
                                             <div class="item-image"><img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/></div>
-                                            <a class="item-name"><strong>{{item.name}}</strong></a>
+                                            <a class="item-name spell rollable"><strong>{{item.name}}</strong></a>
                                         </span>
                                         <span class="size10" style="padding-left: 30px;">{{localize 'T.ACTION'}}: {{localize (toUpperCase (concat 'T.' item.data.action))}} | {{localize 'T.SPELL_POINTS_ABB'}}: {{item.data.spell_points}}  </span>
+                                        {{#ifCond item.data.damage.value '!=' ''}}
+                                        <span class="spell-damage rollable size12" style="padding-left: 30px;">{{localize 'T.DAMAGE'}}={{item.data.damage.value}}</span>
+                                        {{/ifCond}}
                                         <span class="spell-description rollable size12" style="padding-left: 30px;">{{localize 'T.DESCRIPTION'}}</span>
                                     </div>
                                     <div class="item-controls">

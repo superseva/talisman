@@ -30,7 +30,15 @@ export class TalismanItem extends Item {
         this.update(updateData);
     }
 
-    rollSpellDamage() {}
+    rollSpellDamage() {
+        let formula = this.data.data.damage.value;
+        let actorOptions = null;
+        if (this.actor) {
+            actorOptions = this.actor.getRollShortcuts();
+        }
+        let r = new Roll(formula, actorOptions);
+        r.roll().toMessage();
+    }
 
     rollWeaponDamage() {
         let formula = this.data.data.damage.value;

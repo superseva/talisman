@@ -78,5 +78,16 @@
     "T.FULL": "Full",
     "T.REACTION": "Reaction",
     "T.SPELL_POINTS": "Spell Points",
-    "T.SPELL_POINTS_ABB": "SP"
+    "T.SPELL_POINTS_ABB": "SP",
+    "T.TYPE": "Type",
+    "T.LEVEL": "Level",
+    "T.GRANTED": "Granted",
+    "T.DIFFICULTY": "Difficulty",
+    "T.DEFENCE": "Defence",
+    "T.ARCANE": "Arcane",
+    "T.MYSTIC": "Mustic",
+    "T.NATURE": "Nature",
+    "T.BASIC": "Basic",
+    "T.INTERMEDIATE": "Intermediate",
+    "T.ADVANCED": "Advanced"
 }

@@ -146,6 +146,28 @@ export class TalismanActorSheet extends ActorSheet {
         });
 
         //Roll Spell Test
+        html.find(".spell.rollable").click((ev) => {
+            const li = $(ev.currentTarget).parents(".item");
+            const item = this.actor.getOwnedItem(li.data("itemId"));
+            const itemData = item.data.data;
+            let aspectKey;
+            if (itemData.granted) {
+                aspectKey = "craft";
+            } else {
+                aspectKey = item.data.data.type;
+            }
+            game.talisman.RollDialog.prepareDialog({ actor: this.actor, aspectId: aspectKey });
+            console.warn(aspectKey);
+        });
+
+        //Roll Spell Damage
+        html.find(".spell-damage.rollable").click((ev) => {
+            const li = $(ev.currentTarget).parents(".item");
+            const item = this.actor.getOwnedItem(li.data("itemId"));
+            item.rollSpellDamage();
+        });
+
+        //See Spell Description
         html.find(".spell-description.rollable").click((ev) => {
             const li = $(ev.currentTarget).parents(".item");
             const spell = this.actor.getOwnedItem(li.data("itemId"));
