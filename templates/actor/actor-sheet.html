@@ -16,11 +16,11 @@
                 <div class="flexrow resource-row">
                     <span class="align-center">
                         <label for="data.personal.level">{{localize "T.LEVEL"}}</label>
-                        <input type="number" class="blank" name="data.personal.level" value="{{data.personal.level}}" placeholder="0">
+                        <input type="number" class="blank short" name="data.personal.level" value="{{data.personal.level}}" placeholder="0">
                     </span>
                     <span class="align-center">
                         <label for="data.personal.xp">{{localize "T.XP"}}:</label>
-                        <input type="number" class="blank" name="data.personal.xp" value="{{data.personal.xp}}" placeholder="0">
+                        <input type="number" class="blank short" name="data.personal.xp" value="{{data.personal.xp}}" placeholder="0">
                     </span>
                 </div>
                 <div class="flex row space-between resource-row">
@@ -39,37 +39,37 @@
         <div class="side-column grid ">
             <div>
                 <div class="flex row attribute">                    
-                    <input type="number" name='data.attributes.strength.value' value="{{data.attributes.strength.value}}">
+                    <input type="number" class="short" name='data.attributes.strength.value' value="{{data.attributes.strength.value}}">
                     <label class="rollable" for='data.attributes.strength.value' data-key="strength">{{localize 'T.STRENGTH'}}</label>
                 </div>
                 <div class="flex row aspect">
-                    <input type="number" name='data.aspects.bra.value' value="{{data.aspects.bra.value}}">
+                    <input type="number" class="short" name='data.aspects.bra.value' value="{{data.aspects.bra.value}}">
                     <label class="rollable" for='data.aspects.bra.value' data-key="bra">{{localize 'T.ASPECT_BRA'}}</label>                    
                 </div>
                 <div class="flex row aspect">
-                    <input type="number" name='data.aspects.agi.value' value="{{data.aspects.agi.value}}">
+                    <input type="number" class="short" name='data.aspects.agi.value' value="{{data.aspects.agi.value}}">
                     <label class="rollable" for='data.aspects.agi.value' data-key="agi">{{localize 'T.ASPECT_AGI'}}</label>                    
                 </div>
                 <div class="flex row aspect">
-                    <input type="number" name='data.aspects.met.value' value="{{data.aspects.met.value}}">
+                    <input type="number" class="short" name='data.aspects.met.value' value="{{data.aspects.met.value}}">
                     <label class="rollable" for='data.aspects.met.value' data-key="met">{{localize 'T.ASPECT_MET'}}</label>                    
                 </div>
             </div>
             <div>
                 <div class="flex row attribute">
-                    <input type="number" name='data.attributes.craft.value' value="{{data.attributes.craft.value}}">
+                    <input type="number" class="short" name='data.attributes.craft.value' value="{{data.attributes.craft.value}}">
                     <label class="rollable" for='data.attributes.craft.value' data-key="craft">{{localize 'T.CRAFT'}}</label>                    
                 </div>
                 <div class="flex row aspect">
-                    <input type="number" name='data.aspects.ins.value' value="{{data.aspects.ins.value}}">
+                    <input type="number" class="short" name='data.aspects.ins.value' value="{{data.aspects.ins.value}}">
                     <label class="rollable" for='data.aspects.ins.value' data-key="ins">{{localize 'T.ASPECT_INS'}}</label>                    
                 </div>
                 <div class="flex row aspect">
-                    <input type="number" name='data.aspects.wit.value' value="{{data.aspects.wit.value}}">
+                    <input type="number" class="short" name='data.aspects.wit.value' value="{{data.aspects.wit.value}}">
                     <label class="rollable" for='data.aspects.wit.value' data-key="wit">{{localize 'T.ASPECT_WIT'}}</label>                    
                 </div>
                 <div class="flex row aspect">
-                    <input type="number" name='data.aspects.res.value' value="{{data.aspects.res.value}}">
+                    <input type="number" class="short" name='data.aspects.res.value' value="{{data.aspects.res.value}}">
                     <label class="rollable" for='data.aspects.res.value' data-key="res">{{localize 'T.ASPECT_RES'}}</label>                    
                 </div>
             </div>
@@ -79,9 +79,9 @@
     <div class="flex row space-between single-row">
         <div class="flex row align-center">
             <label for="data.derived.life.value">{{localize "T.LIFE"}}:&nbsp; </label>
-            <input type="number" name="data.derived.life.value" value="{{data.derived.life.value}}">
+            <input type="number" class="short" name="data.derived.life.value" value="{{data.derived.life.value}}">
             <span>/&nbsp;</span>
-            <input type="number" name="data.derived.life.max" value="{{data.derived.life.max}}">
+            <input type="number" class="short" name="data.derived.life.max" value="{{data.derived.life.max}}">
         </div>
         <div class="flex row align-center wounds">
             <label>{{localize "T.WOUNDS"}}:&nbsp;</label>
@@ -103,9 +103,9 @@
         </div>
         <div class="flex row align-center">
             <label for="data.fate.value">{{localize 'T.FATE'}}:&nbsp;</label>
-            <input type="number" name="data.fate.value" value="{{data.fate.value}}">
+            <input type="number" class="short" name="data.fate.value" value="{{data.fate.value}}">
             <span>/&nbsp;</span>
-            <input type="number" name="data.fate.max" value="{{data.fate.max}}">
+            <input type="number" class="short" name="data.fate.max" value="{{data.fate.max}}">
         </div>
     </div>
     <hr>
@@ -115,25 +115,27 @@
                 <label><strong>{{actor.data.derived.armor.value}}</strong></label>
             </span>
         </div>
+        <div class="flex row align-center">
+            <span class="size12">
+                <i class="fas fa-weight-hanging"></i>
+                <label><strong>{{actor.data.derived.load.value}}</strong></label>
+                <span> / </span>
+                <label><strong>{{actor.data.derived.load.max}}</strong></label>
+            </span>
+        </div>
         <div class="flex row align-center size12">
             <label for="data.damage_modifier.physical.mod">{{localize 'T.PHYSICAL_DMG_ABB'}} : {{data.attributes.strength.value}} + </label>
-            <input type="number" class="input-underlined" name="data.damage_modifier.physical.mod" value="{{data.damage_modifier.physical.mod}}" placeholder="0">
+            <input type="number" class="input-underlined short" name="data.damage_modifier.physical.mod" value="{{data.damage_modifier.physical.mod}}" placeholder="0">
             <label for="data.damage_modifier.physical.value"> = <strong>{{data.damage_modifier.physical.value}}</strong></label>
         </div>
         <div class="flex row align-center size12">
             <label for="data.damage_modifier.psychic.mod">{{localize 'T.PSYCHIC_DMG_ABB'}} : {{data.attributes.craft.value}} + </label>
-            <input type="number" class="input-underlined" name="data.damage_modifier.psychic.mod" value="{{data.damage_modifier.psychic.mod}}" placeholder="0">
+            <input type="number" class="input-underlined short" name="data.damage_modifier.psychic.mod" value="{{data.damage_modifier.psychic.mod}}" placeholder="0">
             <label for="data.damage_modifier.psychic.value"> = <strong>{{data.damage_modifier.psychic.value}}</strong></label>
         </div>        
         <div class="flex row align-center size12">
             <label>{{localize 'T.SPEED'}}: <strong>{{data.derived.speed.value}}</strong></label>            
         </div>
-        <!-- <div class="flex row align-center">
-            <label for="data.fate.value">{{localize 'T.FATE'}}:&nbsp;</label>
-            <input type="number" name="data.fate.value" value="{{data.fate.value}}">
-            <span>/&nbsp;</span>
-            <input type="number" name="data.fate.max" value="{{data.fate.max}}">
-        </div> -->
     </div>
     </header>
     
@@ -295,9 +297,9 @@
                 <div class="flexrow flex-center papirus-box">
                     <span>
                         <label class="resource-label" for="data.derived.spell_points.value">{{localize 'T.SPELL_POINTS'}}</label>
-                        <input type="number" name="data.derived.spell_points.value" value="{{data.derived.spell_points.value}}">
+                        <input type="number" class="short" name="data.derived.spell_points.value" value="{{data.derived.spell_points.value}}">
                         <span>/&nbsp;</span>
-                        <input type="number" name="data.derived.spell_points.max" value="{{data.derived.spell_points.max}}">
+                        <input type="number" class="short" name="data.derived.spell_points.max" value="{{data.derived.spell_points.max}}">
                     </span>
                 </div>
                 <div class="grid grow">
@@ -453,8 +455,7 @@
                 <div class="flex column f2 papirus-box">
                     {{editor content=data.biography target="data.biography" button=true owner=owner editable=editable}}
                 </div>
-            </div>
-            
+            </div>            
         </div>
     </section>
 </form>

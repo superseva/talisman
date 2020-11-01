@@ -34,6 +34,21 @@ export class TalismanActor extends Actor {
         //SET DAMAGES
         data.damage_modifier.physical.value = data.attributes.strength.value + data.damage_modifier.physical.mod;
         data.damage_modifier.psychic.value = data.attributes.craft.value + data.damage_modifier.psychic.mod;
+
+        //SET LOAD
+        const physicalItems = actorData.items.filter((_item) => _item.data.weight > 0);
+        let load = 0;
+        physicalItems.forEach((i) => {
+            load += parseInt(i.data.weight) * parseInt(i.data.quantity);
+        });
+
+        data.derived.load.max = data.attributes.strength.value * 5;
+        data.derived.load.value = load;
+        data.derived.load.penalty = 0;
+        if (data.derived.load.value > data.derived.load.max) {
+            data.derived.load.penalty = -2;
+            data.derived.speed.value = Math.floor(data.derived.speed.value / 2);
+        }
     }
 
     getRollShortcuts() {

@@ -87,7 +87,8 @@
                     "load": {
                         "value": 0,
                         "max": 0,
-                        "mod": 0
+                        "mod": 0,
+                        "penalty": 0
                     },
                     "speed": {
                         "value": 0,

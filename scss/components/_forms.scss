@@ -203,8 +203,10 @@
 }
 
 input[type="number"] {
-    min-width: 3em;
-    max-width: 3em;
+    &.short {
+        min-width: 3em;
+        max-width: 3em;
+    }
     text-align: center;
     margin-right: 0.5em;
 }

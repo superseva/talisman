@@ -563,10 +563,13 @@
 }
 
 .talisman input[type="number"] {
-  min-width: 3em;
-  max-width: 3em;
   text-align: center;
   margin-right: 0.5em;
+}
+
+.talisman input[type="number"].short {
+  min-width: 3em;
+  max-width: 3em;
 }
 
 .talisman input.blank {

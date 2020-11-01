@@ -27,6 +27,7 @@ export class RollDialog {
                             let _asp = 0;
                             let wounds = 0;
                             let armorPenalty = 0;
+                            let encumbrance = 0;
                             if (actor) {
                                 let aspectSelected = html.find(".aspects").val();
                                 if (aspectSelected != 0) {
@@ -42,11 +43,20 @@ export class RollDialog {
                                         armorPenalty = 0 - Math.abs(actor.data.data.equipped_armor.data.agi_penalty);
                                     }
                                 }
+                                encumbrance = actor.data.data.derived.load.penalty;
                             } else {
                                 _asp = parseInt(html.find(".aspect-value")[0].value);
                             }
                             let _mod = parseInt(html.find(".modifier-value")[0].value);
-                            DiceRoller.rollDice({ num: diceNum, aspect: _asp, modifier: _mod, hasFocus: hasFocus, wounds: wounds, armorPenalty: armorPenalty });
+                            DiceRoller.rollDice({
+                                num: diceNum,
+                                aspect: _asp,
+                                modifier: _mod,
+                                hasFocus: hasFocus,
+                                wounds: wounds,
+                                armorPenalty: armorPenalty,
+                                encumbrance: encumbrance,
+                            });
                         },
                     },
                 },

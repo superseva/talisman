@@ -18,6 +18,9 @@
         {{#ifCond armorPenalty '<' 0}}
         <span>&nbsp;|&nbsp;<i class="fas fa-tshirt"></i>: {{armorPenalty}}</span>
         {{/ifCond}}
+        {{#ifCond encumbrance '<' 0}}
+        <span>&nbsp;|&nbsp;<i class="fas fa-weight-hanging"></i>: {{encumbrance}}</span>
+        {{/ifCond}}
     </div> 
     <hr>
     <div class="grid">

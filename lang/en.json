@@ -42,6 +42,8 @@
     "T.PSYCHIC_DMG_ABB": "Psychic DM",
     "T.PHYSICAL": "Physical",
     "T.PSYCHIC": "Psychic",
+    "T.GENERAL": "General",
+    "T.CLASS": "Class",
 
     "T.QUANTITY": "Quantity",
     "T.LOAD": "Load",
