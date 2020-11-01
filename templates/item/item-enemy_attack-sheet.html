@@ -1,0 +1,36 @@
+<form class="{{cssClass}}" autocomplete="off">
+    {{> systems/talisman/templates/item/partials/item-header.html}}
+
+    {{!-- Sheet Tab Navigation --}}
+    <nav class="sheet-tabs tabs" data-group="primary">
+        <a class="item" data-tab="attributes">Attributes</a>
+        <a class="item" data-tab="description">Description</a>       
+    </nav>
+
+    {{!-- Sheet Body --}}
+    <section class="item-body">
+        {{!-- Attributes Tab --}}
+        <div class="tab" data-group="primary" data-tab="attributes">
+            <div class="grid">
+                <div>
+                    <label for="data.damage">{{localize 'T.DAMAGE'}}</label>
+                    <input type="text" name="data.damage" value="{{data.damage}}" placeholder="1d6+6... etc">
+                </div>
+                <div class="flex column">
+                    <label for="data.type">{{localize 'T.TYPE'}}</label>
+                    <select name="data.type">
+                        {{#select data.type}}
+                        <option value="physical">{{localize "T.PHYSICAL"}}</option>
+                        <option value="psychic">{{localize "T.PSYCHIC"}}</option>
+                        {{/select}}
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        {{!-- Description Tab --}}
+        <div class="tab" data-group="primary" data-tab="description">
+            {{editor content=data.description target="data.description" button=true owner=owner editable=editable}}
+        </div>        
+    </section>
+</form>

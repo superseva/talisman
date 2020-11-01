@@ -2,8 +2,9 @@ import { DiceRoller } from "./components/dice-roller.js";
 import { RollDialog } from "./components/roll-dialog.js";
 import { TalismanDieBase } from "./talisman-dice.js";
 import { TalismanDieKismet } from "./talisman-dice.js";
-import { TalismanActor } from "./actor/actor.js";
+import { TalismanActor, TalismanEnemy } from "./actor/actor.js";
 import { TalismanActorSheet } from "./actor/actor-sheet.js";
+import { TalismanEnemySheet } from "./actor/enemy-sheet.js";
 import { TalismanItem } from "./item/item.js";
 import { TalismanItemSheet } from "./item/item-sheet.js";
 import TalismanHooks from "./talisman-hooks.js";
@@ -13,6 +14,7 @@ Hooks.once("init", async function () {
         DiceRoller,
         RollDialog,
         TalismanActor,
+        TalismanEnemy,
         TalismanItem,
     };
 
@@ -22,10 +24,12 @@ Hooks.once("init", async function () {
     // Define custom Entity classes
     CONFIG.Actor.entityClass = TalismanActor;
     CONFIG.Item.entityClass = TalismanItem;
+    CONFIG.TinyMCE.toolbar = "styleselect forecolor backcolor bullist numlist image table hr link removeformat code fontsizeselect save";
 
     // Register sheet application classes
     Actors.unregisterSheet("core", ActorSheet);
-    Actors.registerSheet("talisman", TalismanActorSheet, { makeDefault: true });
+    Actors.registerSheet("talisman", TalismanActorSheet, { makeDefault: true, types: ["character"] });
+    Actors.registerSheet("talisman", TalismanEnemySheet, { makeDefault: true, types: ["enemy"] });
     Items.unregisterSheet("core", ItemSheet);
     Items.registerSheet("talisman", TalismanItemSheet, { makeDefault: true });
 

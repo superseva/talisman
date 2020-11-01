@@ -44,6 +44,7 @@
     "T.PSYCHIC": "Psychic",
     "T.GENERAL": "General",
     "T.CLASS": "Class",
+    "T.SPEED": "Speed",
 
     "T.QUANTITY": "Quantity",
     "T.LOAD": "Load",
@@ -100,11 +101,13 @@
     "T.BASIC": "Basic",
     "T.INTERMEDIATE": "Intermediate",
     "T.ADVANCED": "Advanced",
+    "T.BENEFITS": "Benefits",
     "T.BENEFIT_NAME": "Benefit Name",
     "T.SOCIAL": "Social",
     "T.EXPLORATION": "Exploration",
     "T.OTHER": "Other",
     "T.WEAK": "Weak",
     "T.AVERAGE": "Average",
-    "T.STRONG": "Strong"
+    "T.STRONG": "Strong",
+    "T.NUM_OF_ATTACKS": "Num. of Attacks"
 }

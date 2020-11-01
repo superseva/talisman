@@ -365,6 +365,25 @@
   border: 2px solid;
 }
 
+.talisman .enemy-header {
+  -webkit-box-flex: unset;
+  -ms-flex: unset;
+  flex: unset;
+  padding: 5px;
+  border: 2px solid transparent;
+  -o-border-image: url(../ui/border.png) 5 stretch;
+  border-image: url(../ui/border.png) 5 stretch;
+  background-image: url(../ui/parch-bg.jpg);
+  background-size: cover;
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.talisman .enemy-header .header-fields {
+  -webkit-box-flex: 2 !important;
+  -ms-flex: 2 !important;
+  flex: 2 !important;
+}
+
 .talisman .resource-row {
   margin-bottom: 0.2em;
   font-size: 11px;
@@ -384,6 +403,7 @@
   width: 120px;
   height: 120px;
   background-image: url(../ui/roll-normal.png);
+  background-repeat: no-repeat;
   cursor: pointer;
 }
 
@@ -539,6 +559,21 @@
   font-weight: bold;
 }
 
+.talisman .enemy-attacks {
+  background-color: #ece8b9a4;
+}
+
+.talisman .enemy-attacks .enemy-attacks-count {
+  padding: 5px;
+  background-color: black;
+  color: beige;
+  font-weight: bold;
+}
+
+.talisman .enemy-attacks .enemy-attacks-count input {
+  color: beige;
+}
+
 .talisman .item-header {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -589,7 +624,6 @@
 
 .talisman input[type="number"] {
   text-align: center;
-  margin-right: 0.5em;
 }
 
 .talisman input[type="number"].short {

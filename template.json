@@ -1,6 +1,6 @@
 {
     "Actor": {
-        "types": ["character", "npc"],
+        "types": ["character", "enemy"],
         "templates": {
             "base": {
                 "personal": {
@@ -133,10 +133,46 @@
         },
         "character": {
             "templates": ["base"]
+        },
+        "enemy": {
+            "attack_number": 1,
+            "threat": 1,
+            "attributes": {
+                "strength": {
+                    "value": 0,
+                    "max": 0,
+                    "cap": 10,
+                    "mod": 0
+                },
+                "craft": {
+                    "value": 0,
+                    "max": 0,
+                    "cap": 10,
+                    "mod": 0
+                }
+            },
+            "derived": {
+                "life": {
+                    "value": 0,
+                    "max": 0
+                },
+                "speed": {
+                    "value": 0,
+                    "mod": 0
+                }
+            },
+            "armor": {
+                "name": "",
+                "value": 0,
+                "max": 0
+            },
+            "special_abilities": "",
+            "benefits_banes": "",
+            "description": ""
         }
     },
     "Item": {
-        "types": ["skill", "ability", "weapon", "armor", "gear", "spell", "follower"],
+        "types": ["skill", "ability", "weapon", "armor", "gear", "spell", "follower", "enemy_attack"],
         "templates": {
             "physical": {
                 "quantity": 1,
@@ -253,6 +289,11 @@
                     "description": ""
                 }
             },
+            "description": ""
+        },
+        "enemy_attack": {
+            "damage": "",
+            "type": "",
             "description": ""
         }
     }
