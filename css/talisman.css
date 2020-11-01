@@ -7,6 +7,11 @@
   font-family: "Roboto", sans-serif;
 }
 
+.window-app .window-content {
+  background-image: url(../ui/parch-bg.jpg);
+  background-size: cover;
+}
+
 .rollable:hover, .rollable:focus {
   color: #000;
   text-shadow: 0 0 10px red;
@@ -192,6 +197,12 @@
   align-items: flex-end;
 }
 
+.align-baseline {
+  -webkit-box-align: baseline;
+  -ms-flex-align: baseline;
+  align-items: baseline;
+}
+
 .space-around {
   -ms-flex-pack: distribute;
   justify-content: space-around;
@@ -201,6 +212,24 @@
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
   justify-content: space-between;
+}
+
+.f1 {
+  -webkit-box-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+}
+
+.f2 {
+  -webkit-box-flex: 2;
+  -ms-flex: 2;
+  flex: 2;
+}
+
+.f3 {
+  -webkit-box-flex: 3;
+  -ms-flex: 3;
+  flex: 3;
 }
 
 .size10 {
@@ -336,18 +365,18 @@
   border: 2px solid;
 }
 
-.talisman .actor-header .resource-row {
+.talisman .resource-row {
   margin-bottom: 0.2em;
   font-size: 11px;
   line-height: 11px;
 }
 
-.talisman .actor-header .resource-row span {
+.talisman .resource-row span {
   margin-right: 5px;
   border-bottom: 1px solid;
 }
 
-.talisman .actor-header .resource-row label {
+.talisman .resource-row label {
   padding-left: 3px;
 }
 
@@ -367,11 +396,13 @@
 }
 
 .talisman .profile-image-box {
-  min-width: 100px;
-  max-height: 120px;
+  width: 100%;
   border: 10px solid transparent;
   -o-border-image: url(../ui/border-rip.png) 50 stretch;
   border-image: url(../ui/border-rip.png) 50 stretch;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
@@ -382,9 +413,9 @@
 
 .talisman .profile-image-box .profile-img {
   -webkit-box-flex: 0;
-  -ms-flex: 0 0 100px;
-  flex: 0 0 100px;
-  height: 100px;
+  -ms-flex: 0 0 150px;
+  flex: 0 0 150px;
+  height: 150px;
   border: none;
 }
 
@@ -405,12 +436,6 @@
 .talisman .spell-tab,
 .talisman .spell-tab .description,
 .talisman .spell-tab .description .editor {
-  height: 300px;
-}
-
-.talisman .info-tab,
-.talisman .info-tab .description,
-.talisman .info-tab .description .editor {
   height: 300px;
 }
 
@@ -583,7 +608,6 @@
 .talisman .resource-label {
   font-weight: bold;
   text-transform: uppercase;
-  font-size: 12px;
   margin-right: 5px;
 }
 
@@ -636,6 +660,7 @@
 .talisman .items-list .item-name {
   font-size: 1em;
   margin: 0;
+  font-weight: bold;
 }
 
 .talisman .items-list .item-controls {

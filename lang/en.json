@@ -3,6 +3,7 @@
     "T.SUCCESS_GREAT": "Great Successes",
     "T.SUCCESS_EXTRA": "Extraordinary Successes",
 
+    "T.XP": "XP",
     "T.LIFE": "Life",
     "T.FATE": "Fate",
     "T.WOUNDS": "Wounds",
@@ -37,6 +38,8 @@
 
     "T.PHYSICAL_DMG": "Physical Damage",
     "T.PSYCHIC_DMG": "Psychic Damage",
+    "T.PHYSICAL_DMG_ABB": "Physical DM",
+    "T.PSYCHIC_DMG_ABB": "Psychic DM",
     "T.PHYSICAL": "Physical",
     "T.PSYCHIC": "Psychic",
 
@@ -94,5 +97,12 @@
     "T.NATURE": "Nature",
     "T.BASIC": "Basic",
     "T.INTERMEDIATE": "Intermediate",
-    "T.ADVANCED": "Advanced"
+    "T.ADVANCED": "Advanced",
+    "T.BENEFIT_NAME": "Benefit Name",
+    "T.SOCIAL": "Social",
+    "T.EXPLORATION": "Exploration",
+    "T.OTHER": "Other",
+    "T.WEAK": "Weak",
+    "T.AVERAGE": "Average",
+    "T.STRONG": "Strong"
 }

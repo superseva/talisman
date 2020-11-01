@@ -37,6 +37,7 @@ export class TalismanActorSheet extends ActorSheet {
         const spells = [];
         const skills = [];
         const abilities = [];
+        const followers = [];
         for (let i of sheetData.items) {
             //let item = i.data;
             i.img = i.img || DEFAULT_TOKEN;
@@ -52,6 +53,8 @@ export class TalismanActorSheet extends ActorSheet {
                 skills.push(i);
             } else if (i.type === "ability") {
                 abilities.push(i);
+            } else if (i.type === "follower") {
+                followers.push(i);
             }
         }
         actorData.gear = gear;
@@ -60,6 +63,7 @@ export class TalismanActorSheet extends ActorSheet {
         actorData.spells = spells;
         actorData.skills = skills;
         actorData.abilities = abilities;
+        actorData.followers = followers;
     }
 
     /* -------------------------------------------- */

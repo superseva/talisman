@@ -35,18 +35,18 @@
             }
         }
     }
+}
 
-    .resource-row {
-        margin-bottom: 0.2em;
-        font-size: 11px;
-        line-height: 11px;
-        span {
-            margin-right: 5px;
-            border-bottom: 1px solid;
-        }
-        label {
-            padding-left: 3px;
-        }
+.resource-row {
+    margin-bottom: 0.2em;
+    font-size: 11px;
+    line-height: 11px;
+    span {
+        margin-right: 5px;
+        border-bottom: 1px solid;
+    }
+    label {
+        padding-left: 3px;
     }
 }
 
@@ -64,15 +64,16 @@
 }
 
 .profile-image-box {
-    min-width: 100px;
-    max-height: 120px;
+    width: 100%;
+    //height: 100%;
     border: 10px solid transparent;
     border-image: url(../ui/border-rip.png) 50 stretch;
+    display: flex;
     align-items: center;
     justify-content: center;
     .profile-img {
-        flex: 0 0 100px;
-        height: 100px;
+        flex: 0 0 150px;
+        height: 150px;
         border: none;
     }
 }
@@ -95,12 +96,6 @@
 .spell-tab,
 .spell-tab .description,
 .spell-tab .description .editor {
-    height: 300px;
-}
-
-.info-tab,
-.info-tab .description,
-.info-tab .description .editor {
     height: 300px;
 }
 
