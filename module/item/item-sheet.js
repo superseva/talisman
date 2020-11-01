@@ -8,8 +8,8 @@ export class TalismanItemSheet extends ItemSheet {
         return mergeObject(super.defaultOptions, {
             classes: ["talisman", "sheet", "item"],
             width: 520,
-            height: 550,
-            tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "attributes" }],
+            height: 520,
+            tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".item-body", initial: "attributes" }],
         });
     }
 
@@ -32,10 +32,10 @@ export class TalismanItemSheet extends ItemSheet {
     /** @override */
     setPosition(options = {}) {
         const position = super.setPosition(options);
-        const sheetBody = this.element.find(".sheet-body");
+        const sheetBody = this.element.find(".item-body");
         const bodyHeight = position.height - 192;
-        sheetBody.css("height", bodyHeight);
-        sheetBody.css("overflow-y", "scroll");
+        //sheetBody.css("height", bodyHeight);
+        //sheetBody.css("overflow-y", "scroll");
         return position;
     }
 

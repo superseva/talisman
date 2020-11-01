@@ -439,6 +439,31 @@
   height: 300px;
 }
 
+.talisman .item-body {
+  padding: 5px;
+  border: 2px solid transparent;
+  -o-border-image: url(../ui/border.png) 5 stretch;
+  border-image: url(../ui/border.png) 5 stretch;
+  background-image: url(../ui/parch-bg.jpg);
+  background-size: cover;
+  min-height: 320px;
+}
+
+.talisman .item-body textarea {
+  resize: none;
+  max-lines: 4;
+  min-height: 90px;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+.talisman .item-body .tab {
+  height: 100%;
+}
+
+.talisman .item-body .tab .editor {
+  height: 320px;
+}
+
 .talisman .sheet-body {
   padding: 5px;
   border: 2px solid transparent;
