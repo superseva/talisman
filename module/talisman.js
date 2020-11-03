@@ -105,16 +105,7 @@ Hooks.on("renderChatMessage", (message, html) => {
 Hooks.on("preUpdateOwnedItem", (actor, item, data) => TalismanHooks.onPreUpdateOwnedItem({ actor: actor, item: item, updateData: data }));
 Hooks.on("preUpdateItem", (item, data) => TalismanHooks.onPreUpdateItem({ item: item, updateData: data }));
 Hooks.on("preUpdateToken", (scene, token, data) => TalismanHooks.onPreUpdateTokenOwnedItem({ token: token, updateData: data }));
-
-Hooks.on("createActor", async (actor, options, userId) => {
-    let updateData = {};
-    updateData["token.vision"] = true;
-    if (actor.data.type == "character") {
-        updateData["token.disposition"] = CONST.TOKEN_DISPOSITIONS.FRIENDLY;
-        updateData["token.actorLink"] = true;
-    }
-    await actor.update(updateData, { renderSheet: true });
-});
+Hooks.on("createActor", async (actor, options, userId) => TalismanHooks.onCreateActor({ actor: actor, options: options, userId: userId }));
 
 /* -------------------------------------------- */
 /*  DsN Hooks                                   */

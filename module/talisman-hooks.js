@@ -1,4 +1,14 @@
 export default class TalismanHooks {
+    static async onCreateActor({ actor = null, options = null, userId = null } = {}) {
+        let updateData = {};
+        updateData["token.vision"] = true;
+        if (actor.data.type == "character") {
+            updateData["token.disposition"] = CONST.TOKEN_DISPOSITIONS.FRIENDLY;
+            updateData["token.actorLink"] = true;
+        }
+        await actor.update(updateData, { renderSheet: true });
+    }
+
     static onPreUpdateItem({ item = null, updateData = null } = {}) {
         if (item.type == "armor") {
             // update points list if rating changes
@@ -14,6 +24,7 @@ export default class TalismanHooks {
     }
 
     static onPreUpdateTokenOwnedItem({ token = null, updateData = null } = {}) {
+        if (!updateData.actorData) return;
         if (!updateData.actorData.items) return;
         updateData.actorData.items.forEach((item) => {
             if (item.type == "armor") TalismanHooks._updateArmorPoints(item, item);
