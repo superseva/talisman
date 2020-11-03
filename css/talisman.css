@@ -631,6 +631,10 @@
   max-width: 3em;
 }
 
+.talisman input {
+  margin-right: 5px;
+}
+
 .talisman input.blank {
   background-color: unset;
   border: none;

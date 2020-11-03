@@ -119,11 +119,11 @@ Hooks.once("diceSoNiceReady", (dice3d) => {
             name: "talisman",
             description: "talisman/Wood",
             category: "talisman",
-            foreground: "#9F8003",
-            background: "#9F8",
+            foreground: "#000",
+            background: "#000",
             texture: "none",
-            edge: "#9F8003",
-            material: "glass",
+            edge: "#5e4424",
+            material: "wood",
         },
         "default"
     );
