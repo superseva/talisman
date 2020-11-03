@@ -179,7 +179,7 @@
                 "weight": 0
             },
             "base": {
-                "cost": 0,
+                "cost": "0",
                 "description": "",
                 "features": ""
             }
