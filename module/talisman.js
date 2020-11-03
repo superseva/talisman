@@ -24,7 +24,7 @@ Hooks.once("init", async function () {
     // Define custom Entity classes
     CONFIG.Actor.entityClass = TalismanActor;
     CONFIG.Item.entityClass = TalismanItem;
-    CONFIG.TinyMCE.toolbar = "styleselect forecolor backcolor bullist numlist image table hr link removeformat code fontsizeselect save";
+    CONFIG.TinyMCE.toolbar = "styleselect forecolor backcolor bullist numlist image table hr link removeformat code fontsizeselect fontselect save";
 
     // Register sheet application classes
     Actors.unregisterSheet("core", ActorSheet);
