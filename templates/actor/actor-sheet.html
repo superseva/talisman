@@ -315,8 +315,8 @@
                                   </div>
                                 </li>
                             {{#each actor.spells as |item id|}}
-                                <li class="item flex row space-between" data-item-id="{{item._id}}">
-                                    <div class="flex column">
+                                <li class="item flexrow" data-item-id="{{item._id}}">
+                                    <div class="flex column" style="flex:3">
                                         <span class="flex row">
                                             <div class="item-image"><img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/></div>
                                             <a class="item-name spell rollable"><strong>{{item.name}}</strong></a>
@@ -326,8 +326,9 @@
                                         <span class="spell-damage rollable size12" style="padding-left: 30px;">{{localize 'T.DAMAGE'}}={{item.data.damage.value}}</span>
                                         {{/ifCond}}
                                         <span class="size12 flexrow" style="padding-left: 30px;">
-                                            <a>{{localize 'T.MEMORISED'}}</a>
-                                            <a>{{localize 'T.ENDURING'}}</a>                                            
+                                            <a class="item-control item-memorise {{#unless item.data.memorised}}item-notmemorised{{/unless}}" title='{{localize "T.MEMORISED"}}' data-item-id="{{item._id}}"><i class="fas fa-brain"></i>{{localize "T.MEMORISED"}}</a>
+                                            <a class="item-control item-endure {{#unless item.data.enduring}}item-notenduring{{/unless}}" title='{{localize "T.ENDURING"}}' data-item-id="{{item._id}}"><i class="fas fa-lock"></i>{{localize "T.ENDURING"}}</a>         
+
                                         </span>
                                         <span class="spell-description rollable size12" style="padding-left: 30px;">{{localize 'T.DESCRIPTION'}}</span>
                                     </div>

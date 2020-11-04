@@ -790,6 +790,14 @@
   padding-left: 2px;
 }
 
+.talisman .item-memorise.item-notmemorised {
+  color: rgba(0, 0, 0, 0.2);
+}
+
+.talisman .item-endure.item-notenduring {
+  color: rgba(0, 0, 0, 0.2);
+}
+
 .talisman .item-unequipped {
   color: rgba(0, 0, 0, 0.2);
 }
