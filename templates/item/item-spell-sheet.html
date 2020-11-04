@@ -17,13 +17,7 @@
                 <label for="data.damage.value" class="resource-label">{{localize 'T.DAMAGE'}}</label>
                 <input type="text" name="data.damage.value" value="{{data.damage.value}}" placeholder="1d6 + @cra">
             </div>
-            <div class="flex flex-center" style="padding-top: 21px;">
-                <label for="data.granted" class="checkbox-label resource-label">
-                    {{localize 'T.GRANTED'}}
-                    <input class="input-checkbox" type="checkbox" name="data.granted" {{checked data.granted}}
-                        data-dtype="Boolean" />
-                </label>
-            </div>
+            <div></div>            
             <div>
                 <label for="data.difficulty" class="resource-label">{{localize 'T.DIFFICULTY'}}</label>
                 <input type="text" name="data.difficulty" value="{{data.difficulty}}">
@@ -32,6 +26,23 @@
                 <label for="data.defence" class="resource-label">{{localize 'T.DEFENCE'}}</label>
                 <input type="text" name="data.defence" value="{{data.defence}}">
             </div>
+        </div>
+        <div class="grid grid-3col" style="padding-top: 10px;">
+            <label for="data.granted" class="checkbox-label resource-label">
+                {{localize 'T.GRANTED'}}
+                <input class="input-checkbox" type="checkbox" name="data.granted" {{checked data.granted}}
+                    data-dtype="Boolean" />
+            </label>
+            <label for="data.memorised" class="checkbox-label resource-label">
+                {{localize 'T.MEMORISED'}}
+                <input class="input-checkbox" type="checkbox" name="data.memorised" {{checked data.memorised}}
+                    data-dtype="Boolean" />
+            </label>
+            <label for="data.enduring" class="checkbox-label resource-label">
+                {{localize 'T.ENDURING'}}
+                <input class="input-checkbox" type="checkbox" name="data.enduring" {{checked data.enduring}}
+                    data-dtype="Boolean" />
+            </label>
         </div>
         {{!-- Description Tab --}}
         <div class="tabs">

@@ -242,6 +242,8 @@
             "difficulty": "",
             "defence": "",
             "granted": false,
+            "memorised": false,
+            "enduring": false,
             "damage": {
                 "value": "",
                 "mod": "",

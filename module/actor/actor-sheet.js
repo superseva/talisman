@@ -266,4 +266,24 @@ export class TalismanActorSheet extends ActorSheet {
             },
         };
     }
+
+    //Toggle Memorised
+    _toggleMemorised(id, item) {
+        return {
+            _id: id,
+            data: {
+                equipped: !item.data.data.memorised,
+            },
+        };
+    }
+
+    //Toggle Enduring
+    _toggleEnduring(id, item) {
+        return {
+            _id: id,
+            data: {
+                equipped: !item.data.data.enduring,
+            },
+        };
+    }
 }
