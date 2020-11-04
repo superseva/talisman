@@ -107,7 +107,6 @@ export class TalismanActorSheet extends ActorSheet {
         // Toggle Spell Enduring
         html.find(".item-endure").click(async (ev) => {
             const _id = $(ev.currentTarget).data("itemId");
-            console.log(_id);
             const item = this.actor.getOwnedItem(_id);
             await this.actor.updateOwnedItem(this._toggleEnduring(_id, item));
         });
