@@ -11,6 +11,7 @@ export default class TalismanHooks {
 
     static onPreUpdateItem({ item = null, updateData = null } = {}) {
         if (item.type == "armor") {
+            if (!updateData.data) return;
             // update points list if rating changes
             if (updateData.data.rating) TalismanHooks._updateArmorPoints(item.data, updateData);
         }
@@ -18,6 +19,8 @@ export default class TalismanHooks {
 
     static onPreUpdateOwnedItem({ actor = null, item = null, updateData = null, userId = null, diff = null } = {}) {
         if (item.type == "armor") {
+            if (!updateData) return;
+            if (!updateData.data) return;
             // update points list if rating changes
             if (updateData.data.rating) TalismanHooks._updateArmorPoints(item, updateData);
         }
