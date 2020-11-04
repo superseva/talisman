@@ -1,0 +1,128 @@
+<div class="talisman chat-item">
+    <div class="border">
+        <h3>{{name}}</h3>
+        
+        {{#if img}}
+        <img class="item-img" src="{{img}}" title="{{name}}" />
+        {{/if}}
+
+        {{#if isSkill}}
+        <span><strong>{{localize "T.FOCUS"}}:</strong> {{data.focus}}</span>       
+        <hr><h4>{{localize 'T.DESCRIPTION'}}:</h4>
+        <div class="description">{{{data.description}}}</div>
+        <hr>
+        {{/if}}
+
+        {{#if isAbility}}
+        <p><strong>{{localize "T.TYPE"}}:</strong> {{data.ability_type}}</p>
+        <p><strong>{{localize "T.PREREQUISITE"}}:</strong> {{data.prerequisite}}</p>      
+        <p><strong>{{localize "T.IMPROVED"}}:</strong> {{data.improved}}</p>      
+        <hr><h4>{{localize 'T.DESCRIPTION'}}:</h4>
+        <div class="description">{{{data.description}}}</div>
+        <hr>
+        {{/if}}
+
+        {{#if isWeapon}}
+        <p><strong>{{localize "T.TYPE"}}:</strong> {{data.weapon_type}}</p>
+        <p><strong>{{localize "T.ATTACK_BONUS"}}:</strong> {{data.bonus.value}}</p>      
+        <p><strong>{{localize "T.DAMAGE"}}:</strong> {{data.damage.value}}</p>
+        <p><strong>{{localize "T.RANGE"}}:</strong> {{data.range.optimal}} / {{data.range.max}}</p>
+        <div class="features">{{{data.features}}}</div>  
+        <hr><h4>{{localize 'T.DESCRIPTION'}}:</h4>
+        <div class="description">{{{data.description}}}</div>
+        <hr>
+        {{/if}}
+
+        {{#if isArmor}}
+        <p><strong>{{localize "T.TYPE"}}:</strong> {{data.armor_type}}</p>
+        <p><strong>{{localize "T.RATING"}}:</strong> {{data.rating.value}} / {{data.rating.max}}</p>
+        <div class="flex row wrap">
+            <span><strong>{{localize "T.ARMOR_POINTS"}}:</strong></span>
+            {{#each data.points as |p index|}}
+            {{#ifCond p '==' 0}}<span><i class="far fa-circle"></i></span> {{/ifCond}}
+            {{#ifCond p '==' 1}}<span><i class="fas fa-ban"></i></span> {{/ifCond}}
+            {{#ifCond p '==' 2}}<span><i class="far fa-times-circle"></i></span> {{/ifCond}}
+            {{/each}}
+        </div>
+        <p><strong>{{localize "T.AGI_PENALTY"}}:</strong> {{data.agi_penalty}}</p>        
+        <hr><h4>{{localize 'T.DESCRIPTION'}}:</h4>
+        <div class="description">{{{data.description}}}</div>
+        <hr>
+        {{/if}}
+
+        {{#if isSpell}}
+        <p><strong>{{localize "T.LEVEL"}}:</strong> {{localize (concat 'T.SPELL_LEVEL_' data.level)}}</p>     
+        <p><strong>{{localize "T.TYPE"}}:</strong> {{localize (toUpperCase (concat 'T.SPELL_TYPE_' data.type))}}</p>   
+        <p><strong>{{localize "T.SPELL_POINTS"}}:</strong> {{data.spell_points}}</p>
+        <p><strong>{{localize "T.ACTION"}}:</strong> {{localize (toUpperCase (concat 'T.' data.action))}}</p>  
+        <p><strong>{{localize "T.DIFFICULTY"}}:</strong> {{data.difficulty}}</p>  
+        <p><strong>{{localize "T.DEFENCE"}}:</strong> {{data.defence}}</p>
+        <hr><h4>{{localize 'T.DESCRIPTION'}}:</h4>
+        <div class="description">{{{data.description}}}</div>
+        <hr>
+        {{/if}}
+
+        {{#if isGear}}
+        <p><strong>{{localize "T.QUANTITY"}}:</strong> {{data.quantity}}</p>       
+        <hr><h4>{{localize 'T.DESCRIPTION'}}:</h4>
+        <div class="description">{{{data.description}}}</div>
+        <hr>
+        {{/if}}
+
+        {{#if isFollower}}
+        <div class="loyalty"><strong>{{localize "T.LOYALTY"}}:</strong> {{data.loyalty.value}} / {{data.loyalty.max}}</div>  
+        <div class="flexrow">
+            <span><strong>{{localize "T.STRENGTH"}}:</strong> {{data.strength.value}}</span>  
+            <span><strong>{{localize "T.CRAFT"}}:</strong> {{data.craft.value}}</span>  
+        </div>
+        <div class="flexrow">
+            <span><strong>{{localize "T.LIFE"}}:</strong> {{data.life.value}} / {{data.life.max}}</span>  
+            <span><strong>{{localize "T.ARMOR"}}:</strong> {{data.armor.value}} / {{data.armor.max}}</span>  
+        </div>
+        <hr>
+        <div>
+            <p class="benefit-name">{{data.benefits.benefit1.name}}</p>
+            <div class="flexrow">
+                <span><strong>{{localize "T.CATEGORY"}}:</strong> {{localize (toUpperCase (concat 'T.' data.benefits.benefit1.category))}}</span>  
+                <span><strong>{{localize "T.LEVEL"}}:</strong> {{localize (toUpperCase (concat 'T.' data.benefits.benefit1.level))}}</span>  
+            </div>
+            <span class="benefit-desc">{{data.benefits.benefit1.description}}</span>
+        </div>
+        {{#ifCond data.benefits.benefit2.name '!=' ""}}
+        <hr>
+        <div>
+            <p class="benefit-name">{{data.benefits.benefit2.name}}</p>
+            <div class="flexrow">
+                <span><strong>{{localize "T.CATEGORY"}}:</strong> {{localize (toUpperCase (concat 'T.' data.benefits.benefit2.category))}}</span>  
+                <span><strong>{{localize "T.LEVEL"}}:</strong> {{localize (toUpperCase (concat 'T.' data.benefits.benefit2.level))}}</span>  
+            </div>
+            <span class="benefit-desc">{{data.benefits.benefit2.description}}</span>
+        </div>
+        {{/ifCond}}
+        {{#ifCond data.benefits.benefit3.name '!=' ""}}
+        <hr>
+        <div>
+            <p class="benefit-name">{{data.benefits.benefit3.name}}</p>
+            <div class="flexrow">
+                <span><strong>{{localize "T.CATEGORY"}}:</strong> {{localize (toUpperCase (concat 'T.' data.benefits.benefit3.category))}}</span>  
+                <span><strong>{{localize "T.LEVEL"}}:</strong> {{localize (toUpperCase (concat 'T.' data.benefits.benefit3.level))}}</span>  
+            </div>
+            <span class="benefit-desc">{{data.benefits.benefit3.description}}</span>
+        </div>
+        {{/ifCond}}
+        <hr><h4>{{localize 'T.DESCRIPTION'}}:</h4>
+        <div class="description">{{{data.description}}}</div>
+        <hr>
+        {{/if}}
+
+        {{#if data.weight}}
+        <p><strong>{{localize "T.LOAD"}}:</strong> {{data.weight}}</p>
+        {{/if}}
+        {{#if data.cost}}
+        {{#ifCond data.cost '!=' 0}}
+        <p><strong>{{localize "T.COST"}}:</strong> {{data.cost}}</p>
+        {{/ifCond}}
+        {{/if}}
+
+    </div>
+</div>

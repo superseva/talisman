@@ -360,6 +360,65 @@
   opacity: 0.3;
 }
 
+.talisman.chat-item {
+  background-color: white;
+  background-image: url("../ui/parch-bg.jpg");
+  margin: 0 -5px 0 -5px;
+  padding: 5px;
+  font-family: "Merriweather", serif;
+}
+
+.talisman.chat-item h3 {
+  font-family: "Merriweather", serif;
+  font-weight: bold;
+  margin: 0 0 8px;
+  text-align: center;
+}
+
+.talisman.chat-item h4 {
+  font-family: "Merriweather", serif;
+  font-weight: bold;
+  margin: 0 0 8px;
+  text-align: center;
+}
+
+.talisman.chat-item i {
+  margin-left: 2px;
+}
+
+.talisman.chat-item .item-img {
+  background: -o-radial-gradient(closest-side, var(--color-highlight) 0%, transparent 100%);
+  background: radial-gradient(closest-side, var(--color-highlight) 0%, transparent 100%);
+  border: 1px solid;
+  display: block;
+  margin: 0 auto 8px;
+  max-height: 52px;
+  width: 52px;
+}
+
+.talisman.chat-item p {
+  font-family: "Merriweather", serif;
+  margin: 0 0 4px;
+}
+
+.talisman.chat-item .description,
+.talisman.chat-item .features {
+  font-family: Georgia, serif;
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.talisman.chat-item .loyalty {
+  width: 100%;
+  margin: 0 0 10px;
+  text-align: center;
+}
+
+.talisman.chat-item .benefit-name {
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
 /* Styles limited to talisman sheets */
 .talisman {
   /** ACTOR SHEET */
@@ -406,6 +465,18 @@
 
 .talisman .actor-header .side-column .attribute input {
   border: 2px solid;
+}
+
+.talisman .actor-header .life-fate-box {
+  padding: 5px;
+  border: 1px solid #8a7c45;
+  border-radius: 6px;
+  font-weight: bold;
+  background-image: url(../ui/parch-y-bg.jpg);
+}
+
+.talisman .actor-header .life-fate-box input {
+  background-color: white;
 }
 
 .talisman .enemy-header {

@@ -35,6 +35,17 @@
             }
         }
     }
+
+    .life-fate-box {
+        padding: 5px;
+        border: 1px solid #8a7c45;
+        border-radius: 6px;
+        font-weight: bold;
+        background-image: url(../ui/parch-y-bg.jpg);
+        input {
+            background-color: white;
+        }
+    }
 }
 
 .enemy-header {

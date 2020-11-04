@@ -215,6 +215,9 @@ export class TalismanActorSheet extends ActorSheet {
             item.rollWeaponDamage(this.actor.data.data.damage_modifier.physical.value);
         });
 
+        // Chatable Item
+        html.find(".chaty").click(this._onItemSendToChat.bind(this));
+
         // Drag events for macros.
         if (this.actor.owner) {
             let handler = (ev) => this._onDragItemStart(ev);
@@ -256,6 +259,14 @@ export class TalismanActorSheet extends ActorSheet {
         const element = event.currentTarget;
         const dataset = element.dataset;
         game.talisman.RollDialog.prepareDialog({ actor: this.actor, aspectId: dataset["key"] });
+    }
+
+    _onItemSendToChat(event) {
+        event.preventDefault();
+        const itemId = $(event.currentTarget).data("item-id");
+        const item = this.actor.getOwnedItem(itemId);
+        if (!item) return;
+        item.sendToChat();
     }
 
     /**

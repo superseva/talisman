@@ -111,5 +111,16 @@
     "T.WEAK": "Weak",
     "T.AVERAGE": "Average",
     "T.STRONG": "Strong",
-    "T.NUM_OF_ATTACKS": "Num. of Attacks"
+    "T.NUM_OF_ATTACKS": "Num. of Attacks",
+    "T.IMPROVED": "Improved",
+    "T.PREREQUISITE": "Prerequisite",
+    "T.SPELL_LEVEL_1": "Basic",
+    "T.SPELL_LEVEL_2": "Intermediate",
+    "T.SPELL_LEVEL_3": "Advanced",
+    "T.SPELL_TYPE_WIT": "Arcane",
+    "T.SPELL_TYPE_INS": "Mystic",
+    "T.SPELL_TYPE_RES": "Nature",
+    "T.SPELL_TYPE_CRA": "Granted",
+    "T.LOYALTY": "Loyalty",
+    "T.CATEGORY": "Category"
 }
