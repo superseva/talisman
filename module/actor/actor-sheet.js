@@ -174,7 +174,6 @@ export class TalismanActorSheet extends ActorSheet {
                 aspectKey = item.data.data.type;
             }
             game.talisman.RollDialog.prepareDialog({ actor: this.actor, aspectId: aspectKey });
-            console.warn(aspectKey);
         });
 
         //Roll Spell Damage
