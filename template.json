@@ -211,7 +211,7 @@
                 "type": "physical"
             },
             "bonus": {
-                "value": "",
+                "value": "0",
                 "mod": 0
             },
             "ammunition": "",

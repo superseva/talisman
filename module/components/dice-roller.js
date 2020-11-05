@@ -29,6 +29,7 @@ export class DiceRoller {
         let successLevel = DiceRoller.getSuccessLevel(dup);
         successLevel = game.i18n.localize(successLevel);
         let focus = hasFocus ? 2 : 0;
+        modifier = isNaN(parseFloat(modifier)) ? 0 : modifier;
         let total =
             baseDice.length < 3 ? diceResults.reduce((acc, res) => acc + res, 0) + (aspect + modifier + focus + wounds + armorPenalty + encumbrance) : "?";
         let discardable = baseDice.length < 3 ? null : true;
