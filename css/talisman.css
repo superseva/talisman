@@ -340,6 +340,7 @@
   align-items: flex-end;
   line-height: 14px;
   font-weight: 700;
+  text-align: right;
 }
 
 .chat-message .aspect-label {
