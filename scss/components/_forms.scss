@@ -163,6 +163,13 @@
     }
 }
 
+.spell-description {
+    padding: 5px;
+    border: 2px solid transparent;
+    border-image: url(../ui/border.png) 5 stretch;
+    background-image: url(../ui/parch-bg.jpg);
+}
+
 .tox {
     .tox-editor-container {
         background: $c-white;

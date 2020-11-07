@@ -616,6 +616,14 @@
   border: 1px solid rgba(0, 0, 0, 0.3);
 }
 
+.talisman .spell-description {
+  padding: 5px;
+  border: 2px solid transparent;
+  -o-border-image: url(../ui/border.png) 5 stretch;
+  border-image: url(../ui/border.png) 5 stretch;
+  background-image: url(../ui/parch-bg.jpg);
+}
+
 .talisman .tox .tox-editor-container {
   background: #fff;
 }

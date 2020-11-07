@@ -1,54 +1,49 @@
 <form class="{{cssClass}}" autocomplete="off">
-    {{> systems/talisman/templates/item/partials/item-header.html}}
-
-    {{!-- Sheet Tab Navigation --}}
+    {{> systems/talisman/templates/item/partials/item-header.html}} {{!-- Sheet Tab Navigation --}}
     <!-- <nav class="sheet-tabs tabs" data-group="primary">
         <a class="item" data-tab="description">Description</a>        
     </nav> -->
 
     {{!-- Sheet Body --}}
-    <section class="spell-tab">
+    <section class="item-body">
         <div class="grid grid-3col margin-bottom">
             <div>
                 <label for="data.spell_points" class="resource-label">{{localize 'T.SPELL_POINTS'}}</label>
-                <input type="text" name="data.spell_points" value="{{data.spell_points}}">
+                <input type="text" name="data.spell_points" value="{{data.spell_points}}" />
             </div>
             <div>
                 <label for="data.damage.value" class="resource-label">{{localize 'T.DAMAGE'}}</label>
-                <input type="text" name="data.damage.value" value="{{data.damage.value}}" placeholder="1d6 + @cra">
+                <input type="text" name="data.damage.value" value="{{data.damage.value}}" placeholder="1d6 + @cra" />
             </div>
-            <div></div>            
+            <div></div>
             <div>
                 <label for="data.difficulty" class="resource-label">{{localize 'T.DIFFICULTY'}}</label>
-                <input type="text" name="data.difficulty" value="{{data.difficulty}}">
+                <input type="text" name="data.difficulty" value="{{data.difficulty}}" />
             </div>
-            <div style="grid-column: 2 / span 2;">
+            <div style="grid-column: 2 / span 2">
                 <label for="data.defence" class="resource-label">{{localize 'T.DEFENCE'}}</label>
-                <input type="text" name="data.defence" value="{{data.defence}}">
+                <input type="text" name="data.defence" value="{{data.defence}}" />
             </div>
         </div>
-        <div class="grid grid-3col" style="padding-top: 10px;">
+        <div class="grid grid-3col" style="padding-top: 10px">
             <label for="data.granted" class="checkbox-label resource-label">
                 {{localize 'T.GRANTED'}}
-                <input class="input-checkbox" type="checkbox" name="data.granted" {{checked data.granted}}
-                    data-dtype="Boolean" />
+                <input class="input-checkbox" type="checkbox" name="data.granted" {{checked data.granted}} data-dtype="Boolean" />
             </label>
             <label for="data.memorised" class="checkbox-label resource-label">
                 {{localize 'T.MEMORISED'}}
-                <input class="input-checkbox" type="checkbox" name="data.memorised" {{checked data.memorised}}
-                    data-dtype="Boolean" />
+                <input class="input-checkbox" type="checkbox" name="data.memorised" {{checked data.memorised}} data-dtype="Boolean" />
             </label>
             <label for="data.enduring" class="checkbox-label resource-label">
                 {{localize 'T.ENDURING'}}
-                <input class="input-checkbox" type="checkbox" name="data.enduring" {{checked data.enduring}}
-                    data-dtype="Boolean" />
+                <input class="input-checkbox" type="checkbox" name="data.enduring" {{checked data.enduring}} data-dtype="Boolean" />
             </label>
         </div>
         {{!-- Description Tab --}}
         <div class="tabs">
-            <a class="item active">{{localize 'T.DESCRIPTION'}}</a>        
+            <a class="item active">{{localize 'T.DESCRIPTION'}}</a>
         </div>
-        <div class="description sheet-body margin-bottom">
+        <div class="description tab spell-description margin-bottom">
             {{editor content=data.description target="data.description" button=true owner=owner editable=editable}}
         </div>
     </section>

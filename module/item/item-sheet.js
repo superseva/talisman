@@ -8,7 +8,8 @@ export class TalismanItemSheet extends ItemSheet {
         return mergeObject(super.defaultOptions, {
             classes: ["talisman", "sheet", "item"],
             width: 520,
-            height: 520,
+            height: "auto",
+            resizable: true,
             tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".item-body", initial: "attributes" }],
         });
     }
