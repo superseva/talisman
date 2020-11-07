@@ -122,5 +122,6 @@
     "T.SPELL_TYPE_RES": "Nature",
     "T.SPELL_TYPE_CRA": "Granted",
     "T.LOYALTY": "Loyalty",
-    "T.CATEGORY": "Category"
+    "T.CATEGORY": "Category",
+    "T.GOLD": "Gold"
 }
