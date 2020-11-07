@@ -173,7 +173,7 @@
         }
     },
     "Item": {
-        "types": ["skill", "ability", "weapon", "armor", "gear", "spell", "follower", "enemy_attack"],
+        "types": ["weapon", "armor", "gear", "spell", "ability", "skill", "follower", "enemy_attack"],
         "templates": {
             "physical": {
                 "quantity": 1,
