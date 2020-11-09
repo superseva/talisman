@@ -45,6 +45,7 @@
     "T.GENERAL": "General",
     "T.CLASS": "Class",
     "T.SPEED": "Speed",
+    "T.THREAT": "Threat",
 
     "T.QUANTITY": "Quantity",
     "T.LOAD": "Load",
