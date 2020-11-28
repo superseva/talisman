@@ -124,5 +124,6 @@
     "T.SPELL_TYPE_CRA": "Granted",
     "T.LOYALTY": "Loyalty",
     "T.CATEGORY": "Category",
-    "T.GOLD": "Gold"
+    "T.GOLD": "Gold",
+    "T.ANCESTRY": "Ancestry"
 }

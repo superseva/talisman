@@ -1,116 +1,108 @@
 <header class="item-header">
-  <img class="profile-img" src="{{item.img}}" data-edit="img" title="{{item.name}}" />
-  <div class="header-fields" style="width: 100%;">
-    <h3 class="itemname"><input name="name" type="text" value="{{item.name}}" placeholder="Name" /></h3>
-    {{#ifCond data.weight '!=' null}}
-    <div class="grid grid-3col">
-      <div class="resource">
-        <label class="resource-label">{{localize "T.QUANTITY"}}</label>
-        <input type="number" name="data.quantity" value="{{data.quantity}}" data-dtype="Number" />
-      </div>
-      <div class="resource">
-        <label class="resource-label">{{localize "T.LOAD"}}</label>
-        <input type="number" name="data.weight" value="{{data.weight}}" data-dtype="Number" />
-      </div>
-      <div class="resource">
-        <label class="resource-label">{{localize "T.COST"}}</label>
-        <input type="text" name="data.cost" value="{{data.cost}}"/>
-      </div>
+    <img class="profile-img" src="{{item.img}}" data-edit="img" title="{{item.name}}" />
+    <div class="header-fields" style="width: 100%">
+        <h3 class="itemname"><input name="name" type="text" value="{{item.name}}" placeholder="Name" /></h3>
+        {{#ifCond data.weight '!=' null}}
+        <div class="grid grid-3col">
+            <div class="resource">
+                <label class="resource-label">{{localize "T.QUANTITY"}}</label>
+                <input type="number" name="data.quantity" value="{{data.quantity}}" data-dtype="Number" />
+            </div>
+            <div class="resource">
+                <label class="resource-label">{{localize "T.LOAD"}}</label>
+                <input type="number" name="data.weight" value="{{data.weight}}" data-dtype="Number" />
+            </div>
+            <div class="resource">
+                <label class="resource-label">{{localize "T.COST"}}</label>
+                <input type="text" name="data.cost" value="{{data.cost}}" />
+            </div>
+        </div>
+        {{/ifCond}} {{#ifCond item.type '==' 'skill'}}
+        <label class="resource-label">{{localize 'T.FOCUS'}}</label>
+        <input type="text" name="data.focus" value="{{data.focus}}" />
+        {{/ifCond}} {{#ifCond item.type '==' 'ability'}}
+        <div class="grid grid-2col">
+            <div class="flex row align-center">
+                <label class="resource-label" for="data.ability_type">{{localize "T.TYPE"}}</label>
+                <select name="data.ability_type">
+                    {{#select data.ability_type}}
+                    <option value="general">{{localize 'T.GENERAL'}}</option>
+                    <option value="class">{{localize 'T.CLASS'}}</option>
+                    <option value="ancestry">{{localize 'T.ANCESTRY'}}</option>
+                    {{/select}}
+                </select>
+            </div>
+            <div class="flexrow flex-group-left">
+                <label for="data.improved" class="checkbox-label resource-label">
+                    {{localize 'T.IMPROVED'}}
+                    <input class="input-checkbox" type="checkbox" name="data.improved" {{checked data.improved}} data-dtype="Boolean" />
+                </label>
+            </div>
+        </div>
+        <div class="flex row align-center">
+            <label class="resource-label" for="data.prerequisite">{{localize 'T.PREREQUISITE'}}</label>
+            <input type="text" class="size12" name="data.prerequisite" value="{{data.prerequisite}}" />
+        </div>
+        {{/ifCond}} {{#ifCond item.type '==' 'spell'}}
+        <div class="flex row space-between margin-bottom">
+            <div>
+                <label for="data.type" class="resource-label">{{localize 'T.TYPE'}}</label>
+                <select name="data.type">
+                    {{#select data.type}}
+                    <option value="wit">{{localize 'T.ARCANE'}}</option>
+                    <option value="ins">{{localize 'T.MYSTIC'}}</option>
+                    <option value="res">{{localize 'T.NATURE'}}</option>
+                    {{/select}}
+                </select>
+            </div>
+            <div>
+                <label for="data.level" class="resource-label">{{localize 'T.LEVEL'}}</label>
+                <select name="data.level">
+                    {{#select data.level}}
+                    <option value="1">{{localize 'T.BASIC'}}</option>
+                    <option value="2">{{localize 'T.INTERMEDIATE'}}</option>
+                    <option value="3">{{localize 'T.ADVANCED'}}</option>
+                    {{/select}}
+                </select>
+            </div>
+            <div>
+                <label for="data.action" class="resource-label">{{localize 'T.ACTION'}}</label>
+                <select name="data.action">
+                    {{#select data.action}}
+                    <option value="free">{{localize 'T.FREE'}}</option>
+                    <option value="full">{{localize 'T.FULL'}}</option>
+                    <option value="reaction">{{localize 'T.REACTION'}}</option>
+                    {{/select}}
+                </select>
+            </div>
+        </div>
+        {{/ifCond}} {{#ifCond item.type '==' 'follower'}}
+        <div class="grid grid-4col">
+            <div class="resource flex column">
+                <label class="resource-label">{{localize "T.STRENGTH"}}</label>
+                <input type="number" name="data.strength.value" value="{{data.strength.value}}" data-dtype="Number" />
+            </div>
+            <div class="resource flex column">
+                <label class="resource-label">{{localize "T.CRAFT"}}</label>
+                <input type="number" name="data.craft.value" value="{{data.craft.value}}" data-dtype="Number" />
+            </div>
+            <div class="resource flex column">
+                <label class="resource-label">{{localize "T.ARMOR"}}</label>
+                <span class="flex row">
+                    <input type="number" name="data.armor.value" value="{{data.armor.value}}" data-dtype="Number" />
+                    <span>/&nbsp;</span>
+                    <input type="number" name="data.armor.max" value="{{data.armor.max}}" data-dtype="Number" />
+                </span>
+            </div>
+            <div class="resource flex column">
+                <label class="resource-label">{{localize "T.LIFE"}}</label>
+                <span class="flex row">
+                    <input type="number" name="data.life.value" value="{{data.life.value}}" data-dtype="Number" />
+                    <span>/&nbsp;</span>
+                    <input type="number" name="data.life.max" value="{{data.life.max}}" data-dtype="Number" />
+                </span>
+            </div>
+        </div>
+        {{/ifCond}}
     </div>
-    {{/ifCond}}
-
-    {{#ifCond item.type '==' 'skill'}}
-    <label class="resource-label">{{localize 'T.FOCUS'}}</label>
-    <input type="text" name="data.focus" value="{{data.focus}}">
-    {{/ifCond}}
-
-    {{#ifCond item.type '==' 'ability'}}
-    <div class="grid grid-2col">
-      <div class="flex row align-center">
-        <label class="resource-label" for="data.ability_type">{{localize "T.TYPE"}}</label>
-        <select name="data.ability_type">
-          {{#select data.ability_type}}
-          <option value="general">{{localize 'T.GENERAL'}}</option>
-          <option value="class">{{localize 'T.CLASS'}}</option>
-          {{/select}}
-        </select>
-      </div>
-      <div class="flexrow flex-group-left">
-        <label for="data.improved" class="checkbox-label resource-label">
-          {{localize 'T.IMPROVED'}}
-          <input class="input-checkbox" type="checkbox" name="data.improved" {{checked data.improved}}
-            data-dtype="Boolean" />
-        </label>
-      </div>
-    </div>
-    <div class="flex row align-center">
-      <label class="resource-label" for="data.prerequisite">{{localize 'T.PREREQUISITE'}}</label>
-      <input type="text" class="size12" name="data.prerequisite" value="{{data.prerequisite}}">
-    </div>
-    {{/ifCond}}
-
-    {{#ifCond item.type '==' 'spell'}}
-    <div class="flex row space-between margin-bottom">
-      <div>
-        <label for="data.type" class="resource-label">{{localize 'T.TYPE'}}</label>
-        <select name="data.type">
-          {{#select data.type}}
-          <option value="wit">{{localize 'T.ARCANE'}}</option>
-          <option value="ins">{{localize 'T.MYSTIC'}}</option>
-          <option value="res">{{localize 'T.NATURE'}}</option>
-          {{/select}}
-        </select>
-      </div>
-      <div>
-        <label for="data.level" class="resource-label">{{localize 'T.LEVEL'}}</label>
-        <select name="data.level">
-          {{#select data.level}}
-          <option value="1">{{localize 'T.BASIC'}}</option>
-          <option value="2">{{localize 'T.INTERMEDIATE'}}</option>
-          <option value="3">{{localize 'T.ADVANCED'}}</option>
-          {{/select}}
-        </select>
-      </div>
-      <div>
-        <label for="data.action" class="resource-label">{{localize 'T.ACTION'}}</label>
-        <select name="data.action">
-          {{#select data.action}}
-          <option value="free">{{localize 'T.FREE'}}</option>
-          <option value="full">{{localize 'T.FULL'}}</option>
-          <option value="reaction">{{localize 'T.REACTION'}}</option>
-          {{/select}}
-        </select>
-      </div>
-    </div>    
-    {{/ifCond}}
-
-    {{#ifCond item.type '==' 'follower'}}
-    <div class="grid grid-4col">
-      <div class="resource flex column">
-        <label class="resource-label">{{localize "T.STRENGTH"}}</label>
-        <input type="number" name="data.strength.value" value="{{data.strength.value}}" data-dtype="Number" />
-      </div>
-      <div class="resource flex column">
-        <label class="resource-label">{{localize "T.CRAFT"}}</label>
-        <input type="number" name="data.craft.value" value="{{data.craft.value}}" data-dtype="Number" />
-      </div>
-      <div class="resource flex column">
-        <label class="resource-label">{{localize "T.ARMOR"}}</label>
-        <span class="flex row">
-          <input type="number" name="data.armor.value" value="{{data.armor.value}}" data-dtype="Number" />
-          <span>/&nbsp;</span>
-          <input type="number" name="data.armor.max" value="{{data.armor.max}}" data-dtype="Number" />
-        </span>        
-      </div>
-      <div class="resource flex column">
-        <label class="resource-label">{{localize "T.LIFE"}}</label>
-        <span class="flex row">
-          <input type="number" name="data.life.value" value="{{data.life.value}}" data-dtype="Number" />
-          <span>/&nbsp;</span>
-          <input type="number" name="data.life.max" value="{{data.life.max}}" data-dtype="Number" />
-        </span>        
-      </div>
-    </div>
-    {{/ifCond}}
-  </div>
 </header>
