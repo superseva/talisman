@@ -83,6 +83,7 @@
     "T.ARMOR_HEAVY": "Heavy",
     "T.ARMOR_SHIELD": "Shield",
     "T.ARMOR_HELM": "Helm",
+    "T.ARMOR_POINTS": "ARMOR POINTS",
     "T.FEATURES": "Features",
     "T.JOURNAL": "Journal",
     "T.ACTION": "Action",
