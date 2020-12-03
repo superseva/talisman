@@ -2,7 +2,7 @@
     "name": "talisman",
     "title": "Talisman",
     "description": "Talisman RPG system for FoundryVTT!",
-    "version": "0.11",
+    "version": "0.12",
     "minimumCoreVersion": "0.7.5",
     "compatibleCoreVersion": "0.7.7",
     "templateVersion": 1,
