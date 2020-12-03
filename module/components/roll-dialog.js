@@ -43,6 +43,20 @@ export class RollDialog {
                                         armorPenalty = 0 - Math.abs(actor.data.data.equipped_armor.data.agi_penalty);
                                     }
                                 }
+
+                                //check if actor has shield
+                                if (aspectSelected == "agi") {
+                                    let shieldAgiPenalty = 0;
+                                    let _shield = actor.data.items.find((i) => i.type == "armor" && i.data.armor_type == "shield" && i.data.equipped == true);
+                                    if (_shield?.data.agi_penalty) {
+                                        shieldAgiPenalty = !_shield.data.agi_ignored ? _shield.data.agi_penalty : 0;
+                                    }
+                                    console.warn(_shield);
+                                    console.warn(shieldAgiPenalty);
+                                    //console.warn(actor.data);
+                                    armorPenalty -= Math.abs(shieldAgiPenalty);
+                                }
+
                                 encumbrance = actor.data.data.derived.load.penalty;
                             } else {
                                 _asp = parseInt(html.find(".aspect-value")[0].value);

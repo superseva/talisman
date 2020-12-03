@@ -58,7 +58,7 @@
                     {{#ifCond data.armor_type '!=' 'helm'}}
                     <span class="flexcolumn flex-group-center margin">
                         <label class="resource-label" for="data.agi_penalty">{{localize "T.AGI_PENALTY"}}:</label>
-                        <input type="number" name="data.agi_penalty" value="{{data.agi_penalty}}" class="margin-bottom" />
+                        <input type="number" name="data.agi_penalty" value="{{data.agi_penalty}}" class="margin-bottom" min="0" />
                         <label for="data.agi_ignored" class="checkbox-label resource-label">
                             {{localize 'T.AGI_PENALTY_IGNORED'}}
                             <input class="input-checkbox" type="checkbox" name="data.agi_ignored" {{checked data.agi_ignored}} data-dtype="Boolean" />
