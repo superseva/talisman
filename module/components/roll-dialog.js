@@ -44,16 +44,13 @@ export class RollDialog {
                                     }
                                 }
 
-                                //check if actor has shield
+                                //check if actor has shield and is ignoring it
                                 if (aspectSelected == "agi") {
                                     let shieldAgiPenalty = 0;
                                     let _shield = actor.data.items.find((i) => i.type == "armor" && i.data.armor_type == "shield" && i.data.equipped == true);
                                     if (_shield?.data.agi_penalty) {
                                         shieldAgiPenalty = !_shield.data.agi_ignored ? _shield.data.agi_penalty : 0;
                                     }
-                                    console.warn(_shield);
-                                    console.warn(shieldAgiPenalty);
-                                    //console.warn(actor.data);
                                     armorPenalty -= Math.abs(shieldAgiPenalty);
                                 }
 
