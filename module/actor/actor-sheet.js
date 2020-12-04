@@ -253,7 +253,7 @@ export class TalismanActorSheet extends ActorSheet {
     }
 
     /**
-     * Handle right-click attribute.
+     * Handle right-click aspect.
      * @param {Event} event   The originating click event
      * @private
      */
