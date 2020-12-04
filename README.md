@@ -10,9 +10,11 @@ Unofficial Talisman Adventures system for FoundryVTT
 
 ### Character Types
 
--   Character (mostly for PC characters)
--   NPC Two tabbed sheet fot NPC-s \
-    _Followers are handled as items that you can dragg to character sheets_
+-   **Character** \
+    (mostly for PC characters)
+-   **NPC** \
+    Two tabbed sheet fot NPC-s \
+     _Followers are handled as items that you can dragg to character sheets_
 
 ### Item Types
 
