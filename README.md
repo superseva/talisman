@@ -8,7 +8,7 @@ Unofficial Talisman Adventures system for FoundryVTT
 
 ## INFO
 
-### Character Types
+### Actor Types
 
 -   **Character** \
     (mostly for PC characters)
