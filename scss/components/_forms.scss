@@ -104,6 +104,10 @@
     }
 }
 
+.underlined-attribute {
+    text-decoration: underline;
+}
+
 /** SHEET GENERAL */
 
 .sheet-tabs {
@@ -234,6 +238,21 @@
         input {
             color: beige;
         }
+    }
+}
+
+.follower {
+    .resource {
+        padding: 2px;
+        border: 1px solid #d6d3d3;
+        margin-right: 2px;
+    }
+}
+.benefit-list {
+    .benefit {
+        padding: 2px;
+        background-color: rgba($color: #ffffff, $alpha: 0.2);
+        border: 1px solid #d6d3d3;
     }
 }
 

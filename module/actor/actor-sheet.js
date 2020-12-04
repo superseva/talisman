@@ -137,6 +137,9 @@ export class TalismanActorSheet extends ActorSheet {
             this.actor.update(updateData);
         });
 
+        // Mark Asepct.
+        html.find(".aspect .rollable").contextmenu(this._onMarkAttribute.bind(this));
+
         // Rollable Attribute.
         html.find(".attribute .rollable").click(this._onRollAspect.bind(this));
         // Rollable Aspect.
@@ -247,6 +250,23 @@ export class TalismanActorSheet extends ActorSheet {
         };
         delete itemData.data["type"];
         return this.actor.createOwnedItem(itemData);
+    }
+
+    /**
+     * Handle right-click attribute.
+     * @param {Event} event   The originating click event
+     * @private
+     */
+    _onMarkAttribute(event) {
+        event.preventDefault();
+        const element = event.currentTarget;
+        const dataKey = element.dataset["key"];
+        let obj = duplicate(this.actor._data.data.aspects);
+        Object.keys(obj).forEach((k) => {
+            obj[k].cap = 6;
+        });
+        obj[dataKey].cap = 7;
+        this.actor.update({ "data.aspects": obj });
     }
 
     /**

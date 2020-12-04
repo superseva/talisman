@@ -554,6 +554,10 @@
   border: none;
 }
 
+.talisman .underlined-attribute {
+  text-decoration: underline;
+}
+
 .talisman .sheet-tabs {
   -webkit-box-flex: 0;
   -ms-flex: 0;
@@ -695,6 +699,18 @@
 
 .talisman .enemy-attacks .enemy-attacks-count input {
   color: beige;
+}
+
+.talisman .follower .resource {
+  padding: 2px;
+  border: 1px solid #d6d3d3;
+  margin-right: 2px;
+}
+
+.talisman .benefit-list .benefit {
+  padding: 2px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border: 1px solid #d6d3d3;
 }
 
 .talisman .item-header {
