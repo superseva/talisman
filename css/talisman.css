@@ -897,3 +897,7 @@
 .talisman .item-unequipped {
   color: rgba(0, 0, 0, 0.3);
 }
+
+.talisman .item-unpacked {
+  color: rgba(0, 0, 0, 0.3);
+}

@@ -89,6 +89,23 @@ Hooks.once("init", async function () {
                 return options.inverse(this);
         }
     });
+
+    Handlebars.registerHelper("math", function (lvalue, operator, rvalue, options) {
+        lvalue = parseFloat(lvalue);
+        rvalue = parseFloat(rvalue);
+
+        return {
+            "+": lvalue + rvalue,
+            "-": lvalue - rvalue,
+            "*": lvalue * rvalue,
+            "/": lvalue / rvalue,
+            "%": lvalue % rvalue,
+        }[operator];
+    });
+
+    Handlebars.registerHelper("packed", function (weight, quantity, options) {
+        return Math.ceil(parseInt(weight) / 2) * parseInt(quantity);
+    });
 });
 
 Hooks.on("renderChatMessage", (message, html) => {

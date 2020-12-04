@@ -97,6 +97,12 @@ export class TalismanActorSheet extends ActorSheet {
             const item = this.actor.getOwnedItem(li.data("itemId"));
             await this.actor.updateOwnedItem(this._toggleEquipped(li.data("itemId"), item));
         });
+        //Toggle Pack Inventory Item
+        html.find(".item-pack").click(async (ev) => {
+            const li = $(ev.currentTarget).parents(".item");
+            const item = this.actor.getOwnedItem(li.data("itemId"));
+            await this.actor.updateOwnedItem(this._togglePacked(li.data("itemId"), item));
+        });
         // Toggle Spell Memorised
         html.find(".item-memorise").click(async (ev) => {
             const _id = $(ev.currentTarget).data("itemId");
@@ -306,6 +312,16 @@ export class TalismanActorSheet extends ActorSheet {
             _id: id,
             data: {
                 equipped: !item.data.data.equipped,
+            },
+        };
+    }
+
+    //Toggle Packed
+    _togglePacked(id, item) {
+        return {
+            _id: id,
+            data: {
+                packed: !item.data.data.packed,
             },
         };
     }
