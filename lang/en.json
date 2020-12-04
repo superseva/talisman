@@ -126,5 +126,9 @@
     "T.LOYALTY": "Loyalty",
     "T.CATEGORY": "Category",
     "T.GOLD": "Gold",
-    "T.ANCESTRY": "Ancestry"
+    "T.ANCESTRY": "Ancestry",
+    "T.PACKED": "Packed",
+    "T.SEND_TO_CHAT": "Send To Chat",
+    "T.EDIT": "Edit",
+    "T.DELETE": "Delete"
 }

@@ -97,6 +97,12 @@ export class TalismanActorSheet extends ActorSheet {
             const item = this.actor.getOwnedItem(li.data("itemId"));
             await this.actor.updateOwnedItem(this._toggleEquipped(li.data("itemId"), item));
         });
+        //Toggle Pack Inventory Item
+        html.find(".item-pack").click(async (ev) => {
+            const li = $(ev.currentTarget).parents(".item");
+            const item = this.actor.getOwnedItem(li.data("itemId"));
+            await this.actor.updateOwnedItem(this._togglePacked(li.data("itemId"), item));
+        });
         // Toggle Spell Memorised
         html.find(".item-memorise").click(async (ev) => {
             const _id = $(ev.currentTarget).data("itemId");
@@ -136,6 +142,9 @@ export class TalismanActorSheet extends ActorSheet {
             updateData["data.death_tests.value"] = 0;
             this.actor.update(updateData);
         });
+
+        // Mark Asepct.
+        html.find(".aspect .rollable").contextmenu(this._onMarkAttribute.bind(this));
 
         // Rollable Attribute.
         html.find(".attribute .rollable").click(this._onRollAspect.bind(this));
@@ -250,6 +259,23 @@ export class TalismanActorSheet extends ActorSheet {
     }
 
     /**
+     * Handle right-click aspect.
+     * @param {Event} event   The originating click event
+     * @private
+     */
+    _onMarkAttribute(event) {
+        event.preventDefault();
+        const element = event.currentTarget;
+        const dataKey = element.dataset["key"];
+        let obj = duplicate(this.actor._data.data.aspects);
+        Object.keys(obj).forEach((k) => {
+            obj[k].cap = 6;
+        });
+        obj[dataKey].cap = 7;
+        this.actor.update({ "data.aspects": obj });
+    }
+
+    /**
      * Handle clickable attribute rolls.
      * @param {Event} event   The originating click event
      * @private
@@ -286,6 +312,16 @@ export class TalismanActorSheet extends ActorSheet {
             _id: id,
             data: {
                 equipped: !item.data.data.equipped,
+            },
+        };
+    }
+
+    //Toggle Packed
+    _togglePacked(id, item) {
+        return {
+            _id: id,
+            data: {
+                packed: !item.data.data.packed,
             },
         };
     }
