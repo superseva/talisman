@@ -50,5 +50,5 @@ Unofficial Talisman Adventures system for FoundryVTT
 
 ### Thank You
 
-    Thanks Pegasus for creating the game and allowing the system to appear on Foundry VTT.\
+    Thanks Pegasus for creating the game and allowing the system to appear on Foundry VTT.
     Special thanks to Discuit for helping me debuging and providing great suggestions
