@@ -29,5 +29,5 @@ Unofficial Talisman Adventures system for FoundryVTT
 
 -   Make a ROLL using the 'Roll' button on top of the character sheet or click on Attributes/Aspect to prepopulate the roll-dialog.
 -   Equip armor to get the armor plaq on the Character Sheet
-    [armor equip](./help/armor-list.jpg)
-    [armor plaq](./help/armor-plate.jpg)
+    ![armor equip](./help/armor-list.jpg)
+    ![armor plaq](./help/armor-plate.jpg)
