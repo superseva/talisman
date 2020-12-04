@@ -32,7 +32,7 @@ Unofficial Talisman Adventures system for FoundryVTT
     ![modifiers](./help/roll-modifiers.jpg) \
 -   Mark Aspect you choose to have a cap of 7 by right clicking on it. \
     ![ascpects](./help/aspects.jpg) \
--   Equip armor to get the armor plaq on the Character Sheet. \
+-   Equip armor to get the armor plaque on the Character Sheet. \
     ![armor equip](./help/armor-list.jpg) \
     ![armor plaq](./help/armor-plate.jpg) \
 -   Weapon Damage can be rolled from weapon list. It adds hte bonus you selected in the weapon sheet. \
