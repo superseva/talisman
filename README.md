@@ -43,5 +43,5 @@ Unofficial Talisman Adventures system for FoundryVTT
     ![spell](./help/dmg-cra.jpg)
 -   You can simulate item being in the backpack by clicking the 'packed' icon in the list. A formula for item weight when calculating encumbrance is Math.ceil(weight/2) \* quantity. \
     ![spell](./help/gear.jpg)
--   Dice So Nice module supported
+-   Dice So Nice module supported \
     ![dsn](./help/dice-so-nice.jpg)
