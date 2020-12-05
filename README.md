@@ -49,8 +49,11 @@ Unofficial Talisman Adventures system for FoundryVTT
     ![symbols](./help/symbols.png)
 
 `<span style="color: #169179; font-family: Talisman;">l </span>`
+
 `<span style="color: #ba372a; font-family: Talisman;">d </span>`
+
 `<span style="color: #b16c35; font-family: Talisman;">o </span>`
+
 `<span style="color: #000000; font-family: Talisman;">o </span>`
 
 -   Dice So Nice module supported \
