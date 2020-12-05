@@ -47,12 +47,13 @@ Unofficial Talisman Adventures system for FoundryVTT
     ![spell](./help/gear.jpg)
 -   You can use symbols in your rich text editor (journals, items descriptions, etc) by utilizing the html text editor. \
      ![symbols](./help/symbols.png)
+
     Kismet die 6 \
-    `<span style="color: #169179; font-family: Talisman;">l </span>`
+    `<span style="color: #169179; font-family: Talisman;">l </span>` \
     Kismet die 1 \
-    `<span style="color: #ba372a; font-family: Talisman;">d </span>`
+    `<span style="color: #ba372a; font-family: Talisman;">d </span>` \
     Light Point \
-    `<span style="color: #b16c35; font-family: Talisman;">o </span>`
+    `<span style="color: #b16c35; font-family: Talisman;">o </span>` \
     Dark Point \
     `<span style="color: #000000; font-family: Talisman;">o </span>`
 
