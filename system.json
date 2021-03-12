@@ -4,7 +4,7 @@
     "description": "Talisman RPG system for FoundryVTT!",
     "version": "0.14",
     "minimumCoreVersion": "0.7.5",
-    "compatibleCoreVersion": "0.7.8",
+    "compatibleCoreVersion": "0.7.9",
     "templateVersion": 1,
     "author": "HappySteve",
     "esmodules": ["module/talisman.js"],
