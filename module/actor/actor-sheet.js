@@ -12,7 +12,8 @@ export class TalismanActorSheet extends ActorSheet {
 
     /** @override */
     getData() {
-        const data = super.getData();
+        const superData = super.getData();
+        const data = superData.data;
         data.dtypes = ["String", "Number", "Boolean"];
         // Prepare items.
         if (this.actor.data.type == "character") {
@@ -57,13 +58,13 @@ export class TalismanActorSheet extends ActorSheet {
                 followers.push(i);
             }
         }
-        actorData.gear = gear;
-        actorData.armor = armor;
-        actorData.weapons = weapons;
-        actorData.spells = spells;
-        actorData.skills = skills;
-        actorData.abilities = abilities;
-        actorData.followers = followers;
+        sheetData.gear = gear;
+        sheetData.armor = armor;
+        sheetData.weapons = weapons;
+        sheetData.spells = spells;
+        sheetData.skills = skills;
+        sheetData.abilities = abilities;
+        sheetData.followers = followers;
     }
 
     /* -------------------------------------------- */
@@ -80,7 +81,7 @@ export class TalismanActorSheet extends ActorSheet {
         // Update Inventory Item
         html.find(".item-edit").click((ev) => {
             const li = $(ev.currentTarget).parents(".item");
-            const item = this.actor.getOwnedItem(li.data("itemId"));
+            const item = this.actor.items.get(li.data("itemId"));
             item.sheet.render(true);
         });
 
@@ -94,27 +95,30 @@ export class TalismanActorSheet extends ActorSheet {
         //Toggle Equip Inventory Item
         html.find(".item-equip").click(async (ev) => {
             const li = $(ev.currentTarget).parents(".item");
-            const item = this.actor.getOwnedItem(li.data("itemId"));
-            await this.actor.updateOwnedItem(this._toggleEquipped(li.data("itemId"), item));
+            const item = this.actor.items.get(li.data("itemId"));
+            await this.actor.updateEmbeddedDocuments("Item", [this._toggleEquipped(li.data("itemId"), item)]);
+            //await this.actor.updateOwnedItem(this._toggleEquipped(li.data("itemId"), item));
         });
         //Toggle Pack Inventory Item
         html.find(".item-pack").click(async (ev) => {
             const li = $(ev.currentTarget).parents(".item");
-            const item = this.actor.getOwnedItem(li.data("itemId"));
-            await this.actor.updateOwnedItem(this._togglePacked(li.data("itemId"), item));
+            const item = this.actor.items.get(li.data("itemId"));
+            await this.actor.updateEmbeddedDocuments("Item", [this._togglePacked(li.data("itemId"), item)]);
+            //await this.actor.updateOwnedItem(this._togglePacked(li.data("itemId"), item));
         });
         // Toggle Spell Memorised
         html.find(".item-memorise").click(async (ev) => {
             const _id = $(ev.currentTarget).data("itemId");
-            console.log(_id);
-            const item = this.actor.getOwnedItem(_id);
-            await this.actor.updateOwnedItem(this._toggleMemorised(_id, item));
+            const item = this.actor.items.get(_id);
+            await this.actor.updateEmbeddedDocuments("Item", [this._toggleMemorised(_id, item)]);
+            //await this.actor.updateOwnedItem(this._toggleMemorised(_id, item));
         });
         // Toggle Spell Enduring
         html.find(".item-endure").click(async (ev) => {
             const _id = $(ev.currentTarget).data("itemId");
-            const item = this.actor.getOwnedItem(_id);
-            await this.actor.updateOwnedItem(this._toggleEnduring(_id, item));
+            const item = this.actor.items.get(_id);
+            await this.actor.updateEmbeddedDocuments("Item", [this._toggleEnduring(_id, item)]);
+            //await this.actor.updateOwnedItem(this._toggleEnduring(_id, item));
         });
 
         //Set wounds
@@ -159,14 +163,14 @@ export class TalismanActorSheet extends ActorSheet {
         html.find(".armor-point").click((ev) => {
             let index = ev.currentTarget.dataset["index"];
             let armor = this.actor.data.data.equipped_armor;
-            const item = this.actor.getOwnedItem(armor._id);
+            const item = this.actor.items.get(armor._id);
             item.updateArmor({ index: index, increase: true });
         });
 
         html.find(".armor-point").contextmenu((ev) => {
             let index = ev.currentTarget.dataset["index"];
             let armor = this.actor.data.data.equipped_armor;
-            const item = this.actor.getOwnedItem(armor._id);
+            const item = this.actor.items.get(armor._id);
             item.updateArmor({ index: index, increase: false });
             return;
         });
@@ -174,7 +178,7 @@ export class TalismanActorSheet extends ActorSheet {
         //Roll Spell Test
         html.find(".spell.rollable").click((ev) => {
             const li = $(ev.currentTarget).parents(".item");
-            const item = this.actor.getOwnedItem(li.data("itemId"));
+            const item = this.actor.items.get(li.data("itemId"));
             const itemData = item.data.data;
             let aspectKey;
             if (itemData.granted) {
@@ -188,14 +192,14 @@ export class TalismanActorSheet extends ActorSheet {
         //Roll Spell Damage
         html.find(".spell-damage.rollable").click((ev) => {
             const li = $(ev.currentTarget).parents(".item");
-            const item = this.actor.getOwnedItem(li.data("itemId"));
+            const item = this.actor.items.get(li.data("itemId"));
             item.rollSpellDamage();
         });
 
         //See Spell Description
         html.find(".spell-description.rollable").click((ev) => {
             const li = $(ev.currentTarget).parents(".item");
-            const spell = this.actor.getOwnedItem(li.data("itemId"));
+            const spell = this.actor.items.get(li.data("itemId"));
             const spellData = spell.data.data;
             //console.log(spell);
             let spell_html = `<h4><strong>${spell.name}</strong></h4>
@@ -211,7 +215,7 @@ export class TalismanActorSheet extends ActorSheet {
         //Roll Weapon Attack
         html.find(".weapon.rollable").click((ev) => {
             const li = $(ev.currentTarget).parents(".item");
-            const item = this.actor.getOwnedItem(li.data("itemId"));
+            const item = this.actor.items.get(li.data("itemId"));
             let aspectKey = item.data.data.aspect == 0 ? null : item.data.data.aspect;
             let bonus = item.data.data.bonus.value == "" ? 0 : item.data.data.bonus.value;
             let focus = item.data.data.focus;
@@ -220,7 +224,7 @@ export class TalismanActorSheet extends ActorSheet {
         //Roll Damage For Weapon
         html.find(".weapon-damage.rollable").click((ev) => {
             const li = $(ev.currentTarget).parents(".item");
-            const item = this.actor.getOwnedItem(li.data("itemId"));
+            const item = this.actor.items.get(li.data("itemId"));
             item.rollWeaponDamage(this.actor.data.data.damage_modifier.physical.value);
         });
 
@@ -228,7 +232,7 @@ export class TalismanActorSheet extends ActorSheet {
         html.find(".chaty").click(this._onItemSendToChat.bind(this));
 
         // Drag events for macros.
-        if (this.actor.owner) {
+        if (this.actor.isOwner) {
             let handler = (ev) => this._onDragItemStart(ev);
             html.find("li.item").each((i, li) => {
                 if (li.classList.contains("inventory-header")) return;
@@ -290,7 +294,7 @@ export class TalismanActorSheet extends ActorSheet {
     _onItemSendToChat(event) {
         event.preventDefault();
         const itemId = $(event.currentTarget).data("item-id");
-        const item = this.actor.getOwnedItem(itemId);
+        const item = this.actor.items.get(itemId);
         if (!item) return;
         item.sendToChat();
     }

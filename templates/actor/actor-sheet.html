@@ -3,7 +3,7 @@
     <header class="actor-header">
         <div class="flex row space-between">
             <div class="side-column">
-                <h3 class="charname"><input class="input-underlined" name="name" type="text" value="{{actor.name}}" placeholder="Name" /></h3>
+                <h3 class="charname"><input class="input-underlined" name="name" type="text" value="{{name}}" placeholder="Name" /></h3>
                 <div>
                     <div class="flexrow resource-row">
                         <span>
@@ -42,33 +42,15 @@
                     </div>
                     <div class="flex row aspect">
                         <input type="number" class="short" name="data.aspects.bra.value" value="{{data.aspects.bra.value}}" />
-                        <label
-                            class="rollable {{#ifCond data.aspects.bra.cap '==' 7}}underlined-attribute{{/ifCond}}"
-                            for="data.aspects.bra.value"
-                            data-key="bra"
-                            data-cap="{{data.aspects.bra.cap}}"
-                            >{{localize 'T.ASPECT_BRA'}}</label
-                        >
+                        <label class="rollable {{#ifCond data.aspects.bra.cap '==' 7}}underlined-attribute{{/ifCond}}" for="data.aspects.bra.value" data-key="bra" data-cap="{{data.aspects.bra.cap}}">{{localize 'T.ASPECT_BRA'}}</label>
                     </div>
                     <div class="flex row aspect">
                         <input type="number" class="short" name="data.aspects.agi.value" value="{{data.aspects.agi.value}}" />
-                        <label
-                            class="rollable {{#ifCond data.aspects.agi.cap '==' 7}}underlined-attribute{{/ifCond}}"
-                            for="data.aspects.agi.value"
-                            data-key="agi"
-                            data-cap="{{data.aspects.agi.cap}}"
-                            >{{localize 'T.ASPECT_AGI'}}</label
-                        >
+                        <label class="rollable {{#ifCond data.aspects.agi.cap '==' 7}}underlined-attribute{{/ifCond}}" for="data.aspects.agi.value" data-key="agi" data-cap="{{data.aspects.agi.cap}}">{{localize 'T.ASPECT_AGI'}}</label>
                     </div>
                     <div class="flex row aspect">
                         <input type="number" class="short" name="data.aspects.met.value" value="{{data.aspects.met.value}}" />
-                        <label
-                            class="rollable {{#ifCond data.aspects.met.cap '==' 7}}underlined-attribute{{/ifCond}}"
-                            for="data.aspects.met.value"
-                            data-key="met"
-                            data-cap="{{data.aspects.met.cap}}"
-                            >{{localize 'T.ASPECT_MET'}}</label
-                        >
+                        <label class="rollable {{#ifCond data.aspects.met.cap '==' 7}}underlined-attribute{{/ifCond}}" for="data.aspects.met.value" data-key="met" data-cap="{{data.aspects.met.cap}}">{{localize 'T.ASPECT_MET'}}</label>
                     </div>
                 </div>
                 <div>
@@ -78,33 +60,15 @@
                     </div>
                     <div class="flex row aspect">
                         <input type="number" class="short" name="data.aspects.ins.value" value="{{data.aspects.ins.value}}" />
-                        <label
-                            class="rollable {{#ifCond data.aspects.ins.cap '==' 7}}underlined-attribute{{/ifCond}}"
-                            for="data.aspects.ins.value"
-                            data-key="ins"
-                            data-cap="{{data.aspects.ins.cap}}"
-                            >{{localize 'T.ASPECT_INS'}}</label
-                        >
+                        <label class="rollable {{#ifCond data.aspects.ins.cap '==' 7}}underlined-attribute{{/ifCond}}" for="data.aspects.ins.value" data-key="ins" data-cap="{{data.aspects.ins.cap}}">{{localize 'T.ASPECT_INS'}}</label>
                     </div>
                     <div class="flex row aspect">
                         <input type="number" class="short" name="data.aspects.wit.value" value="{{data.aspects.wit.value}}" />
-                        <label
-                            class="rollable {{#ifCond data.aspects.wit.cap '==' 7}}underlined-attribute{{/ifCond}}"
-                            for="data.aspects.wit.value"
-                            data-key="wit"
-                            data-cap="{{data.aspects.wit.cap}}"
-                            >{{localize 'T.ASPECT_WIT'}}</label
-                        >
+                        <label class="rollable {{#ifCond data.aspects.wit.cap '==' 7}}underlined-attribute{{/ifCond}}" for="data.aspects.wit.value" data-key="wit" data-cap="{{data.aspects.wit.cap}}">{{localize 'T.ASPECT_WIT'}}</label>
                     </div>
                     <div class="flex row aspect">
                         <input type="number" class="short" name="data.aspects.res.value" value="{{data.aspects.res.value}}" />
-                        <label
-                            class="rollable {{#ifCond data.aspects.res.cap '==' 7}}underlined-attribute{{/ifCond}}"
-                            for="data.aspects.res.value"
-                            data-key="res"
-                            data-cap="{{data.aspects.res.cap}}"
-                            >{{localize 'T.ASPECT_RES'}}</label
-                        >
+                        <label class="rollable {{#ifCond data.aspects.res.cap '==' 7}}underlined-attribute{{/ifCond}}" for="data.aspects.res.value" data-key="res" data-cap="{{data.aspects.res.cap}}">{{localize 'T.ASPECT_RES'}}</label>
                     </div>
                 </div>
             </div>
@@ -120,40 +84,20 @@
             <div class="flex row align-center wounds">
                 <label>{{localize "T.WOUNDS"}}:&nbsp;</label>
                 <a class="cancel-btn size12" title="{{localize 'T.WND0'}}"><i class="fas fa-ban"></i></a>
-                <a class="btn size12 {{#ifCond data.wounds.value '>=' 1}}selected{{/ifCond}}" data-value="1" title="{{localize 'T.WND1'}}"
-                    ><i class="fas fa-tint"></i
-                ></a>
-                <a class="btn size12 {{#ifCond data.wounds.value '>=' 2}}selected{{/ifCond}}" data-value="2" title="{{localize 'T.WND2'}}"
-                    ><i class="fas fa-tint"></i
-                ></a>
-                <a class="btn size12 {{#ifCond data.wounds.value '>=' 3}}selected{{/ifCond}}" data-value="3" title="{{localize 'T.WND3'}}"
-                    ><i class="fas fa-tint"></i
-                ></a>
-                <a class="btn size12 {{#ifCond data.wounds.value '>=' 4}}selected{{/ifCond}}" data-value="4" title="{{localize 'T.WND4'}}"
-                    ><i class="fas fa-tint"></i
-                ></a>
-                <a class="btn size12 {{#ifCond data.wounds.value '>=' 5}}selected{{/ifCond}}" data-value="5" title="{{localize 'T.WND5'}}"
-                    ><i class="fas fa-tint"></i
-                ></a>
+                <a class="btn size12 {{#ifCond data.wounds.value '>=' 1}}selected{{/ifCond}}" data-value="1" title="{{localize 'T.WND1'}}"><i class="fas fa-tint"></i></a>
+                <a class="btn size12 {{#ifCond data.wounds.value '>=' 2}}selected{{/ifCond}}" data-value="2" title="{{localize 'T.WND2'}}"><i class="fas fa-tint"></i></a>
+                <a class="btn size12 {{#ifCond data.wounds.value '>=' 3}}selected{{/ifCond}}" data-value="3" title="{{localize 'T.WND3'}}"><i class="fas fa-tint"></i></a>
+                <a class="btn size12 {{#ifCond data.wounds.value '>=' 4}}selected{{/ifCond}}" data-value="4" title="{{localize 'T.WND4'}}"><i class="fas fa-tint"></i></a>
+                <a class="btn size12 {{#ifCond data.wounds.value '>=' 5}}selected{{/ifCond}}" data-value="5" title="{{localize 'T.WND5'}}"><i class="fas fa-tint"></i></a>
             </div>
             <div class="flex row align-center deathtests">
                 <!-- <label>{{localize "T.DEATH_SAVE"}}:&nbsp;</label> -->
                 <a class="cancel-btn size12" title="{{localize 'T.DTH0'}}"><i class="fas fa-ban"></i></a>
-                <a class="btn size12 {{#ifCond data.death_tests.value '<=' -8}}selected{{/ifCond}}" data-value="-8" title="{{localize 'T.DTH1'}}"
-                    ><i class="fas fa-skull-crossbones"></i
-                ></a>
-                <a class="btn size12 {{#ifCond data.death_tests.value '<=' -9}}selected{{/ifCond}}" data-value="-9" title="{{localize 'T.DTH2'}}"
-                    ><i class="fas fa-skull-crossbones"></i
-                ></a>
-                <a class="btn size12 {{#ifCond data.death_tests.value '<=' -10}}selected{{/ifCond}}" data-value="-10" title="{{localize 'T.DTH3'}}"
-                    ><i class="fas fa-skull-crossbones"></i
-                ></a>
-                <a class="btn size12 {{#ifCond data.death_tests.value '<=' -11}}selected{{/ifCond}}" data-value="-11" title="{{localize 'T.DTH4'}}"
-                    ><i class="fas fa-skull-crossbones"></i
-                ></a>
-                <a class="btn size12 {{#ifCond data.death_tests.value '<=' -12}}selected{{/ifCond}}" data-value="-12" title="{{localize 'T.DTH5'}}"
-                    ><i class="fas fa-skull-crossbones"></i
-                ></a>
+                <a class="btn size12 {{#ifCond data.death_tests.value '<=' -8}}selected{{/ifCond}}" data-value="-8" title="{{localize 'T.DTH1'}}"><i class="fas fa-skull-crossbones"></i></a>
+                <a class="btn size12 {{#ifCond data.death_tests.value '<=' -9}}selected{{/ifCond}}" data-value="-9" title="{{localize 'T.DTH2'}}"><i class="fas fa-skull-crossbones"></i></a>
+                <a class="btn size12 {{#ifCond data.death_tests.value '<=' -10}}selected{{/ifCond}}" data-value="-10" title="{{localize 'T.DTH3'}}"><i class="fas fa-skull-crossbones"></i></a>
+                <a class="btn size12 {{#ifCond data.death_tests.value '<=' -11}}selected{{/ifCond}}" data-value="-11" title="{{localize 'T.DTH4'}}"><i class="fas fa-skull-crossbones"></i></a>
+                <a class="btn size12 {{#ifCond data.death_tests.value '<=' -12}}selected{{/ifCond}}" data-value="-12" title="{{localize 'T.DTH5'}}"><i class="fas fa-skull-crossbones"></i></a>
             </div>
             <div class="flex row align-center life-fate-box">
                 <label for="data.fate.value">{{localize 'T.FATE'}}:&nbsp;</label>
@@ -166,37 +110,25 @@
         <div class="flex row space-between single-row">
             <div class="flex row align-center">
                 <span class="armor-box small size12">
-                    <label><strong>{{actor.data.derived.armor.value}}</strong></label>
+                    <label><strong>{{data.derived.armor.value}}</strong></label>
                 </span>
             </div>
             <div class="flex row align-center">
                 <span class="size12">
                     <i class="fas fa-weight-hanging"></i>
-                    <label><strong>{{actor.data.derived.load.value}}</strong></label>
+                    <label><strong>{{data.derived.load.value}}</strong></label>
                     <span> / </span>
-                    <label><strong>{{actor.data.derived.load.max}}</strong></label>
+                    <label><strong>{{data.derived.load.max}}</strong></label>
                 </span>
             </div>
             <div class="flex row align-center size12">
                 <label for="data.damage_modifier.physical.mod">{{localize 'T.PHYSICAL_DMG_ABB'}} : {{data.attributes.strength.value}} + </label>
-                <input
-                    type="number"
-                    class="input-underlined short"
-                    name="data.damage_modifier.physical.mod"
-                    value="{{data.damage_modifier.physical.mod}}"
-                    placeholder="0"
-                />
+                <input type="number" class="input-underlined short" name="data.damage_modifier.physical.mod" value="{{data.damage_modifier.physical.mod}}" placeholder="0" />
                 <label for="data.damage_modifier.physical.value"> = <strong>{{data.damage_modifier.physical.value}}</strong></label>
             </div>
             <div class="flex row align-center size12">
                 <label for="data.damage_modifier.psychic.mod">{{localize 'T.PSYCHIC_DMG_ABB'}} : {{data.attributes.craft.value}} + </label>
-                <input
-                    type="number"
-                    class="input-underlined short"
-                    name="data.damage_modifier.psychic.mod"
-                    value="{{data.damage_modifier.psychic.mod}}"
-                    placeholder="0"
-                />
+                <input type="number" class="input-underlined short" name="data.damage_modifier.psychic.mod" value="{{data.damage_modifier.psychic.mod}}" placeholder="0" />
                 <label for="data.damage_modifier.psychic.value"> = <strong>{{data.damage_modifier.psychic.value}}</strong></label>
             </div>
             <div class="flex row align-center size12">
@@ -222,7 +154,7 @@
             <div class="flex column papirus-box">
                 <h3 class="uppercase flex flex-center"><strong>{{localize 'T.SKILLS'}}</strong></h3>
                 <ol class="grid grid-2col items-list">
-                    {{#each actor.skills as |item id|}}
+                    {{#each skills as |item id|}}
                     <li class="item flex row space-between" data-item-id="{{item._id}}">
                         <div class="flex column">
                             <span class="flex row">
@@ -243,7 +175,7 @@
             <div class="flex column papirus-box">
                 <h3 class="uppercase flex flex-center"><strong>{{localize 'T.SPECIAL_ABILITIES'}}</strong></h3>
                 <ol class="grid grid-2col items-list">
-                    {{#each actor.abilities as |item id|}}
+                    {{#each abilities as |item id|}}
                     <li class="item flex row space-between" data-item-id="{{item._id}}">
                         <span class="flex row">
                             <div class="item-image"><img src="{{item.img}}" title="{{item.name}}" width="24" height="24" /></div>
@@ -263,21 +195,15 @@
         {{!-- Combat Tab --}}
         <div class="tab combat" data-group="primary" data-tab="combat">
             <div class="flexcol flex-group-center flex-center papirus-box">
-                <label class="capitalize"><strong>{{actor.data.equipped_armor.name}}</strong></label>
+                <label class="capitalize"><strong>{{data.equipped_armor.name}}</strong></label>
 
-                {{#ifCond actor.data.equipped_armor.data.armor_type '!=' 'shield'}} {{#ifCond actor.data.equipped_armor.data.armor_type '!=' 'helm'}}
+                {{#ifCond data.equipped_armor.data.armor_type '!=' 'shield'}} {{#ifCond data.equipped_armor.data.armor_type '!=' 'helm'}}
                 <div class="flex row flex-center margin">
                     <span class="armor-box">
-                        <label>{{actor.data.equipped_armor.data.rating.value}}</label>
+                        <label>{{data.equipped_armor.data.rating.value}}</label>
                     </span>
-                    {{#each actor.data.equipped_armor.data.points as |status index|}}
-                    <a
-                        class="armor-point {{#ifCond status '==' 0}}new{{/ifCond}} {{#ifCond status '==' 1}}damaged{{/ifCond}} {{#ifCond status '==' 2}}destroyed{{/ifCond}}"
-                        data-max="{{../data.rating.max}}"
-                        data-status="{{status}}"
-                        data-index="{{index}}"
-                        data-item_id="{{../../data.id}}"
-                    >
+                    {{#each data.equipped_armor.data.points as |status index|}}
+                    <a class="armor-point {{#ifCond status '==' 0}}new{{/ifCond}} {{#ifCond status '==' 1}}damaged{{/ifCond}} {{#ifCond status '==' 2}}destroyed{{/ifCond}}" data-max="{{../data.rating.max}}" data-status="{{status}}" data-index="{{index}}" data-item_id="{{../../data.id}}">
                         {{#ifCond status '==' 0}}<i class="far fa-circle"></i>{{/ifCond}} {{#ifCond status '==' 1}}<i class="fas fa-ban"></i>{{/ifCond}}
                         {{#ifCond status '==' 2}}<i class="far fa-times-circle"></i>{{/ifCond}}
                     </a>
@@ -302,12 +228,10 @@
                                     <span>{{localize 'T.RANGE'}}</span>
                                 </div>
                                 <div class="item-controls f1">
-                                    <a class="item-control item-create" title="Create item" data-type="weapon"
-                                        ><i class="fas fa-plus"></i>{{localize 'T.ADD'}}</a
-                                    >
+                                    <a class="item-control item-create" title="Create item" data-type="weapon"><i class="fas fa-plus"></i>{{localize 'T.ADD'}}</a>
                                 </div>
                             </li>
-                            {{#each actor.weapons as |item id|}}
+                            {{#each weapons as |item id|}}
                             <li class="item flexrow" data-item-id="{{item._id}}">
                                 <span class="flex row weapon rollable f2">
                                     <div class="item-image"><img src="{{item.img}}" title="{{item.name}}" width="24" height="24" /></div>
@@ -319,9 +243,7 @@
                                     <span>{{item.data.range.optimal}}/{{item.data.range.max}}</span>
                                 </div>
                                 <div class="item-controls f1">
-                                    <a class="item-control chaty" title='{{localize "T.SEND_TO_CHAT"}}' data-item-id="{{item._id}}"
-                                        ><i class="fas fa-comment"></i
-                                    ></a>
+                                    <a class="item-control chaty" title='{{localize "T.SEND_TO_CHAT"}}' data-item-id="{{item._id}}"><i class="fas fa-comment"></i></a>
                                     <a class="item-control item-edit" title='{{localize "T.EDIT"}}'><i class="fas fa-edit"></i></a>
                                     <a class="item-control item-delete" title='{{localize "T.DELETE"}}'><i class="fas fa-trash"></i></a>
                                 </div>
@@ -342,12 +264,10 @@
                                 </span>
                                 <div class="item-stats flex flex-center">{{localize 'T.RATING'}}</div>
                                 <div class="item-controls">
-                                    <a class="item-control item-create" title="Create item" data-type="armor"
-                                        ><i class="fas fa-plus"></i>{{localize 'T.ADD'}}</a
-                                    >
+                                    <a class="item-control item-create" title="Create item" data-type="armor"><i class="fas fa-plus"></i>{{localize 'T.ADD'}}</a>
                                 </div>
                             </li>
-                            {{#each actor.armor as |item id|}}
+                            {{#each armor as |item id|}}
                             <li class="item flexrow" data-item-id="{{item._id}}">
                                 <span class="flex row">
                                     <div class="item-image"><img src="{{item.img}}" title="{{item.name}}" width="24" height="24" /></div>
@@ -355,14 +275,9 @@
                                 </span>
                                 <div class="item-stats flex flex-center">{{item.data.rating.value}} / {{item.data.rating.max}}</div>
                                 <div class="item-controls">
-                                    <a class="item-control chaty" title='{{localize "T.SEND_TO_CHAT"}}' data-item-id="{{item._id}}"
-                                        ><i class="fas fa-comment"></i
-                                    ></a>
+                                    <a class="item-control chaty" title='{{localize "T.SEND_TO_CHAT"}}' data-item-id="{{item._id}}"><i class="fas fa-comment"></i></a>
                                     <a class="item-control item-edit" title='{{localize "T.EDIT"}}'><i class="fas fa-edit"></i></a>
-                                    <a
-                                        class="item-control item-equip {{#unless item.data.equipped}}item-unequipped{{/unless}}"
-                                        title='{{localize "T.EQUIPPED"}}'
-                                    >
+                                    <a class="item-control item-equip {{#unless item.data.equipped}}item-unequipped{{/unless}}" title='{{localize "T.EQUIPPED"}}'>
                                         <i class="fas fa-tshirt"></i>
                                     </a>
                                     <a class="item-control item-delete" title='{{localize "T.DELETE"}}'><i class="fas fa-trash"></i></a>
@@ -395,47 +310,30 @@
                                     <div class="item-name">{{localize 'T.NAME'}}</div>
                                     <div class="item-image"></div>
                                     <div class="item-controls">
-                                        <a class="item-control item-create" title="Create item" data-type="spell"
-                                            ><i class="fas fa-plus"></i>{{localize 'T.ADD'}}</a
-                                        >
+                                        <a class="item-control item-create" title="Create item" data-type="spell"><i class="fas fa-plus"></i>{{localize 'T.ADD'}}</a>
                                     </div>
                                 </li>
-                                {{#each actor.spells as |item id|}}
+                                {{#each spells as |item id|}}
                                 <li class="item flexrow" data-item-id="{{item._id}}">
                                     <div class="flex column" style="flex: 3">
                                         <span class="flex row">
                                             <div class="item-image"><img src="{{item.img}}" title="{{item.name}}" width="24" height="24" /></div>
                                             <a class="item-name spell rollable"><strong>{{item.name}}</strong></a>
                                         </span>
-                                        <span class="size10" style="padding-left: 30px"
-                                            >{{localize 'T.ACTION'}}: {{localize (toUpperCase (concat 'T.' item.data.action))}} | {{localize
+                                        <span class="size10" style="padding-left: 30px">{{localize 'T.ACTION'}}: {{localize (toUpperCase (concat 'T.' item.data.action))}} | {{localize
                                             'T.SPELL_POINTS_ABB'}}: {{item.data.spell_points}}
                                         </span>
                                         {{#ifCond item.data.damage.value '!=' ''}}
-                                        <span class="spell-damage rollable size12" style="padding-left: 30px"
-                                            >{{localize 'T.DAMAGE'}}={{item.data.damage.value}}</span
-                                        >
+                                        <span class="spell-damage rollable size12" style="padding-left: 30px">{{localize 'T.DAMAGE'}}={{item.data.damage.value}}</span>
                                         {{/ifCond}}
                                         <span class="size12 flexrow" style="padding-left: 30px">
-                                            <a
-                                                class="item-control item-memorise {{#unless item.data.memorised}}item-notmemorised{{/unless}}"
-                                                title='{{localize "T.MEMORISED"}}'
-                                                data-item-id="{{item._id}}"
-                                                ><i class="fas fa-brain"></i>{{localize "T.MEMORISED"}}</a
-                                            >
-                                            <a
-                                                class="item-control item-endure {{#unless item.data.enduring}}item-notenduring{{/unless}}"
-                                                title='{{localize "T.ENDURING"}}'
-                                                data-item-id="{{item._id}}"
-                                                ><i class="fas fa-lock"></i>{{localize "T.ENDURING"}}</a
-                                            >
+                                            <a class="item-control item-memorise {{#unless item.data.memorised}}item-notmemorised{{/unless}}" title='{{localize "T.MEMORISED"}}' data-item-id="{{item._id}}"><i class="fas fa-brain"></i>{{localize "T.MEMORISED"}}</a>
+                                            <a class="item-control item-endure {{#unless item.data.enduring}}item-notenduring{{/unless}}" title='{{localize "T.ENDURING"}}' data-item-id="{{item._id}}"><i class="fas fa-lock"></i>{{localize "T.ENDURING"}}</a>
                                         </span>
                                         <span class="spell-description rollable size12" style="padding-left: 30px">{{localize 'T.DESCRIPTION'}}</span>
                                     </div>
                                     <div class="item-controls">
-                                        <a class="item-control chaty" title='{{localize "T.SEND_TO_CHAT"}}' data-item-id="{{item._id}}"
-                                            ><i class="fas fa-comment"></i
-                                        ></a>
+                                        <a class="item-control chaty" title='{{localize "T.SEND_TO_CHAT"}}' data-item-id="{{item._id}}"><i class="fas fa-comment"></i></a>
                                         <a class="item-control item-edit" title='{{localize "T.EDIT"}}'><i class="fas fa-edit"></i></a>
                                         <a class="item-control item-delete" title='{{localize "T.DELETE"}}'><i class="fas fa-trash"></i></a>
                                     </div>
@@ -471,7 +369,7 @@
                                     <a class="item-control item-create" title="Create item" data-type="gear"><i class="fas fa-plus"></i>{{localize 'T.ADD'}}</a>
                                 </div>
                             </li>
-                            {{#each actor.gear as |item id|}}
+                            {{#each gear as |item id|}}
                             <li class="item flexrow" data-item-id="{{item._id}}">
                                 <div class="item-image"><img src="{{item.img}}" title="{{item.name}}" width="24" height="24" /></div>
                                 <h4 class="item-name">{{item.name}}</h4>
@@ -483,9 +381,7 @@
                                     <a class="item-control item-pack {{#unless item.data.packed}}item-unpacked{{/unless}}" title='{{localize "T.PACKED"}}'>
                                         <i class="fas fa-briefcase"></i>
                                     </a>
-                                    <a class="item-control chaty" data-item-id="{{item._id}}" title='{{localize "T.SEND_TO_CHAT"}}'
-                                        ><i class="fas fa-comment"></i
-                                    ></a>
+                                    <a class="item-control chaty" data-item-id="{{item._id}}" title='{{localize "T.SEND_TO_CHAT"}}'><i class="fas fa-comment"></i></a>
                                     <a class="item-control item-edit" title='{{localize "T.EDIT"}}'><i class="fas fa-edit"></i></a>
                                     <a class="item-control item-delete" title='{{localize "T.DELETE"}}'><i class="fas fa-trash"></i></a>
                                 </div>
@@ -505,7 +401,7 @@
         <div class="tab followers" data-group="primary" data-tab="followers">
             <div class="">
                 <ol class="items-list">
-                    {{#each actor.followers as |item id|}}
+                    {{#each followers as |item id|}}
                     <li class="item follower" data-item-id="{{item._id}}">
                         <div class="flex row space-between margin-bottom">
                             <div class="flex row align-center" style="flex-basis: 40%">
@@ -520,9 +416,7 @@
                                 <span class="resource"><i class="fas fa-shield-alt" title="{{localize 'T.ARMOR'}}"></i> {{item.data.armor.value}}</span>
                             </div>
                             <div class="item-controls">
-                                <a class="item-control chaty" title='{{localize "T.SEND_TO_CHAT"}}' data-item-id="{{item._id}}"
-                                    ><i class="fas fa-comment"></i
-                                ></a>
+                                <a class="item-control chaty" title='{{localize "T.SEND_TO_CHAT"}}' data-item-id="{{item._id}}"><i class="fas fa-comment"></i></a>
                                 <a class="item-control item-edit" title='{{localize "T.EDIT"}}'><i class="fas fa-edit"></i></a>
                                 <a class="item-control item-delete" title='{{localize "T.DELETE"}}'><i class="fas fa-trash"></i></a>
                             </div>
@@ -561,7 +455,7 @@
             <div class="flex row full">
                 <div class="flex column f1" style="margin-right: 10px">
                     <div class="profile-image-box">
-                        <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="100" width="100" />
+                        <img class="profile-img" src="{{img}}" data-edit="img" title="{{name}}" height="100" width="100" />
                     </div>
                     <div class="flexrow resource-row">
                         <span class="flex row align-baseline">
@@ -593,7 +487,7 @@
                     </div>
                 </div>
                 <div class="flex column f2 papirus-box">
-                    {{editor content=data.biography target="data.biography" button=true owner=owner editable=editable}}
+                    {{editor content=data.biography target="data.biography" button=true owner=isOwner editable=true}}
                 </div>
             </div>
         </div>

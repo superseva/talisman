@@ -69,7 +69,7 @@ export class TalismanItem extends Item {
         itemData.isFollower = itemData.type === "follower";
         const html = await renderTemplate("systems/talisman/templates/chat/item.html", itemData);
         const chatData = {
-            user: game.user._id,
+            user: game.user.id,
             rollMode: game.settings.get("core", "rollMode"),
             content: html,
         };

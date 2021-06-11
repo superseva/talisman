@@ -1,7 +1,7 @@
 <header class="item-header">
-    <img class="profile-img" src="{{item.img}}" data-edit="img" title="{{item.name}}" />
+    <img class="profile-img" src="{{img}}" data-edit="img" title="{{name}}" />
     <div class="header-fields" style="width: 100%">
-        <h3 class="itemname"><input name="name" type="text" value="{{item.name}}" placeholder="Name" /></h3>
+        <h3 class="itemname"><input name="name" type="text" value="{{name}}" placeholder="Name" /></h3>
         {{#ifCond data.weight '!=' null}}
         <div class="grid grid-3col">
             <div class="resource">
@@ -17,10 +17,10 @@
                 <input type="text" name="data.cost" value="{{data.cost}}" />
             </div>
         </div>
-        {{/ifCond}} {{#ifCond item.type '==' 'skill'}}
+        {{/ifCond}} {{#ifCond type '==' 'skill'}}
         <label class="resource-label">{{localize 'T.FOCUS'}}</label>
         <input type="text" name="data.focus" value="{{data.focus}}" />
-        {{/ifCond}} {{#ifCond item.type '==' 'ability'}}
+        {{/ifCond}} {{#ifCond type '==' 'ability'}}
         <div class="grid grid-2col">
             <div class="flex row align-center">
                 <label class="resource-label" for="data.ability_type">{{localize "T.TYPE"}}</label>
@@ -43,7 +43,7 @@
             <label class="resource-label" for="data.prerequisite">{{localize 'T.PREREQUISITE'}}</label>
             <input type="text" class="size12" name="data.prerequisite" value="{{data.prerequisite}}" />
         </div>
-        {{/ifCond}} {{#ifCond item.type '==' 'spell'}}
+        {{/ifCond}} {{#ifCond type '==' 'spell'}}
         <div class="flex row space-between margin-bottom">
             <div>
                 <label for="data.type" class="resource-label">{{localize 'T.TYPE'}}</label>
@@ -76,7 +76,7 @@
                 </select>
             </div>
         </div>
-        {{/ifCond}} {{#ifCond item.type '==' 'follower'}}
+        {{/ifCond}} {{#ifCond type '==' 'follower'}}
         <div class="grid grid-4col">
             <div class="resource flex column">
                 <label class="resource-label">{{localize "T.STRENGTH"}}</label>
