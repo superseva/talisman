@@ -9,7 +9,7 @@
     <section class="item-body">
         {{!-- Description Tab --}}
         <div class="tab" data-group="primary" data-tab="description">
-            {{editor content=data.description target="data.description" button=true owner=owner editable=editable}}
+            {{editor content=data.description target="data.description" button=true owner=owner editable=true}}
         </div>
 
         {{!-- Attributes Tab --}}
@@ -27,13 +27,7 @@
                         <label><strong>{{data.rating.value}}</strong></label>
                     </span>
                     {{#each data.points as |status index|}}
-                    <a
-                        class="armor-point {{#ifCond status '==' 0}}new{{/ifCond}}  {{#ifCond status '==' 1}}damaged{{/ifCond}}  {{#ifCond status '==' 2}}destroyed{{/ifCond}}"
-                        data-max="{{../data.rating.max}}"
-                        data-status="{{status}}"
-                        data-index="{{index}}"
-                        data-item_id="{{../item._id}}"
-                    >
+                    <a class="armor-point {{#ifCond status '==' 0}}new{{/ifCond}}  {{#ifCond status '==' 1}}damaged{{/ifCond}}  {{#ifCond status '==' 2}}destroyed{{/ifCond}}" data-max="{{../data.rating.max}}" data-status="{{status}}" data-index="{{index}}" data-item_id="{{../item._id}}">
                         {{#ifCond status '==' 0}}<i class="far fa-circle"></i>{{/ifCond}} {{#ifCond status '==' 1}}<i class="fas fa-ban"></i>{{/ifCond}}
                         {{#ifCond status '==' 2}}<i class="far fa-times-circle"></i>{{/ifCond}}
                     </a>

@@ -12,7 +12,8 @@ export class TalismanActorSheet extends ActorSheet {
 
     /** @override */
     getData() {
-        const data = super.getData();
+        const superData = super.getData();
+        const data = superData.data;
         data.dtypes = ["String", "Number", "Boolean"];
         // Prepare items.
         if (this.actor.data.type == "character") {
@@ -57,13 +58,13 @@ export class TalismanActorSheet extends ActorSheet {
                 followers.push(i);
             }
         }
-        actorData.gear = gear;
-        actorData.armor = armor;
-        actorData.weapons = weapons;
-        actorData.spells = spells;
-        actorData.skills = skills;
-        actorData.abilities = abilities;
-        actorData.followers = followers;
+        sheetData.gear = gear;
+        sheetData.armor = armor;
+        sheetData.weapons = weapons;
+        sheetData.spells = spells;
+        sheetData.skills = skills;
+        sheetData.abilities = abilities;
+        sheetData.followers = followers;
     }
 
     /* -------------------------------------------- */

@@ -17,7 +17,7 @@ export class TalismanActor extends Actor {
         //derived values or modifiers
 
         // SEE WHAT ARMOR IS EQUIPPED
-        const _armor = actorData.items.find(
+        const _armor = actorData.items._source.find(
             (i) => i.type == "armor" && i.data.armor_type != "shield" && i.data.armor_type != "helm" && i.data.equipped == true
         );
         if (!_armor) {
@@ -36,7 +36,7 @@ export class TalismanActor extends Actor {
         data.damage_modifier.psychic.value = data.attributes.craft.value + data.damage_modifier.psychic.mod;
 
         //SET LOAD
-        const physicalItems = actorData.items.filter((_item) => _item.data.weight > 0);
+        const physicalItems = actorData.items._source.filter((_item) => _item.data.weight > 0);
         let load = 0;
         let itemWeight = 0;
         physicalItems.forEach((i) => {

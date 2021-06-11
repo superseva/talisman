@@ -2,41 +2,41 @@
     {{!-- Sheet Header --}}
     <header class="enemy-header">
         <div class="flexrow">
-        <div>
-            <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="120" width="120" />
-        </div>
-        <div class="header-fields">
-            <h3 class="charname"><input name="name" type="text" value="{{actor.name}}" placeholder="Name" /></h3>
-            <div class="grid">
-                <div class="flex-group-center">
-                    <label for="data.attributes.strenght.value" class="attribute rollable" data-attribute="{{data.attributes.strenght.value}}">{{localize 'T.STRENGTH'}}</label>
-                    <input type="number" name="data.attributes.strenght.value" value="{{data.attributes.strenght.value}}">
+            <div>
+                <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="120" width="120" />
+            </div>
+            <div class="header-fields">
+                <h3 class="charname"><input name="name" type="text" value="{{actor.name}}" placeholder="Name" /></h3>
+                <div class="grid">
+                    <div class="flex-group-center">
+                        <label for="data.attributes.strenght.value" class="attribute rollable" data-attribute="{{data.attributes.strenght.value}}">{{localize 'T.STRENGTH'}}</label>
+                        <input type="number" name="data.attributes.strenght.value" value="{{data.attributes.strenght.value}}">
+                    </div>
+                    <div class="flex-group-center">
+                        <label for="data.attributes.craft.value" class="attribute rollable" data-attribute="{{data.attributes.craft.value}}">{{localize 'T.CRAFT'}}</label>
+                        <input type="number" name="data.attributes.craft.value" value="{{data.attributes.craft.value}}">
+                    </div>
+                    <div class="flex-group-center">
+                        <label for="data.attributes.threat">{{localize 'T.THREAT'}}</label>
+                        <input type="number" name="data.attributes.threat" value="{{data.attributes.threat}}">
+                    </div>
+                    <div class="flex-group-center">
+                        <label for="data.derived.life.value">{{localize 'T.LIFE'}}</label>
+                        <span class="flex row space-between">
+                            <input type="number" name="data.derived.life.value" value="{{data.derived.life.value}}">
+                            <span> / </span>
+                            <input type="number" name="data.derived.life.max" value="{{data.derived.life.max}}">
+                        </span>
+                    </div>
                 </div>
-                <div class="flex-group-center">
-                    <label for="data.attributes.craft.value" class="attribute rollable" data-attribute="{{data.attributes.craft.value}}">{{localize 'T.CRAFT'}}</label>
-                    <input type="number" name="data.attributes.craft.value" value="{{data.attributes.craft.value}}">
-                </div> 
-                <div class="flex-group-center">
-                    <label for="data.attributes.threat">{{localize 'T.THREAT'}}</label>
-                    <input type="number" name="data.attributes.threat" value="{{data.attributes.threat}}">
+            </div>
+            <div class="flex" style="flex-flow: row-reverse;">
+                <div class="roll-button">
+                    {{!-- THIS IS ROOLL BUTTON MADE FROM BACKGROUNDS--}}
                 </div>
-                <div class="flex-group-center">
-                    <label for="data.derived.life.value">{{localize 'T.LIFE'}}</label>            
-                    <span class="flex row space-between">
-                        <input type="number" name="data.derived.life.value" value="{{data.derived.life.value}}">
-                        <span> / </span>
-                        <input type="number" name="data.derived.life.max" value="{{data.derived.life.max}}">
-                    </span>
-                </div>           
             </div>
         </div>
-        <div class="flex" style="flex-flow: row-reverse;">
-            <div class="roll-button">
-                {{!-- THIS IS ROOLL BUTTON MADE FROM BACKGROUNDS--}}
-            </div>
-        </div>
-    </div>
-    
+
     </header>
 
     {{!-- Sheet Tab Navigation --}}
@@ -50,7 +50,7 @@
         {{!-- Skills Tab --}}
         <div class="tab skills" data-group="primary" data-tab="skills">
             <div class="grid grid-2col" style="height: 90%;">
-                <div>                    
+                <div>
                     <div class="flex-group-center margin-bottom">
                         <label for="data.armor.name">{{localize 'T.ARMOR'}}</label>
                         <input type="text" class="margin-bottom" name="data.armor.name" value="{{data.armor.name}}" placeholder="{{localize 'T.NAME'}}">
@@ -65,24 +65,24 @@
                             <label for="data.armor.name">{{localize 'T.NUM_OF_ATTACKS'}}</label>
                             <input type="number" class="short" name="data.attack_number" value="{{data.attack_number}}">
                         </div>
-                        
+
                         <ol class="margin-bottom items-list">
                             <li class="item flex row space-between">
                                 <div class="flex column">
                                     <span class="flex row">
                                         <a class="item-name"><strong>{{localize 'T.NAME'}}</strong></a>
-                                        <div class="item-image"></div>                                        
-                                    </span>                                    
+                                        <div class="item-image"></div>
+                                    </span>
                                 </div>
                                 <div class="item-controls">
                                     <a class="item-control item-create" title="Create item" data-type="enemy_attack"><i class="fas fa-plus"></i>{{localize 'T.ADD'}}</a>
-                                </div>                            
-                            </li> 
+                                </div>
+                            </li>
                             {{#each actor.attacks as |item id|}}
                             <li class="item flex row space-between" data-item-id="{{item._id}}" data-formula="{{data.damage}}">
                                 <div class="flex column">
                                     <span class="flex row">
-                                        <div class="item-image"><img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/></div>
+                                        <div class="item-image"><img src="{{item.img}}" title="{{item.name}}" width="24" height="24" /></div>
                                         <a class="item-name attack rollable"><strong>{{item.name}}</strong></a>
                                     </span>
                                     <span class="attack rollable size12" style="padding-left: 30px;">{{localize 'T.DAMAGE'}} : {{data.damage}} ({{data.type}})</span>
@@ -90,11 +90,11 @@
                                 <div class="item-controls">
                                     <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
                                     <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
-                                </div>                            
-                            </li>                        
+                                </div>
+                            </li>
                             {{/each}}
                         </ol>
-                    </div>                    
+                    </div>
                     <div class="flex-group-center margin-bottom">
                         <label for="data.derived.speed">{{localize 'T.SPEED'}}</label>
                         <input type="text" name="data.derived.speed.value" value="{{data.derived.speed.value}}">
@@ -103,17 +103,17 @@
                 <div>
                     <h3>{{localize 'T.SPECIAL_ABILITIES'}} & {{localize 'T.BENEFITS'}}</h3>
                     <div class="papirus-box" style="height: 90%;">
-                    {{editor content=data.special_abilities target="data.special_abilities" button=true owner=owner editable=editable}}
+                        {{editor content=data.special_abilities target="data.special_abilities" button=true owner=owner editable=true}}
                     </div>
                 </div>
-                       
+
             </div>
         </div>
 
         {{!-- Description Tab --}}
         <div class="tab biography" data-group="primary" data-tab="description">
 
-            {{editor content=data.biography target="data.biography" button=true owner=owner editable=editable}}
+            {{editor content=data.biography target="data.biography" button=true owner=owner editable=true}}
 
         </div>
     </section>

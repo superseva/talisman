@@ -3,14 +3,14 @@
 
     {{!-- Sheet Tab Navigation --}}
     <nav class="sheet-tabs tabs" data-group="primary">
-        <a class="item" data-tab="description">Description</a>        
+        <a class="item" data-tab="description">Description</a>
     </nav>
 
     {{!-- Sheet Body --}}
     <section class="item-body">
         {{!-- Description Tab --}}
         <div class="tab" data-group="primary" data-tab="description" style="font-family: georgia, palatino, serif;">
-            {{editor content=data.description target="data.description" button=true owner=owner editable=editable}}
+            {{editor content=data.description target="data.description" button=true owner=owner editable=true}}
         </div>
     </section>
 </form>
