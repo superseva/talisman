@@ -103,7 +103,7 @@
                 <div>
                     <h3>{{localize 'T.SPECIAL_ABILITIES'}} & {{localize 'T.BENEFITS'}}</h3>
                     <div class="papirus-box" style="height: 90%;">
-                        {{editor content=data.special_abilities target="data.special_abilities" button=true owner=owner editable=true}}
+                        {{editor content=data.special_abilities target="data.special_abilities" button=true owner=isOwner editable=true}}
                     </div>
                 </div>
 
@@ -113,7 +113,7 @@
         {{!-- Description Tab --}}
         <div class="tab biography" data-group="primary" data-tab="description">
 
-            {{editor content=data.biography target="data.biography" button=true owner=owner editable=true}}
+            {{editor content=data.biography target="data.biography" button=true owner=isOwner editable=true}}
 
         </div>
     </section>

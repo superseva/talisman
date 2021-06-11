@@ -1,9 +1,10 @@
 export class DiceRoller {
-    static rollDice({ num = 2, aspect = 0, modifier = 0, hasFocus = false, wounds = 0, armorPenalty = 0, encumbrance = 0 } = {}) {
+    static async rollDice({ num = 2, aspect = 0, modifier = 0, hasFocus = false, wounds = 0, armorPenalty = 0, encumbrance = 0 } = {}) {
         //let rollFormula = `${num}d6[base] + 1d6[kismet]`;
         let rollFormula = `${num}db + 1dk`;
         let r = new Roll(rollFormula);
-        r.roll();
+        //r.roll();
+        await r.evaluate({ async: true });
         DiceRoller.sendToChat(r, aspect, modifier, hasFocus, wounds, armorPenalty, encumbrance);
     }
 
@@ -51,10 +52,10 @@ export class DiceRoller {
         //console.warn(rollData);
         const html = await renderTemplate("systems/talisman/templates/chat/roll.html", rollData);
         let chatData = {
-            user: game.user._id,
+            user: game.user.id,
             rollMode: game.settings.get("core", "rollMode"),
             content: html,
-            type: CHAT_MESSAGE_TYPES.ROLL,
+            type: CONST.CHAT_MESSAGE_TYPES.ROLL,
             roll: r,
         };
         if (["gmroll", "blindroll"].includes(chatData.rollMode)) {

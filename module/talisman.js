@@ -22,8 +22,8 @@ Hooks.once("init", async function () {
     CONFIG.Dice.terms["k"] = TalismanDieKismet;
 
     // Define custom Entity classes
-    CONFIG.Actor.entityClass = TalismanActor;
-    CONFIG.Item.entityClass = TalismanItem;
+    CONFIG.Actor.documentClass = TalismanActor;
+    CONFIG.Item.documentClass = TalismanItem;
     CONFIG.TinyMCE.toolbar = "styleselect forecolor backcolor bullist numlist image table hr link removeformat code fontsizeselect fontselect save";
 
     // Register sheet application classes
@@ -128,7 +128,7 @@ Hooks.on("createActor", async (actor, options, userId) => TalismanHooks.onCreate
 /*  DsN Hooks                                   */
 /* -------------------------------------------- */
 
-Hooks.on("diceSoNiceRollComplete", (chatMessageID) => {});
+Hooks.on("diceSoNiceRollComplete", (chatMessageID) => { });
 
 Hooks.once("diceSoNiceReady", (dice3d) => {
     dice3d.addColorset(

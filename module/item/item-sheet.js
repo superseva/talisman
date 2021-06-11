@@ -55,7 +55,7 @@ export class TalismanItemSheet extends ItemSheet {
             let itemId = e.currentTarget.dataset["item_id"];
             let item = {};
             if (this.actor) {
-                item = this.actor.getOwnedItem(itemId);
+                item = this.actor.items.get(itemId);
             } else {
                 item = game.items.get(itemId);
             }
@@ -66,7 +66,7 @@ export class TalismanItemSheet extends ItemSheet {
             let itemId = e.currentTarget.dataset["item_id"];
             let item = {};
             if (this.actor) {
-                item = this.actor.getOwnedItem(itemId);
+                item = this.actor.items.get(itemId);
             } else {
                 item = game.items.get(itemId);
             }
