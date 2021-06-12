@@ -15,7 +15,7 @@ export class TalismanEnemySheet extends TalismanBaseActorSheet {
     /** @override */
     getData() {
         const data = super.getData();
-        data.dtypes = ["String", "Number", "Boolean"];
+        //data.dtypes = ["String", "Number", "Boolean"];
         // Prepare items.
         if (this.actor.data.type == "enemy") {
             this._prepareEnemyItems(data);
@@ -25,14 +25,15 @@ export class TalismanEnemySheet extends TalismanBaseActorSheet {
     }
 
     _prepareEnemyItems(sheetData) {
-        const actorData = sheetData.actor;
+
         const attacks = [];
+        console.warn(sheetData);
         for (let i of sheetData.items) {
             i.img = i.img || DEFAULT_TOKEN;
             if (i.type === "enemy_attack") {
                 attacks.push(i);
             }
         }
-        actorData.attacks = attacks;
+        sheetData.attacks = attacks;
     }
 }

@@ -40,9 +40,13 @@ export class TalismanBaseActorSheet extends ActorSheet {
         html.find(".attack.rollable").click((ev) => {
             const li = $(ev.currentTarget).parents(".item");
             const formula = li.data("formula");
-            let r = new Roll(formula);
-            r.roll().toMessage();
+            this._rollTheAttack(formula);
         });
+    }
+
+    async _rollTheAttack(formula) {
+        let r = new Roll(formula);
+        await r.evaluate().toMessage();
     }
 
     /**
@@ -62,7 +66,7 @@ export class TalismanBaseActorSheet extends ActorSheet {
             data: data,
         };
         delete itemData.data["type"];
-        return this.actor.createOwnedItem(itemData);
+        return this.actor.createEmbeddedDocuments("Item", [itemData]);
     }
     /**
      * Handle clickable attribute rolls.
@@ -70,7 +74,6 @@ export class TalismanBaseActorSheet extends ActorSheet {
      * @private
      */
     _onRollAspect(event) {
-        console.warn("ALOU");
         event.preventDefault();
         const element = event.currentTarget;
         const dataset = element.dataset;

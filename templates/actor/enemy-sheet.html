@@ -3,10 +3,10 @@
     <header class="enemy-header">
         <div class="flexrow">
             <div>
-                <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="120" width="120" />
+                <img class="profile-img" src="{{img}}" data-edit="img" title="{{name}}" height="120" width="120" />
             </div>
             <div class="header-fields">
-                <h3 class="charname"><input name="name" type="text" value="{{actor.name}}" placeholder="Name" /></h3>
+                <h3 class="charname"><input name="name" type="text" value="{{name}}" placeholder="Name" /></h3>
                 <div class="grid">
                     <div class="flex-group-center">
                         <label for="data.attributes.strenght.value" class="attribute rollable" data-attribute="{{data.attributes.strenght.value}}">{{localize 'T.STRENGTH'}}</label>
@@ -78,7 +78,7 @@
                                     <a class="item-control item-create" title="Create item" data-type="enemy_attack"><i class="fas fa-plus"></i>{{localize 'T.ADD'}}</a>
                                 </div>
                             </li>
-                            {{#each actor.attacks as |item id|}}
+                            {{#each attacks as |item id|}}
                             <li class="item flex row space-between" data-item-id="{{item._id}}" data-formula="{{data.damage}}">
                                 <div class="flex column">
                                     <span class="flex row">
