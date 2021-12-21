@@ -30,17 +30,17 @@ export class TalismanItem extends Item {
         this.update(updateData);
     }
 
-    rollSpellDamage() {
+    async rollSpellDamage() {
         let formula = this.data.data.damage.value;
         let actorOptions = null;
         if (this.actor) {
             actorOptions = this.actor.getRollShortcuts();
         }
         let r = new Roll(formula, actorOptions);
-        r.roll().toMessage();
+        await r.roll({ async : false }).toMessage();
     }
 
-    rollWeaponDamage() {
+    async rollWeaponDamage() {
         let formula = this.data.data.damage.value;
         let actorOptions = null;
         if (this.actor) {
@@ -49,7 +49,7 @@ export class TalismanItem extends Item {
             formula = `${formula} + ${damage_mod}`;
         }
         let r = new Roll(formula, actorOptions);
-        r.roll().toMessage();
+        await r.roll({ async : false }).toMessage();
     }
 
     /**

@@ -271,7 +271,7 @@ export class TalismanActorSheet extends ActorSheet {
         event.preventDefault();
         const element = event.currentTarget;
         const dataKey = element.dataset["key"];
-        let obj = duplicate(this.actor._data.data.aspects);
+        let obj = duplicate(this.actor.data.data.aspects);
         Object.keys(obj).forEach((k) => {
             obj[k].cap = 6;
         });

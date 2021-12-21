@@ -46,7 +46,7 @@ export class TalismanBaseActorSheet extends ActorSheet {
 
     async _rollTheAttack(formula) {
         let r = new Roll(formula);
-        await r.evaluate().toMessage();
+        await r.evaluate({ async : false }).toMessage();
     }
 
     /**
