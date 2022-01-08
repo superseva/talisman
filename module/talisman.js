@@ -113,7 +113,7 @@ Hooks.once("init", async function () {
     });
 
     Handlebars.registerHelper("packed", function (weight, quantity, options) {
-        return Math.ceil(parseInt(weight) / 2) * parseInt(quantity);
+        return (parseFloat(weight) * parseInt(quantity))*0.5;
     });
 });
 

@@ -38,11 +38,10 @@ export class TalismanActor extends Actor {
         //SET LOAD
         const physicalItems = actorData.items._source.filter((_item) => _item.data.weight > 0);
         let load = 0;
-        let itemWeight = 0;
+
         physicalItems.forEach((i) => {
-            itemWeight = i.data.packed ? Math.ceil(parseInt(i.data.weight) / 2) : parseInt(i.data.weight);
+            let itemWeight = i.data.packed ? (parseFloat(i.data.weight) / 2) : parseFloat(i.data.weight);
             load += itemWeight * parseInt(i.data.quantity);
-            //load += parseInt(i.data.weight) * parseInt(i.data.quantity);
         });
 
         data.derived.load.max = data.attributes.strength.value * 5;
