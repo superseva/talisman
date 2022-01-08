@@ -130,5 +130,10 @@
     "T.PACKED": "Packed",
     "T.SEND_TO_CHAT": "Send To Chat",
     "T.EDIT": "Edit",
-    "T.DELETE": "Delete"
+    "T.DELETE": "Delete",
+    "T.AGE":"Age",
+    "T.HEIGHT":"Height",
+    "T.WEIGHT":"Weight",
+    "T.EYES":"Eyes",
+    "T.HAIR":"Hair"
 }

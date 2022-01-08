@@ -21,6 +21,15 @@ Hooks.once("init", async function () {
     CONFIG.Dice.terms["b"] = TalismanDieBase;
     CONFIG.Dice.terms["k"] = TalismanDieKismet;
 
+     /**
+   * Set an initiative formula for the system
+   * @type {String}
+   */
+      CONFIG.Combat.initiative = {
+        formula: "1",
+        decimals: 0
+    };
+
     // Define custom Entity classes
     CONFIG.Actor.documentClass = TalismanActor;
     CONFIG.Item.documentClass = TalismanItem;

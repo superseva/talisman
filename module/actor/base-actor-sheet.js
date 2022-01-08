@@ -25,9 +25,10 @@ export class TalismanBaseActorSheet extends ActorSheet {
         });
 
         // Delete Inventory Item
-        html.find(".item-delete").click((ev) => {
+        html.find(".item-delete").click(async (ev) => {
             const li = $(ev.currentTarget).parents(".item");
-            this.actor.deleteOwnedItem(li.data("itemId"));
+            const item = this.actor.items.get(li.data("itemId"));
+            await item.delete();
             li.slideUp(200, () => this.render(false));
         });
 
@@ -54,7 +55,7 @@ export class TalismanBaseActorSheet extends ActorSheet {
      * @param {Event} event   The originating click event
      * @private
      */
-    _onItemCreate(event) {
+    async _onItemCreate(event) {
         event.preventDefault();
         const header = event.currentTarget;
         const type = header.dataset.type;
@@ -66,7 +67,7 @@ export class TalismanBaseActorSheet extends ActorSheet {
             data: data,
         };
         delete itemData.data["type"];
-        return this.actor.createEmbeddedDocuments("Item", [itemData]);
+        return await Item.create(itemData, { parent: this.actor });
     }
     /**
      * Handle clickable attribute rolls.

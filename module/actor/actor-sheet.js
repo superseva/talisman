@@ -86,9 +86,10 @@ export class TalismanActorSheet extends ActorSheet {
         });
 
         // Delete Inventory Item
-        html.find(".item-delete").click((ev) => {
+        html.find(".item-delete").click(async (ev) => {
             const li = $(ev.currentTarget).parents(".item");
-            this.actor.deleteOwnedItem(li.data("itemId"));
+            const item = this.actor.items.get(li.data("itemId"));
+            await item.delete();
             li.slideUp(200, () => this.render(false));
         });
 
@@ -96,29 +97,25 @@ export class TalismanActorSheet extends ActorSheet {
         html.find(".item-equip").click(async (ev) => {
             const li = $(ev.currentTarget).parents(".item");
             const item = this.actor.items.get(li.data("itemId"));
-            await this.actor.updateEmbeddedDocuments("Item", [this._toggleEquipped(li.data("itemId"), item)]);
-            //await this.actor.updateOwnedItem(this._toggleEquipped(li.data("itemId"), item));
+            await this.actor.updateEmbeddedDocuments("Item", [this._toggleEquipped(li.data("itemId"), item)]);           
         });
         //Toggle Pack Inventory Item
         html.find(".item-pack").click(async (ev) => {
             const li = $(ev.currentTarget).parents(".item");
             const item = this.actor.items.get(li.data("itemId"));
             await this.actor.updateEmbeddedDocuments("Item", [this._togglePacked(li.data("itemId"), item)]);
-            //await this.actor.updateOwnedItem(this._togglePacked(li.data("itemId"), item));
         });
         // Toggle Spell Memorised
         html.find(".item-memorise").click(async (ev) => {
             const _id = $(ev.currentTarget).data("itemId");
             const item = this.actor.items.get(_id);
             await this.actor.updateEmbeddedDocuments("Item", [this._toggleMemorised(_id, item)]);
-            //await this.actor.updateOwnedItem(this._toggleMemorised(_id, item));
         });
         // Toggle Spell Enduring
         html.find(".item-endure").click(async (ev) => {
             const _id = $(ev.currentTarget).data("itemId");
             const item = this.actor.items.get(_id);
             await this.actor.updateEmbeddedDocuments("Item", [this._toggleEnduring(_id, item)]);
-            //await this.actor.updateOwnedItem(this._toggleEnduring(_id, item));
         });
 
         //Set wounds
@@ -247,7 +244,7 @@ export class TalismanActorSheet extends ActorSheet {
      * @param {Event} event   The originating click event
      * @private
      */
-    _onItemCreate(event) {
+    async _onItemCreate(event) {
         event.preventDefault();
         const header = event.currentTarget;
         const type = header.dataset.type;
@@ -259,7 +256,7 @@ export class TalismanActorSheet extends ActorSheet {
             data: data,
         };
         delete itemData.data["type"];
-        return this.actor.createOwnedItem(itemData);
+        return await Item.create(itemData, { parent: this.actor });
     }
 
     /**
@@ -267,7 +264,7 @@ export class TalismanActorSheet extends ActorSheet {
      * @param {Event} event   The originating click event
      * @private
      */
-    _onMarkAttribute(event) {
+    async _onMarkAttribute(event) {
         event.preventDefault();
         const element = event.currentTarget;
         const dataKey = element.dataset["key"];
@@ -276,7 +273,7 @@ export class TalismanActorSheet extends ActorSheet {
             obj[k].cap = 6;
         });
         obj[dataKey].cap = 7;
-        this.actor.update({ "data.aspects": obj });
+        await this.actor.update({ "data.aspects": obj });
     }
 
     /**
