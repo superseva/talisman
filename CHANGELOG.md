@@ -4,6 +4,11 @@ Unofficial Talisman Adventures system for FoundryVTT.
 
 [README](https://github.com/superseva/talisman/blob/main/README.md)
 
+## V 9.0.3
+
+- Fixed NPC Strength attribute. Added ability to write damage for NPCs as 1d6+@str or + @cra
+
+
 ## V 9.0.2
 
 - Fixed Encumbrance calculation

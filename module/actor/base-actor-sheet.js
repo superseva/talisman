@@ -46,7 +46,12 @@ export class TalismanBaseActorSheet extends ActorSheet {
     }
 
     async _rollTheAttack(formula) {
-        let r = new Roll(formula);
+        let actorOptions = null;
+        if (this.actor) {
+            actorOptions = this.actor.getRollShortcuts();            
+        }
+        console.log(actorOptions)
+        let r = new Roll(formula, actorOptions);
         await r.evaluate({ async : false }).toMessage();
     }
 

@@ -62,8 +62,10 @@ export class TalismanActor extends Actor {
         }
         // Aspects
         const asp = this.data.data.aspects;
-        for (const key of Object.keys(asp)) {
-            out[key] = asp[key].value;
+        if(asp){
+            for (const key of Object.keys(asp)) {
+                out[key] = asp[key].value;
+            }
         }
         return out;
     }
