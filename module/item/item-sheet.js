@@ -17,15 +17,39 @@ export class TalismanItemSheet extends ItemSheet {
     /** @override */
     get template() {
         const path = "systems/talisman/templates/item";
-        return `${path}/item-${this.item.data.type}-sheet.html`;
+        return `${path}/item-${this.item.type}-sheet.html`;
     }
 
     /* -------------------------------------------- */
 
     /** @override */
-    getData() {
-        const data = super.getData().data;
-        return data;
+    async getData() {
+        //const data = await super.getData();
+        //return data;
+        const context = await super.getData();
+        const item = context.item;
+        const source = item.toObject();
+
+        foundry.utils.mergeObject(context, {
+            source: source.system,
+            system: item.system,      
+            isEmbedded: item.isEmbedded,
+            type: item.type,      
+            flags: item.flags,
+            descriptionHTML: await TextEditor.enrichHTML(item.system.description, {
+              secrets: item.isOwner,
+              async: true
+            })
+          });
+
+        // Retrieve the roll data for TinyMCE editors.
+        context.rollData = {};
+        let actor = this.object?.parent ?? null;
+        if (actor) {
+            context.rollData = actor.getRollData();
+        }
+
+        return context;
     }
 
     /* -------------------------------------------- */

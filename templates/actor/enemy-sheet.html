@@ -9,23 +9,23 @@
                 <h3 class="charname"><input name="name" type="text" value="{{name}}" placeholder="Name" /></h3>
                 <div class="grid">
                     <div class="flex-group-center">
-                        <label for="data.attributes.strength.value" class="attribute rollable" data-attribute="{{data.attributes.strength.value}}">{{localize 'T.STRENGTH'}}</label>
-                        <input type="number" name="data.attributes.strength.value" value="{{data.attributes.strength.value}}">
+                        <label for="system.attributes.strength.value" class="attribute rollable" data-attribute="{{system.attributes.strength.value}}">{{localize 'T.STRENGTH'}}</label>
+                        <input type="number" name="system.attributes.strength.value" value="{{system.attributes.strength.value}}">
                     </div>
                     <div class="flex-group-center">
-                        <label for="data.attributes.craft.value" class="attribute rollable" data-attribute="{{data.attributes.craft.value}}">{{localize 'T.CRAFT'}}</label>
-                        <input type="number" name="data.attributes.craft.value" value="{{data.attributes.craft.value}}">
+                        <label for="system.attributes.craft.value" class="attribute rollable" data-attribute="{{system.attributes.craft.value}}">{{localize 'T.CRAFT'}}</label>
+                        <input type="number" name="system.attributes.craft.value" value="{{system.attributes.craft.value}}">
                     </div>
                     <div class="flex-group-center">
-                        <label for="data.attributes.threat">{{localize 'T.THREAT'}}</label>
-                        <input type="number" name="data.attributes.threat" value="{{data.attributes.threat}}">
+                        <label for="system.attributes.threat">{{localize 'T.THREAT'}}</label>
+                        <input type="number" name="system.attributes.threat" value="{{system.attributes.threat}}">
                     </div>
                     <div class="flex-group-center">
-                        <label for="data.derived.life.value">{{localize 'T.LIFE'}}</label>
+                        <label for="system.derived.life.value">{{localize 'T.LIFE'}}</label>
                         <span class="flex row space-between">
-                            <input type="number" name="data.derived.life.value" value="{{data.derived.life.value}}">
+                            <input type="number" name="system.derived.life.value" value="{{system.derived.life.value}}">
                             <span> / </span>
-                            <input type="number" name="data.derived.life.max" value="{{data.derived.life.max}}">
+                            <input type="number" name="system.derived.life.max" value="{{system.derived.life.max}}">
                         </span>
                     </div>
                 </div>
@@ -52,18 +52,18 @@
             <div class="grid grid-2col" style="height: 90%;">
                 <div>
                     <div class="flex-group-center margin-bottom">
-                        <label for="data.armor.name">{{localize 'T.ARMOR'}}</label>
-                        <input type="text" class="margin-bottom" name="data.armor.name" value="{{data.armor.name}}" placeholder="{{localize 'T.NAME'}}">
+                        <label for="system.armor.name">{{localize 'T.ARMOR'}}</label>
+                        <input type="text" class="margin-bottom" name="system.armor.name" value="{{system.armor.name}}" placeholder="{{localize 'T.NAME'}}">
                         <span class="flex row space-between">
-                            <input type="number" name="data.armor.value" value="{{data.armor.value}}">
+                            <input type="number" name="system.armor.value" value="{{system.armor.value}}">
                             <span> / </span>
-                            <input type="number" name="data.armor.max" value="{{data.armor.max}}">
+                            <input type="number" name="system.armor.max" value="{{system.armor.max}}">
                         </span>
                     </div>
                     <div class="flex-group-center margin-bottom enemy-attacks">
                         <div class="flex row space-between align-baseline enemy-attacks-count">
-                            <label for="data.armor.name">{{localize 'T.NUM_OF_ATTACKS'}}</label>
-                            <input type="number" class="short" name="data.attack_number" value="{{data.attack_number}}">
+                            <label for="system.armor.name">{{localize 'T.NUM_OF_ATTACKS'}}</label>
+                            <input type="number" class="short" name="system.attack_number" value="{{system.attack_number}}">
                         </div>
 
                         <ol class="margin-bottom items-list">
@@ -79,13 +79,13 @@
                                 </div>
                             </li>
                             {{#each attacks as |item id|}}
-                            <li class="item flex row space-between" data-item-id="{{item._id}}" data-formula="{{data.damage}}">
+                            <li class="item flex row space-between" data-item-id="{{item._id}}" data-formula="{{system.damage}}">
                                 <div class="flex column">
                                     <span class="flex row">
                                         <div class="item-image"><img src="{{item.img}}" title="{{item.name}}" width="24" height="24" /></div>
                                         <a class="item-name attack rollable"><strong>{{item.name}}</strong></a>
                                     </span>
-                                    <span class="attack rollable size12" style="padding-left: 30px;">{{localize 'T.DAMAGE'}} : {{data.damage}} ({{data.type}})</span>
+                                    <span class="attack rollable size12" style="padding-left: 30px;">{{localize 'T.DAMAGE'}} : {{system.damage}} ({{system.type}})</span>
                                 </div>
                                 <div class="item-controls">
                                     <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
@@ -96,14 +96,14 @@
                         </ol>
                     </div>
                     <div class="flex-group-center margin-bottom">
-                        <label for="data.derived.speed">{{localize 'T.SPEED'}}</label>
-                        <input type="text" name="data.derived.speed.value" value="{{data.derived.speed.value}}">
+                        <label for="system.derived.speed">{{localize 'T.SPEED'}}</label>
+                        <input type="text" name="system.derived.speed.value" value="{{system.derived.speed.value}}">
                     </div>
                 </div>
                 <div>
                     <h3>{{localize 'T.SPECIAL_ABILITIES'}} & {{localize 'T.BENEFITS'}}</h3>
                     <div class="papirus-box" style="height: 90%;">
-                        {{editor content=data.special_abilities target="data.special_abilities" button=true owner=isOwner editable=true}}
+                        {{editor specialAbilitiesHTML target="system.special_abilities" button=true owner=owner editable=true}}                        
                     </div>
                 </div>
 
@@ -112,9 +112,7 @@
 
         {{!-- Description Tab --}}
         <div class="tab biography" data-group="primary" data-tab="description">
-
-            {{editor content=data.biography target="data.biography" button=true owner=isOwner editable=true}}
-
+            {{editor biographyHTML target="system.biography" button=true owner=owner editable=true}}
         </div>
     </section>
 </form>

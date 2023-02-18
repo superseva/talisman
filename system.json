@@ -1,12 +1,20 @@
 {
-    "name": "talisman",
+    "id": "talisman",
     "title": "Talisman",
     "description": "Talisman RPG system for FoundryVTT!",
-    "version": "9.0.3",
-    "minimumCoreVersion": "0.8.6",
-    "compatibleCoreVersion": "9",
+    "version": "10.0.0",
+    "compatibility": {
+        "minimum": "10",
+        "verified": "10",
+        "maximum": "11"
+      },
     "templateVersion": 1,
-    "author": "HappySteve",
+    "authors": [
+        {
+          "name": "HappySteve",
+          "flags": {}
+        }
+      ],
     "esmodules": ["module/talisman.js"],
     "styles": ["css/talisman.css"],
     "scripts": [],
@@ -21,8 +29,8 @@
     "gridDistance": 1,
     "gridUnits": "m",
     "url": "https://github.com/superseva/talisman",
-    "manifest": "https://raw.githubusercontent.com/superseva/talisman/main/system.json",
-    "download": "https://github.com/superseva/talisman/archive/main.zip",
+    "manifest": "https://raw.githubusercontent.com/superseva/talisman/releases/latest/download/system.json",
+    "download": "https://github.com/superseva/talisman/releases/download/v10.0.0/talisman.zip",
     "license": "LICENSE.txt",
     "socket": true
 }

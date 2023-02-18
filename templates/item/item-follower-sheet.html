@@ -11,19 +11,19 @@
         <div class="tab" data-group="primary" data-tab="attributes">
             <div class="flex column">
                 <div class="flex row papirus-box flex-center margin-bottom">
-                    <label class="resource-label" for="data.loyalty.value">{{localize 'T.LOYALTY'}}</label>
-                    <input type="number" name="data.loyalty.value" value="{{data.loyalty.value}}" />
+                    <label class="resource-label" for="system.loyalty.value">{{localize 'T.LOYALTY'}}</label>
+                    <input type="number" name="system.loyalty.value" value="{{system.loyalty.value}}" />
                     <span>/&nbsp</span>
-                    <input type="number" name="data.loyalty.max" value="{{data.loyalty.max}}" />
+                    <input type="number" name="system.loyalty.max" value="{{system.loyalty.max}}" />
                 </div>
                 {{!-- BENEFIT 1 --}}
                 <div class="flex column papirus-box flex-center margin-bottom">
-                    <input type="text" name="data.benefits.benefit1.name" value="{{data.benefits.benefit1.name}}" placeholder="{{localize 'T.BENEFIT_NAME'}}" class="margin-bottom" />
+                    <input type="text" name="system.benefits.benefit1.name" value="{{system.benefits.benefit1.name}}" placeholder="{{localize 'T.BENEFIT_NAME'}}" class="margin-bottom" />
                     <div class="grid full">
                         <span class="flex column">
-                            <label class="resource-label" for="data.benefits.benefit1.category">{{localize 'T.CATEGORY'}}</label>
-                            <select name="data.benefits.benefit1.category">
-                                {{#select data.benefits.benefit1.category}}
+                            <label class="resource-label" for="system.benefits.benefit1.category">{{localize 'T.CATEGORY'}}</label>
+                            <select name="system.benefits.benefit1.category">
+                                {{#select system.benefits.benefit1.category}}
                                 <option value="social">{{localize 'T.SOCIAL'}}</option>
                                 <option value="combat">{{localize 'T.COMBAT'}}</option>
                                 <option value="exploration">{{localize 'T.EXPLORATION'}}</option>
@@ -32,9 +32,9 @@
                             </select>
                         </span>
                         <span class="flex column">
-                            <label class="resource-label" for="data.benefits.benefit1.level">{{localize 'T.LEVEL'}}</label>
-                            <select name="data.benefits.benefit1.level">
-                                {{#select data.benefits.benefit1.level}}
+                            <label class="resource-label" for="system.benefits.benefit1.level">{{localize 'T.LEVEL'}}</label>
+                            <select name="system.benefits.benefit1.level">
+                                {{#select system.benefits.benefit1.level}}
                                 <option value="weak">{{localize 'T.WEAK'}}</option>
                                 <option value="average">{{localize 'T.AVERAGE'}}</option>
                                 <option value="strong">{{localize 'T.STRONG'}}</option>
@@ -43,18 +43,18 @@
                         </span>
                     </div>
                     <div class="flex row full">
-                        <textarea name="data.benefits.benefit1.description">{{data.benefits.benefit1.description}}</textarea>
+                        <textarea name="system.benefits.benefit1.description">{{system.benefits.benefit1.description}}</textarea>
                     </div>
                 </div>
 
                 {{!-- BENEFIT 2 --}}
                 <div class="flex column papirus-box flex-center margin-bottom">
-                    <input type="text" name="data.benefits.benefit2.name" value="{{data.benefits.benefit2.name}}" placeholder="{{localize 'T.BENEFIT_NAME'}}" class="margin-bottom" />
+                    <input type="text" name="system.benefits.benefit2.name" value="{{system.benefits.benefit2.name}}" placeholder="{{localize 'T.BENEFIT_NAME'}}" class="margin-bottom" />
                     <div class="grid full">
                         <span class="flex column">
-                            <label class="resource-label" for="data.benefits.benefit2.category">{{localize 'T.CATEGORY'}}</label>
-                            <select name="data.benefits.benefit2.category">
-                                {{#select data.benefits.benefit2.category}}
+                            <label class="resource-label" for="system.benefits.benefit2.category">{{localize 'T.CATEGORY'}}</label>
+                            <select name="system.benefits.benefit2.category">
+                                {{#select system.benefits.benefit2.category}}
                                 <option value="social">{{localize 'T.SOCIAL'}}</option>
                                 <option value="combat">{{localize 'T.COMBAT'}}</option>
                                 <option value="exploration">{{localize 'T.EXPLORATION'}}</option>
@@ -63,9 +63,9 @@
                             </select>
                         </span>
                         <span class="flex column">
-                            <label class="resource-label" for="data.benefits.benefit2.level">{{localize 'T.LEVEL'}}</label>
-                            <select name="data.benefits.benefit2.level">
-                                {{#select data.benefits.benefit2.level}}
+                            <label class="resource-label" for="system.benefits.benefit2.level">{{localize 'T.LEVEL'}}</label>
+                            <select name="system.benefits.benefit2.level">
+                                {{#select system.benefits.benefit2.level}}
                                 <option value="weak">{{localize 'T.WEAK'}}</option>
                                 <option value="average">{{localize 'T.AVERAGE'}}</option>
                                 <option value="strong">{{localize 'T.STRONG'}}</option>
@@ -74,18 +74,18 @@
                         </span>
                     </div>
                     <div class="flex row full">
-                        <textarea name="data.benefits.benefit2.description">{{data.benefits.benefit2.description}}</textarea>
+                        <textarea name="system.benefits.benefit2.description">{{system.benefits.benefit2.description}}</textarea>
                     </div>
                 </div>
 
                 {{!-- BENEFIT 3 --}}
                 <div class="flex column papirus-box flex-center margin-bottom">
-                    <input type="text" name="data.benefits.benefit3.name" value="{{data.benefits.benefit3.name}}" placeholder="{{localize 'T.BENEFIT_NAME'}}" class="margin-bottom" />
+                    <input type="text" name="system.benefits.benefit3.name" value="{{system.benefits.benefit3.name}}" placeholder="{{localize 'T.BENEFIT_NAME'}}" class="margin-bottom" />
                     <div class="grid full">
                         <span class="flex column">
-                            <label class="resource-label" for="data.benefits.benefit3.category">{{localize 'T.CATEGORY'}}</label>
-                            <select name="data.benefits.benefit3.category">
-                                {{#select data.benefits.benefit3.category}}
+                            <label class="resource-label" for="system.benefits.benefit3.category">{{localize 'T.CATEGORY'}}</label>
+                            <select name="system.benefits.benefit3.category">
+                                {{#select system.benefits.benefit3.category}}
                                 <option value="social">{{localize 'T.SOCIAL'}}</option>
                                 <option value="combat">{{localize 'T.COMBAT'}}</option>
                                 <option value="exploration">{{localize 'T.EXPLORATION'}}</option>
@@ -94,9 +94,9 @@
                             </select>
                         </span>
                         <span class="flex column">
-                            <label class="resource-label" for="data.benefits.benefit3.level">{{localize 'T.LEVEL'}}</label>
-                            <select name="data.benefits.benefit3.level">
-                                {{#select data.benefits.benefit3.level}}
+                            <label class="resource-label" for="system.benefits.benefit3.level">{{localize 'T.LEVEL'}}</label>
+                            <select name="system.benefits.benefit3.level">
+                                {{#select system.benefits.benefit3.level}}
                                 <option value="weak">{{localize 'T.WEAK'}}</option>
                                 <option value="average">{{localize 'T.AVERAGE'}}</option>
                                 <option value="strong">{{localize 'T.STRONG'}}</option>
@@ -105,7 +105,7 @@
                         </span>
                     </div>
                     <div class="flex row full">
-                        <textarea name="data.benefits.benefit3.description">{{data.benefits.benefit3.description}}</textarea>
+                        <textarea name="system.benefits.benefit3.description">{{system.benefits.benefit3.description}}</textarea>
                     </div>
                 </div>
             </div>
@@ -113,7 +113,7 @@
 
         {{!-- Description Tab --}}
         <div class="tab" data-group="primary" data-tab="description">
-            {{editor content=data.description target="data.description" button=true owner=isOwner editable=true}}
+            {{editor descriptionHTML target="system.description" button=true owner=isOwner editable=true}}
         </div>
     </section>
 </form>

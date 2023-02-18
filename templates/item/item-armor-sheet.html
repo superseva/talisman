@@ -9,7 +9,7 @@
     <section class="item-body">
         {{!-- Description Tab --}}
         <div class="tab" data-group="primary" data-tab="description">
-            {{editor content=data.description target="data.description" button=true owner=isOwner editable=true}}
+            {{editor descriptionHTML target="system.description" button=true owner=isOwner editable=true}}
         </div>
 
         {{!-- Attributes Tab --}}
@@ -17,17 +17,17 @@
             <div class="flexcol">
                 <div class="flex row flex-group-center margin">
                     <span>
-                        <span for="data.rating.max"><strong>{{localize "T.ARMOR_MAX"}}:&nbsp;</strong></span>
-                        <input type="number" name="data.rating.max" value="{{data.rating.max}}" />
+                        <span for="system.rating.max"><strong>{{localize "T.ARMOR_MAX"}}:&nbsp;</strong></span>
+                        <input type="number" name="system.rating.max" value="{{system.rating.max}}" />
                     </span>
                 </div>
-                {{#ifCond data.armor_type '!=' 'shield'}} {{#ifCond data.armor_type '!=' 'helm'}}
+                {{#ifCond system.armor_type '!=' 'shield'}} {{#ifCond system.armor_type '!=' 'helm'}}
                 <div class="flex row flex-center margin">
                     <span class="armor-box">
-                        <label><strong>{{data.rating.value}}</strong></label>
+                        <label><strong>{{system.rating.value}}</strong></label>
                     </span>
-                    {{#each data.points as |status index|}}
-                    <a class="armor-point {{#ifCond status '==' 0}}new{{/ifCond}}  {{#ifCond status '==' 1}}damaged{{/ifCond}}  {{#ifCond status '==' 2}}destroyed{{/ifCond}}" data-max="{{../data.rating.max}}" data-status="{{status}}" data-index="{{index}}" data-item_id="{{../item._id}}">
+                    {{#each system.points as |status index|}}
+                    <a class="armor-point {{#ifCond status '==' 0}}new{{/ifCond}}  {{#ifCond status '==' 1}}damaged{{/ifCond}}  {{#ifCond status '==' 2}}destroyed{{/ifCond}}" data-max="{{../system.rating.max}}" data-status="{{status}}" data-index="{{index}}" data-item_id="{{../item._id}}">
                         {{#ifCond status '==' 0}}<i class="far fa-circle"></i>{{/ifCond}} {{#ifCond status '==' 1}}<i class="fas fa-ban"></i>{{/ifCond}}
                         {{#ifCond status '==' 2}}<i class="far fa-times-circle"></i>{{/ifCond}}
                     </a>
@@ -36,9 +36,9 @@
                 {{/ifCond}} {{/ifCond}}
                 <div class="flexrow margin">
                     <span class="flexcolumn flex-center flex-group-center margin">
-                        <label class="resource-label" for="data.armor_type">{{localize "T.ARMOR_TYPE"}}:</label>
-                        <select name="data.armor_type">
-                            {{#select data.armor_type}}
+                        <label class="resource-label" for="system.armor_type">{{localize "T.ARMOR_TYPE"}}:</label>
+                        <select name="system.armor_type">
+                            {{#select system.armor_type}}
                             <option value="light">{{localize 'T.ARMOR_LIGHT'}}</option>
                             <option value="medium">{{localize 'T.ARMOR_MEDIUM'}}</option>
                             <option value="heavy">{{localize 'T.ARMOR_HEAVY'}}</option>
@@ -49,21 +49,21 @@
                     </span>
                 </div>
                 <div class="flexrow margin">
-                    {{#ifCond data.armor_type '!=' 'helm'}}
+                    {{#ifCond system.armor_type '!=' 'helm'}}
                     <span class="flexcolumn flex-group-center margin">
-                        <label class="resource-label" for="data.agi_penalty">{{localize "T.AGI_PENALTY"}}:</label>
-                        <input type="number" name="data.agi_penalty" value="{{data.agi_penalty}}" class="margin-bottom" min="0" />
-                        <label for="data.agi_ignored" class="checkbox-label resource-label">
+                        <label class="resource-label" for="system.agi_penalty">{{localize "T.AGI_PENALTY"}}:</label>
+                        <input type="number" name="system.agi_penalty" value="{{system.agi_penalty}}" class="margin-bottom" min="0" />
+                        <label for="system.agi_ignored" class="checkbox-label resource-label">
                             {{localize 'T.AGI_PENALTY_IGNORED'}}
-                            <input class="input-checkbox" type="checkbox" name="data.agi_ignored" {{checked data.agi_ignored}} data-dtype="Boolean" />
+                            <input class="input-checkbox" type="checkbox" name="system.agi_ignored" {{checked system.agi_ignored}} data-dtype="Boolean" />
                         </label>
                     </span>
                     {{/ifCond}}
 
                     <span class="flex flex-group-center flex-center margin">
-                        <label for="data.equipped" class="checkbox-label resource-label">
+                        <label for="system.equipped" class="checkbox-label resource-label">
                             {{localize 'T.EQUIPPED'}}
-                            <input class="input-checkbox" type="checkbox" name="data.equipped" {{checked data.equipped}} data-dtype="Boolean" />
+                            <input class="input-checkbox" type="checkbox" name="system.equipped" {{checked system.equipped}} data-dtype="Boolean" />
                         </label>
                     </span>
                 </div>
