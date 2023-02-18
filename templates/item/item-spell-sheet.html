@@ -8,35 +8,35 @@
     <section class="item-body">
         <div class="grid grid-3col margin-bottom">
             <div>
-                <label for="data.spell_points" class="resource-label">{{localize 'T.SPELL_POINTS'}}</label>
-                <input type="text" name="data.spell_points" value="{{data.spell_points}}" />
+                <label for="system.spell_points" class="resource-label">{{localize 'T.SPELL_POINTS'}}</label>
+                <input type="text" name="system.spell_points" value="{{system.spell_points}}" />
             </div>
             <div>
-                <label for="data.damage.value" class="resource-label">{{localize 'T.DAMAGE'}}</label>
-                <input type="text" name="data.damage.value" value="{{data.damage.value}}" placeholder="1d6 + @cra" />
+                <label for="system.damage.value" class="resource-label">{{localize 'T.DAMAGE'}}</label>
+                <input type="text" name="system.damage.value" value="{{system.damage.value}}" placeholder="1d6 + @cra" />
             </div>
             <div></div>
             <div>
-                <label for="data.difficulty" class="resource-label">{{localize 'T.DIFFICULTY'}}</label>
-                <input type="text" name="data.difficulty" value="{{data.difficulty}}" />
+                <label for="system.difficulty" class="resource-label">{{localize 'T.DIFFICULTY'}}</label>
+                <input type="text" name="system.difficulty" value="{{system.difficulty}}" />
             </div>
             <div style="grid-column: 2 / span 2">
-                <label for="data.defence" class="resource-label">{{localize 'T.DEFENCE'}}</label>
-                <input type="text" name="data.defence" value="{{data.defence}}" />
+                <label for="system.defence" class="resource-label">{{localize 'T.DEFENCE'}}</label>
+                <input type="text" name="system.defence" value="{{system.defence}}" />
             </div>
         </div>
         <div class="grid grid-3col" style="padding-top: 10px">
-            <label for="data.granted" class="checkbox-label resource-label">
+            <label for="system.granted" class="checkbox-label resource-label">
                 {{localize 'T.GRANTED'}}
-                <input class="input-checkbox" type="checkbox" name="data.granted" {{checked data.granted}} data-dtype="Boolean" />
+                <input class="input-checkbox" type="checkbox" name="system.granted" {{checked system.granted}} data-dtype="Boolean" />
             </label>
-            <label for="data.memorised" class="checkbox-label resource-label">
+            <label for="system.memorised" class="checkbox-label resource-label">
                 {{localize 'T.MEMORISED'}}
-                <input class="input-checkbox" type="checkbox" name="data.memorised" {{checked data.memorised}} data-dtype="Boolean" />
+                <input class="input-checkbox" type="checkbox" name="system.memorised" {{checked system.memorised}} data-dtype="Boolean" />
             </label>
-            <label for="data.enduring" class="checkbox-label resource-label">
+            <label for="system.enduring" class="checkbox-label resource-label">
                 {{localize 'T.ENDURING'}}
-                <input class="input-checkbox" type="checkbox" name="data.enduring" {{checked data.enduring}} data-dtype="Boolean" />
+                <input class="input-checkbox" type="checkbox" name="system.enduring" {{checked system.enduring}} data-dtype="Boolean" />
             </label>
         </div>
         {{!-- Description Tab --}}
@@ -44,7 +44,7 @@
             <a class="item active">{{localize 'T.DESCRIPTION'}}</a>
         </div>
         <div class="description tab spell-description margin-bottom">
-            {{editor content=data.description target="data.description" button=true owner=isOwner editable=true}}
+            {{editor descriptionHTML target="system.description" button=true owner=isOwner editable=true}}
         </div>
     </section>
 </form>

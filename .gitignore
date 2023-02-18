@@ -5,3 +5,15 @@
 # Node Modules
 node_modules/
 npm-debug.log
+
+gulpfile.js
+package-lock.json
+
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip

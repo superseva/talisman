@@ -11,16 +11,26 @@ export class TalismanActorSheet extends ActorSheet {
     }
 
     /** @override */
-    getData() {
-        const superData = super.getData();
-        const data = superData.data;
-        data.dtypes = ["String", "Number", "Boolean"];
-        // Prepare items.
-        if (this.actor.data.type == "character") {
-            this._prepareCharacterItems(data);
+    async getData(options) {
+        const source = this.actor.toObject();
+        const actorData = this.actor.toObject(false);
+        const context = {
+            actor: actorData,
+            source: source.system,
+            system: actorData.system,
+            items: actorData.items,
+            owner: this.actor.isOwner,
+            limited: this.actor.limited,
+            options: this.options,
+            editable: this.isEditable,
+            type: this.actor.type,
         }
-
-        return data;
+        this._prepareCharacterItems(context);
+        context.biographyHTML = await TextEditor.enrichHTML(context.system.biography, {
+            secrets: this.actor.isOwner,
+            async: true
+        });
+        return context;
     }
 
     /**
@@ -30,8 +40,7 @@ export class TalismanActorSheet extends ActorSheet {
      *
      * @return {undefined}
      */
-    _prepareCharacterItems(sheetData) {
-        const actorData = sheetData.actor;
+    _prepareCharacterItems(context) {
         const gear = [];
         const armor = [];
         const weapons = [];
@@ -39,7 +48,7 @@ export class TalismanActorSheet extends ActorSheet {
         const skills = [];
         const abilities = [];
         const followers = [];
-        for (let i of sheetData.items) {
+        for (let i of context.items) {
             //let item = i.data;
             i.img = i.img || DEFAULT_TOKEN;
             if (i.type === "gear") {
@@ -58,13 +67,13 @@ export class TalismanActorSheet extends ActorSheet {
                 followers.push(i);
             }
         }
-        sheetData.gear = gear;
-        sheetData.armor = armor;
-        sheetData.weapons = weapons;
-        sheetData.spells = spells;
-        sheetData.skills = skills;
-        sheetData.abilities = abilities;
-        sheetData.followers = followers;
+        context.gear = gear;
+        context.armor = armor;
+        context.weapons = weapons;
+        context.spells = spells;
+        context.skills = skills;
+        context.abilities = abilities;
+        context.followers = followers;
     }
 
     /* -------------------------------------------- */
@@ -89,7 +98,7 @@ export class TalismanActorSheet extends ActorSheet {
         html.find(".item-delete").click(async (ev) => {
             const li = $(ev.currentTarget).parents(".item");
             const item = this.actor.items.get(li.data("itemId"));
-            await item.delete();
+            await this.actor.deleteEmbeddedDocuments("Item", [item._id]);
             li.slideUp(200, () => this.render(false));
         });
 
@@ -119,29 +128,28 @@ export class TalismanActorSheet extends ActorSheet {
         });
 
         //Set wounds
-        html.find(".wounds .btn").click((ev) => {
+        html.find(".wounds .btn").click(async (ev) => {
             const li = $(ev.currentTarget);
             const updateData = {};
-            updateData["data.wounds.value"] = li.data("value");
-            this.actor.update(updateData);
+            await this.actor.update({"system.wounds.value" : li.data("value")});
         });
-        html.find(".wounds .cancel-btn").click((ev) => {
+        html.find(".wounds .cancel-btn").click(async (ev) => {
             const updateData = {};
-            updateData["data.wounds.value"] = 0;
-            this.actor.update(updateData);
+            await this.actor.update({"system.wounds.value" : 0});
         });
 
         //Set Death Tests
-        html.find(".deathtests .btn").click((ev) => {
+        html.find(".deathtests .btn").click( async (ev) => {
             const li = $(ev.currentTarget);
             const updateData = {};
-            updateData["data.death_tests.value"] = li.data("value");
-            this.actor.update(updateData);
+            updateData["system.death_tests.value"] = li.data("value");
+            await this.actor.update(updateData);
         });
-        html.find(".deathtests .cancel-btn").click((ev) => {
+
+        html.find(".deathtests .cancel-btn").click(async (ev) => {
             const updateData = {};
-            updateData["data.death_tests.value"] = 0;
-            this.actor.update(updateData);
+            updateData["system.death_tests.value"] = 0;
+            await this.actor.update(updateData);
         });
 
         // Mark Asepct.
@@ -157,18 +165,18 @@ export class TalismanActorSheet extends ActorSheet {
         html.find(".roll-button").click(this._onRoll.bind(this));
 
         // Handle armor points clicks (left/right)
-        html.find(".armor-point").click((ev) => {
+        html.find(".armor-point").click(async (ev) => {
             let index = ev.currentTarget.dataset["index"];
-            let armor = this.actor.data.data.equipped_armor;
+            let armor = this.actor.system.equipped_armor;
             const item = this.actor.items.get(armor._id);
-            item.updateArmor({ index: index, increase: true });
+            await item.updateArmor({ index: index, increase: true });
         });
 
-        html.find(".armor-point").contextmenu((ev) => {
+        html.find(".armor-point").contextmenu(async (ev) => {
             let index = ev.currentTarget.dataset["index"];
-            let armor = this.actor.data.data.equipped_armor;
+            let armor = this.actor.system.equipped_armor;
             const item = this.actor.items.get(armor._id);
-            item.updateArmor({ index: index, increase: false });
+            await item.updateArmor({ index: index, increase: false });
             return;
         });
 
@@ -176,12 +184,11 @@ export class TalismanActorSheet extends ActorSheet {
         html.find(".spell.rollable").click((ev) => {
             const li = $(ev.currentTarget).parents(".item");
             const item = this.actor.items.get(li.data("itemId"));
-            const itemData = item.data.data;
             let aspectKey;
-            if (itemData.granted) {
+            if (item.system.granted) {
                 aspectKey = "craft";
             } else {
-                aspectKey = item.data.data.type;
+                aspectKey = item.system.type;
             }
             game.talisman.RollDialog.prepareDialog({ actor: this.actor, aspectId: aspectKey });
         });
@@ -197,14 +204,12 @@ export class TalismanActorSheet extends ActorSheet {
         html.find(".spell-description.rollable").click((ev) => {
             const li = $(ev.currentTarget).parents(".item");
             const spell = this.actor.items.get(li.data("itemId"));
-            const spellData = spell.data.data;
-            //console.log(spell);
             let spell_html = `<h4><strong>${spell.name}</strong></h4>
-                        <p class='size12'>Action: ${spellData.action}</p>                        
-                        <p class='size12'>Spell Points: ${spellData.spell_points}</p>
-                        <p class='size12'>Difficulty: ${spellData.difficulty}</p>
-                        <p class='size12'>Defence: ${spellData.defence}</p>                    
-                        <div class='size12'>${spellData.description}</div>`;
+                        <p class='size12'>Action: ${spell.system.action}</p>                        
+                        <p class='size12'>Spell Points: ${spell.system.spell_points}</p>
+                        <p class='size12'>Difficulty: ${spell.system.difficulty}</p>
+                        <p class='size12'>Defence: ${spell.system.defence}</p>                    
+                        <div class='size12'>${spell.system.description}</div>`;
             const spellDescBox = $(".spell-description-box");
             spellDescBox.html(spell_html);
         });
@@ -213,16 +218,16 @@ export class TalismanActorSheet extends ActorSheet {
         html.find(".weapon.rollable").click((ev) => {
             const li = $(ev.currentTarget).parents(".item");
             const item = this.actor.items.get(li.data("itemId"));
-            let aspectKey = item.data.data.aspect == 0 ? null : item.data.data.aspect;
-            let bonus = item.data.data.bonus.value == "" ? 0 : item.data.data.bonus.value;
-            let focus = item.data.data.focus;
+            let aspectKey = item.system.aspect == 0 ? null : item.system.aspect;
+            let bonus = item.system.bonus.value == "" ? 0 : item.system.bonus.value;
+            let focus = item.system.focus;
             game.talisman.RollDialog.prepareDialog({ actor: this.actor, aspectId: aspectKey, modifier: bonus, focus: focus });
         });
         //Roll Damage For Weapon
         html.find(".weapon-damage.rollable").click((ev) => {
             const li = $(ev.currentTarget).parents(".item");
             const item = this.actor.items.get(li.data("itemId"));
-            item.rollWeaponDamage(this.actor.data.data.damage_modifier.physical.value);
+            item.rollWeaponDamage(this.actor.system.damage_modifier.physical.value);
         });
 
         // Chatable Item
@@ -268,12 +273,12 @@ export class TalismanActorSheet extends ActorSheet {
         event.preventDefault();
         const element = event.currentTarget;
         const dataKey = element.dataset["key"];
-        let obj = duplicate(this.actor.data.data.aspects);
+        let obj = duplicate(this.actor.system.aspects);
         Object.keys(obj).forEach((k) => {
             obj[k].cap = 6;
         });
         obj[dataKey].cap = 7;
-        await this.actor.update({ "data.aspects": obj });
+        await this.actor.update({ "system.aspects": obj });
     }
 
     /**
@@ -302,8 +307,7 @@ export class TalismanActorSheet extends ActorSheet {
      * @private
      */
     _onRoll(event) {
-        event.preventDefault();
-        const element = event.currentTarget;
+        event.preventDefault();        
         game.talisman.RollDialog.prepareDialog({ actor: this.actor });
     }
 
@@ -311,8 +315,8 @@ export class TalismanActorSheet extends ActorSheet {
     _toggleEquipped(id, item) {
         return {
             _id: id,
-            data: {
-                equipped: !item.data.data.equipped,
+            system: {
+                equipped: !item.system.equipped,
             },
         };
     }
@@ -321,8 +325,8 @@ export class TalismanActorSheet extends ActorSheet {
     _togglePacked(id, item) {
         return {
             _id: id,
-            data: {
-                packed: !item.data.data.packed,
+            system: {
+                packed: !item.system.packed,
             },
         };
     }
@@ -331,8 +335,8 @@ export class TalismanActorSheet extends ActorSheet {
     _toggleMemorised(id, item) {
         return {
             _id: id,
-            data: {
-                memorised: !item.data.data.memorised,
+            system: {
+                memorised: !item.system.memorised,
             },
         };
     }
@@ -341,8 +345,8 @@ export class TalismanActorSheet extends ActorSheet {
     _toggleEnduring(id, item) {
         return {
             _id: id,
-            data: {
-                enduring: !item.data.data.enduring,
+            system: {
+                enduring: !item.system.enduring,
             },
         };
     }
