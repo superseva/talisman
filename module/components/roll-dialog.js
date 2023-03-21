@@ -32,29 +32,29 @@ export class RollDialog {
                                 let aspectSelected = html.find(".aspects").val();
                                 if (aspectSelected != 0) {
                                     if (aspectSelected.length > 3) {
-                                        _asp = actor.data.data.attributes[aspectSelected].value;
+                                        _asp = actor.system.attributes[aspectSelected].value;
                                     } else {
-                                        _asp = actor.data.data.aspects[aspectSelected].value;
+                                        _asp = actor.system.aspects[aspectSelected].value;
                                     }
                                 }
-                                wounds = 0 - actor.data.data.wounds.value * 2;
-                                if (actor.data.data.equipped_armor && aspectSelected == "agi") {
-                                    if (!actor.data.data.equipped_armor.data.agi_ignored) {
-                                        armorPenalty = 0 - Math.abs(actor.data.data.equipped_armor.data.agi_penalty);
+                                wounds = 0 - actor.system.wounds.value * 2;
+                                if (actor.system.equipped_armor && aspectSelected == "agi") {
+                                    if (!actor.system.equipped_armor.system.agi_ignored) {
+                                        armorPenalty = 0 - Math.abs(actor.system.equipped_armor.system.agi_penalty);
                                     }
                                 }
 
                                 //check if actor has shield and is ignoring it
                                 if (aspectSelected == "agi") {
                                     let shieldAgiPenalty = 0;
-                                    let _shield = actor.data.items.find((i) => i.type == "armor" && i.data.armor_type == "shield" && i.data.equipped == true);
-                                    if (_shield?.data.agi_penalty) {
-                                        shieldAgiPenalty = !_shield.data.agi_ignored ? _shield.data.agi_penalty : 0;
+                                    let _shield = actor.items.find((i) => i.type == "armor" && i.system.armor_type == "shield" && i.system.equipped == true);
+                                    if (_shield?.system.agi_penalty) {
+                                        shieldAgiPenalty = !_shield.system.agi_ignored ? _shield.system.agi_penalty : 0;
                                     }
                                     armorPenalty -= Math.abs(shieldAgiPenalty);
                                 }
 
-                                encumbrance = actor.data.data.derived.load.penalty;
+                                encumbrance = actor.system.derived.load.penalty;
                             } else {
                                 _asp = parseInt(html.find(".aspect-value")[0].value);
                             }

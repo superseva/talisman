@@ -27,7 +27,7 @@ export class TalismanItem extends Item {
         });
         let ratingVal = { rating: { value: armorValue } };
         updateData.system = { ...updateData.system, ...ratingVal };
-        console.warn(updateData)
+        //console.warn(updateData)
         await this.update(updateData);
     }
 
@@ -91,7 +91,6 @@ export class TalismanItem extends Item {
      */
     async roll() {
         // Basic template rendering data
-        console.warn('YO')
         const token = this.actor.token;
         const item = this.data;
         const actorData = this.actor ? this.actor.system : {};

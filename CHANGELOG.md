@@ -4,6 +4,10 @@ Unofficial Talisman Adventures system for FoundryVTT.
 
 [README](https://github.com/superseva/talisman/blob/main/README.md)
 
+## V 10.0.1
+
+- Bug fix: Agility rolls when armor is equipped returning NaN
+
 ## V 10.0.0
 
 - Updated for Foundry V 10

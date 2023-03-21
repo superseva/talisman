@@ -75,10 +75,10 @@ export class DiceRoller {
     static updateMessage(message, html, el) {
         let ignoreDieIndex = el.currentTarget.dataset.index;
         let diceResults = [];
-        let baseDice = message.roll.dice[0].results.map((i) => i.result);
+        let baseDice = message.rolls[0].dice[0].results.map((i) => i.result);
         baseDice.splice(ignoreDieIndex, 1);
         diceResults = [...baseDice];
-        diceResults.push(message.roll.dice[1].results[0].result);
+        diceResults.push(message.rolls[0].dice[1].results[0].result);
         let dup = DiceRoller.countDuplicates(diceResults);
         let successLevel = DiceRoller.getSuccessLevel(dup);
         successLevel = game.i18n.localize(successLevel);

@@ -5,8 +5,8 @@ export class TalismanBaseActorSheet extends ActorSheet {
     }
 
     /** @override */
-    getData() {
-        const superData = super.getData();
+    async getData() {
+        const superData = await super.getData();
         const data = superData.data;
         return data;
     }
