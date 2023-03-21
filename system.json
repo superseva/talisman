@@ -29,7 +29,7 @@
     "gridDistance": 1,
     "gridUnits": "m",
     "url": "https://github.com/superseva/talisman",
-    "manifest": "https://raw.githubusercontent.com/superseva/talisman/releases/latest/download/system.json",
+    "manifest": "https://github.com/superseva/talisman/releases/latest/download/system.json",
     "download": "https://github.com/superseva/talisman/releases/download/v10.0.1/talisman.zip",
     "license": "LICENSE.txt",
     "socket": true
